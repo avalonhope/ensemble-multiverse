@@ -1,6 +1,6 @@
 """
 Region
-Rooms are simple containers that has no location of their own.
+Regions are simple containers located within a Country.
 """
 
 from evennia import DefaultRoom
@@ -8,8 +8,7 @@ from evennia import DefaultRoom
 
 class Region(DefaultRoom):
     """
-    Rooms are like any Object, except their location is None
-    (which is default). They also use basetype_setup() to
+    Regions are like any Object, except their location is within a Country. They also use basetype_setup() to
     add locks so they cannot be puppeted or picked up.
     (to change that, use at_object_creation instead)
     See examples/object.py for a list of
