@@ -38,6 +38,7 @@ SSL_ENABLED = True
 SSL_PORTS = [3986]
 WEBSERVER_PORTS = [(3985, 3987)]
 WEBSOCKET_CLIENT_PORT = 3988
+WEBSOCKET_CLIENT_URL = "wss://fqdn:3988"
 AMP_PORT = 3989
 
 ######################################################################
