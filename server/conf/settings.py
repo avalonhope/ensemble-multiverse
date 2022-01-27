@@ -1,4 +1,4 @@
-r"""
+"""
 Evennia settings file.
 
 The available options are found in the default settings file found
@@ -39,7 +39,6 @@ SSL_PORTS = [3986]
 WEBSERVER_PORTS = [(3985, 3987)]
 WEBSOCKET_CLIENT_PORT = 3988
 AMP_PORT = 3989
-
 
 ######################################################################
 # Settings given in secret_settings.py override those in this file.
