@@ -26,5 +26,22 @@ class Plurality(DefaultCharacter):
                     pre_logout_location Attribute and move it back on the grid.
     at_post_puppet - Echoes "AccountName has entered the game" to the room.
     """
+    
+    def at_object_creation(self):
+        """
+        Called only at initial creation.
+        
+        There should be at least two personsa and at least one inner world in a plural system.
+        
+        """
+        #set persistent attributes
+        self.db.personas = []
+        self.db.worlds = []
+
+    def get_personas(self):
+        """
+        List of top-level personas within the plural system
+        """
+        return self.db.personas
 
     pass
