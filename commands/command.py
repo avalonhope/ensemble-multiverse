@@ -186,3 +186,33 @@ class Command(BaseCommand):
 #                 self.character = self.caller.get_puppet(self.session)
 #             else:
 #                 self.character = None
+
+class CmdSetRace(Command):
+    """
+    set the race of a character
+
+    Usage:
+      +setrace <race>
+
+    This sets the race of the current character. This can only be
+    used during character generation.
+    """
+    
+    key = "+setrace"
+    help_category = "mush"
+
+    def func(self):
+        "This performs the actual command"
+        errmsg = "You must supply a valid string."
+        if not self.args:
+            self.caller.msg(errmsg)
+            return
+        try:
+            race = str(self.args)
+        except ValueError:
+            self.caller.msg(errmsg)
+            return
+        
+        # at this point the argument is tested as valid. Let's set it.
+        self.caller.db.power = race
+        self.caller.msg("Your Race was set to %s." % race)
