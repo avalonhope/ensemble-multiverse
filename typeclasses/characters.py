@@ -35,3 +35,6 @@ class Character(DefaultCharacter):
         "This is called when object is first created, only."
         self.db.race = None
         self.db.faction = None
+        self.db.subrace = None
+        self.db.plural = False
+        
