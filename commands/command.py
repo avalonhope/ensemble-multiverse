@@ -214,5 +214,5 @@ class CmdSetRace(Command):
             return
         
         # at this point the argument is tested as valid. Let's set it.
-        self.caller.db.power = race
+        self.caller.db.race = race
         self.caller.msg("Your Race was set to %s." % race)
