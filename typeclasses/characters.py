@@ -31,4 +31,7 @@ class Character(DefaultCharacter):
 
     """
 
-    pass
+    def at_object_creation(self):
+        "This is called when object is first created, only."
+        self.db.race = None
+        self.db.faction = None
