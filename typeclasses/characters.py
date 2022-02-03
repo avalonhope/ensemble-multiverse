@@ -37,4 +37,18 @@ class Character(DefaultCharacter):
         self.db.faction = None
         self.db.subrace = None
         self.db.plural = False
+        self.db.strength = 1
+        self.db.agility = 1
+        self.db.speed = 1
+        self.db.health = 1
+        
+   def proficiency (experience):
+        """
+        Calculate a charcater's skill proficency based on experience points.
+        
+        The result is 1 plus one tenth of the cube root of the experience points.
+        
+        For example: 1000 experience points gives a proficency of 2.0.
+        """
+        return 1 + ((experience ** (1.0/3.0)) / 10)
         
