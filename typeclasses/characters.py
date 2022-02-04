@@ -8,6 +8,7 @@ creation commands.
 
 """
 from evennia import DefaultCharacter
+import deal
 
 
 class Character(DefaultCharacter):
@@ -31,6 +32,10 @@ class Character(DefaultCharacter):
 
     """
 
+    # the result is always non-negative
+    @deal.post(lambda result: result >= 1.0)
+    # the function has no side-effects
+    @deal.pure
     def proficiency (experience):
         """
         Calculate a charcater's skill proficency based on experience points.
@@ -39,4 +44,4 @@ class Character(DefaultCharacter):
         
         For example: 1000 experience points gives a proficency of 2.0.
         """
-        return 1 + ((experience ** (1.0/3.0)) / 10)
+        return 1 .0+ (round((experience ** (1.0/3.0)), 2) / 10.0)
