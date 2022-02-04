@@ -4,7 +4,7 @@ import deal
 @deal.pure
 def proficiency (experience):
     """
-    Calculate a charcater's skill proficency based on experience points.
+    Calculate a charcater's skill proficency level based on experience points.
 
     The result is 1 plus one tenth of the cube root of the experience points.
 
