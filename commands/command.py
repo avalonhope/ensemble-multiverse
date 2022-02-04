@@ -247,7 +247,7 @@ class CmdTrainSkill(Command):
             elif elf.arg == "speed":
                 self.db.speed += 1
                 self.caller.msg("Your proficency is now %f." % proficiency(self.db.speed))
-            else
+            else:
                 self.caller.msg("%s skill cannot be trained (yet)." % self.args))
 
         except ValueError:
