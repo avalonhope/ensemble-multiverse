@@ -241,10 +241,10 @@ class CmdTrainSkill(Command):
             if self.arg == "strength":
                 self.db.strength += 1
                 self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.strength))
-            elif elf.arg == "agility":
+            elif self.arg == "agility":
                 self.db.agility += 1
                 self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.agility))
-            elif elf.arg == "speed":
+            elif self.arg == "speed":
                 self.db.speed += 1
                 self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.speed))
             else:
