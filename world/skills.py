@@ -12,5 +12,5 @@ def proficiency (experience):
     """
     if experience <= 0:
         return 1.0
-    return 1.0 + 0.1 * round(experience ** 0.333, 2)
+    return 1.0 + 0.1 * round(experience ** 0.33333, 1)
         
