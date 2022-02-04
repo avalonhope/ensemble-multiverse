@@ -238,13 +238,13 @@ class CmdTrainSkill(Command):
             self.caller.msg(errmsg)
             return
         try:
-            if self.arg == "strength":
+            if self.args == "strength":
                 self.db.strength += 1
                 self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.strength))
-            elif self.arg == "agility":
+            elif self.args == "agility":
                 self.db.agility += 1
                 self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.agility))
-            elif self.arg == "speed":
+            elif self.args == "speed":
                 self.db.speed += 1
                 self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.speed))
             else:
