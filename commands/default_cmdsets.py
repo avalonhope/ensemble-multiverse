@@ -104,3 +104,13 @@ class ChargenCmdset(CmdSet):
     def at_cmdset_creation(self):
         "This is called at initialization"
         self.add(command.CmdSetRace())
+
+        
+class TrainingCmdset(CmdSet):
+    """
+    This cmdset it used in character generation areas.
+    """
+    key = "Training"
+    def at_cmdset_creation(self):
+        "This is called at initialization"
+        self.add(command.CmdTrainSkill())
