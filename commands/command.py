@@ -216,3 +216,44 @@ class CmdSetRace(Command):
         # at this point the argument is tested as valid. Let's set it.
         self.caller.db.race = race
         self.caller.msg("Your Race was set to %s." % race)
+
+class CmdTrainSkill(Command):
+    """
+    improve the skill of a character
+
+    Usage:
+      +trainskill <skill> 
+
+    This sets the race of the current character. This can only be
+    used during character generation.
+    """
+    
+    key = "+trainskill"
+    help_category = "skills"
+
+    def func(self):
+        "This performs the actual command"
+        errmsg = "You must supply a valid skillname."
+        if not self.args:
+            self.caller.msg(errmsg)
+            return
+        try:
+            if self.arg == "strength":
+                self.db.strength += 1
+                self.caller.msg("Your proficency is now %f." % proficiency(self.db.strength))
+            elif elf.arg == "agility":
+                self.db.agility += 1
+                self.caller.msg("Your proficency is now %f." % proficiency(self.db.agility))
+            elif elf.arg == "speed":
+                self.db.speed += 1
+                self.caller.msg("Your proficency is now %f." % proficiency(self.db.speed))
+            else
+                self.caller.msg("%s skill cannot be trained (yet)." % self.args))
+
+        except ValueError:
+            self.caller.msg(errmsg)
+            return
+        
+        return
+      
+ 
