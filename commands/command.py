@@ -224,12 +224,12 @@ class CmdTrainSkill(Command):
     Usage:
       +trainskill <skill> 
 
-    This sets the race of the current character. This can only be
-    used during character generation.
+    This trains the skills of the current character. This can only be
+    used in a training room.
     """
     
     key = "+trainskill"
-    help_category = "skills"
+    help_category = "smush"
 
     def func(self):
         "This performs the actual command"
@@ -240,13 +240,13 @@ class CmdTrainSkill(Command):
         try:
             if self.arg == "strength":
                 self.db.strength += 1
-                self.caller.msg("Your proficency is now %f." % proficiency(self.db.strength))
+                self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.strength))
             elif elf.arg == "agility":
                 self.db.agility += 1
-                self.caller.msg("Your proficency is now %f." % proficiency(self.db.agility))
+                self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.agility))
             elif elf.arg == "speed":
                 self.db.speed += 1
-                self.caller.msg("Your proficency is now %f." % proficiency(self.db.speed))
+                self.caller.msg("Your proficency is now %d." % self.proficiency(self.db.speed))
             else:
                 self.caller.msg("%s skill cannot be trained (yet)." % self.args)
 
