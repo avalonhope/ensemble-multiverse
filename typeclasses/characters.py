@@ -54,5 +54,7 @@ class Character(DefaultCharacter):
         
         For example: 1000 experience points gives a proficency of 2.0.
         """
+        if experience <= 0:
+            return 1.0
         return 1.0 + (0.1 * (round((experience ** 0.3), 2))
         
