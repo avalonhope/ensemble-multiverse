@@ -6,7 +6,7 @@ Commands describe the input the account can do to the game.
 """
 
 from evennia.commands.command import Command as BaseCommand
-from evennia.world.skills import proficiency
+from world.skills import proficiency
 
 # from evennia import default_cmds
 
