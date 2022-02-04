@@ -248,7 +248,7 @@ class CmdTrainSkill(Command):
                 self.db.speed += 1
                 self.caller.msg("Your proficency is now %f." % proficiency(self.db.speed))
             else:
-                self.caller.msg("%s skill cannot be trained (yet)." % self.args))
+                self.caller.msg("%s skill cannot be trained (yet)." % self.args)
 
         except ValueError:
             self.caller.msg(errmsg)
