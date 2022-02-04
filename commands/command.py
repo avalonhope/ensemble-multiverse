@@ -251,7 +251,7 @@ class CmdTrainSkill(Command):
                     self.caller.db.agility += 1
                 self.caller.msg("Your proficency is now %d." % self.caller.proficiency(self.caller.db.agility))
             elif self.args == " speed":
-                if self.caller.db.speed is None
+                if self.caller.db.speed is None:
                     self.caller.db.speed = 0
                 else:
                     self.caller.db.speed += 1
