@@ -244,19 +244,19 @@ class CmdTrainSkill(Command):
                     self.caller.db.strength = 0
                 else:
                     self.caller.db.strength += 1
-                self.caller.msg("Your proficency is now %d." % self.caller.proficiency(self.caller.db.strength))
+                self.caller.msg("Your proficency is now %d." % proficiency(self.caller.db.strength))
             elif self.args == " agility":
                 if self.caller.db.agility is None:
                     self.caller.db.agility = 0
                 else:
                     self.caller.db.agility += 1
-                self.caller.msg("Your proficency is now %d." % self.caller.proficiency(self.caller.db.agility))
+                self.caller.msg("Your proficency is now %d." % proficiency(self.caller.db.agility))
             elif self.args == " speed":
                 if self.caller.db.speed is None:
                     self.caller.db.speed = 0
                 else:
                     self.caller.db.speed += 1
-                self.caller.msg("Your proficency is now %d." % self.casller.proficiency(self.caller.db.speed))
+                self.caller.msg("Your proficency is now %d." % proficiency(self.caller.db.speed))
             else:
                 self.caller.msg("%s skill cannot be trained (yet)." % self.args)
 
