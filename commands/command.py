@@ -230,7 +230,7 @@ class CmdTrainSkill(Command):
     """
     
     key = "+trainskill"
-    help_category = "smush"
+    help_category = "skills"
 
     def func(self):
         "This performs the actual command"
@@ -265,8 +265,9 @@ class CmdTrainSkill(Command):
             return
         
         return
-      
- class CmdCreateNPC(Command):
+
+    
+class CmdCreateNPC(Command):
     """
     create a new npc
 
@@ -302,6 +303,7 @@ class CmdTrainSkill(Command):
         caller.msg(message % ("You", name))
         caller.location.msg_contents(message % (caller.key, name),
                                                 exclude=caller)
+
 
 class CmdEditNPC(Command):
     """
@@ -372,7 +374,7 @@ class CmdEditNPC(Command):
             caller.msg(f"{npc.key} has property {self.propname} = {npc.attributes.get(self.propname, default='N/A')}")
 
     
-    class CmdNPC(Command):
+class CmdNPC(Command):
     """
     controls an NPC
 
