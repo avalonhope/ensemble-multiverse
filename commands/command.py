@@ -370,3 +370,43 @@ class CmdEditNPC(Command):
         else:
             # propname set, but not propval - show current value
             caller.msg(f"{npc.key} has property {self.propname} = {npc.attributes.get(self.propname, default='N/A')}")
+
+    
+    class CmdNPC(Command):
+    """
+    controls an NPC
+
+    Usage:
+        +npc <name> = <command>
+
+    This causes the npc to perform a command as itself. It will do so
+    with its own permissions and accesses.
+    """
+    key = "+npc"
+    locks = "call:not perm(nonpcs)"
+    help_category = "mush"
+
+    def parse(self):
+        "Simple split of the = sign"
+        name, cmdname = None, None
+        if "=" in self.args:
+            name, cmdname = self.args.rsplit("=", 1)
+            name = name.strip()
+            cmdname = cmdname.strip()
+        self.name, self.cmdname = name, cmdname
+
+    def func(self):
+        "Run the command"
+        caller = self.caller
+        if not self.cmdname:
+            caller.msg("Usage: +npc <name> = <command>")
+            return
+        npc = caller.search(self.name)
+        if not npc:
+            return
+        if not npc.access(caller, "edit"):
+            caller.msg("You may not order this NPC to do anything.")
+            return
+        # send the command order
+        npc.execute_cmd(self.cmdname)
+        caller.msg(f"You told {npc.key} to do '{self.cmdname}'.")
