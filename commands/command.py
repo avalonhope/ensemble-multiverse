@@ -302,3 +302,71 @@ class CmdTrainSkill(Command):
         caller.msg(message % ("You", name))
         caller.location.msg_contents(message % (caller.key, name),
                                                 exclude=caller)
+
+class CmdEditNPC(Command):
+    """
+    edit an existing NPC
+
+    Usage:
+      +editnpc <name>[/<attribute> [= value]]
+
+    Examples:
+      +editnpc mynpc/power = 5
+      +editnpc mynpc/power    - displays power value
+      +editnpc mynpc          - shows all editable
+                                attributes and values
+
+    This command edits an existing NPC. You must have
+    permission to edit the NPC to use this.
+    """
+    key = "+editnpc"
+    aliases = ["+editNPC"]
+    locks = "cmd:not perm(nonpcs)"
+    help_category = "mush"
+
+    def parse(self):
+        "We need to do some parsing here"
+        args = self.args
+        propname, propval = None, None
+        if "=" in args:
+            args, propval = [part.strip() for part in args.rsplit("=", 1)]
+        if "/" in args:
+            args, propname = [part.strip() for part in args.rsplit("/", 1)]
+        # store, so we can access it below in func()
+        self.name = args
+        self.propname = propname
+        # a propval without a propname is meaningless
+        self.propval = propval if propname else None
+
+    def func(self):
+        "do the editing"
+
+        allowed_propnames = ("power", "attribute1", "attribute2")
+
+        caller = self.caller
+        if not self.args or not self.name:
+            caller.msg("Usage: +editnpc name[/propname][=propval]")
+            return
+        npc = caller.search(self.name)
+        if not npc:
+            return
+        if not npc.access(caller, "edit"):
+            caller.msg("You cannot change this NPC.")
+            return
+        if not self.propname:
+            # this means we just list the values
+            output = f"Properties of {npc.key}:"
+            for propname in allowed_propnames:
+                output += f"\n {propname} = {npc.attributes.get(propname, default='N/A')}"
+            caller.msg(output)
+        elif self.propname not in allowed_propnames:
+            caller.msg(f"You may only change {', '.join(allowed_propnames)}.")
+        elif self.propval:
+            # assigning a new propvalue
+            # in this example, the properties are all integers...
+            intpropval = int(self.propval)
+            npc.attributes.add(self.propname, intpropval)
+            caller.msg(f"Set {npc.key}'s property {self.propname} to {self.propval}")
+        else:
+            # propname set, but not propval - show current value
+            caller.msg(f"{npc.key} has property {self.propname} = {npc.attributes.get(self.propname, default='N/A')}")
