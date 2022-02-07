@@ -36,10 +36,13 @@ class Character(DefaultCharacter):
         self.db.race = None
         self.db.faction = None
         self.db.subrace = None
-        self.db.plural = False
         self.db.strength = 1
         self.db.agility = 1
         self.db.speed = 1
-        self.db.health = 1
+        self.db.health = 100
+        self.db.energy = 1000
+        self.db.stamina = 1
+        self.db.innerWorldLocation = None
+        self.db.outerWorldLocation = None
         
-  
+        
