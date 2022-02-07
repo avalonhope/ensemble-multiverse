@@ -35,6 +35,9 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
+        self.add(command.CmdCreateNPC())
+        self.add(command.CmdEditNPC())
+        self.add(command.CmdNPC())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
@@ -104,3 +107,12 @@ class ChargenCmdset(CmdSet):
     def at_cmdset_creation(self):
         "This is called at initialization"
         self.add(command.CmdSetRace())
+        
+class TrainingCmdset(CmdSet):
+    """
+    This cmdset it used in character generation areas.
+    """
+    key = "Training"
+    def at_cmdset_creation(self):
+        "This is called at initialization"
+        self.add(command.CmdTrainSkill())
