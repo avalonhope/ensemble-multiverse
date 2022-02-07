@@ -292,8 +292,8 @@ class CmdCreateNPC(Command):
             # may not create npc when OOC
             caller.msg("You must have a location to create an npc.")
             return
-        # make name always start with capital letter
-        name = self.args.strip().capitalize()
+        # make each part of name always start with capital letter
+        name = self.args.strip().title()
         # create npc in caller's location
         npc = create_object("characters.Character",
                       key=name,
