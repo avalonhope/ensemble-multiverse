@@ -317,7 +317,7 @@ class CmdMeditate(Command):
     Usage:
         +meditate
 
-    Moves charcater into inner world
+    Moves character into inner world
     """
     key = "+meditate"
     aliases = ["+meditation"]
@@ -337,5 +337,23 @@ class CmdMeditate(Command):
         # save location with outer world
         caller.db.outerWorld = caller.location
         caller.location = caller.db.innerWorld
+        caller.msg("You close your eyes and visualize your inner world.")
         
+class CmdAwaken(Command):
+    """
+    leave inner world
+    Usage:
+        +awaken
+    Moves charcater back into outer world
+    """
+    key = "+awaken"
+    aliases = ["+awaken"]
+    locks = "call: perm(innerworld)"
+    help_category = "inner world"
+    
+    def func(self):
+        "moves to outer world"
+        caller = self.caller
+        caller.location = caller.db.outerWorld
+        caller.msg("You leave your inner world and return to the outer world.")
         
