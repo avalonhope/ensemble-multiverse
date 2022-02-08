@@ -335,9 +335,13 @@ class CmdMeditate(Command):
             caller.msg("You must have a location to recruit a companion.")
             return
         # save location with outer world
-        caller.db.outerWorld = caller.location
-        caller.location = caller.db.innerWorld
-        caller.msg("You close your eyes and visualize your inner world.")
+        if caller.in_medidation:
+            caller.msg("You continue to meditate.")
+        else:
+            caller.in_meditation = True
+            caller.db.outerWorld = caller.location
+            caller.location = caller.db.innerWorld
+            caller.msg("You close your eyes and visualize your inner world.")
         
 class CmdAwaken(Command):
     """
@@ -354,6 +358,7 @@ class CmdAwaken(Command):
     def func(self):
         "moves to outer world"
         caller = self.caller
+        caller.in_meditation = false
         caller.location = caller.db.outerWorld
         caller.msg("You leave your inner world and return to the outer world.")
         
