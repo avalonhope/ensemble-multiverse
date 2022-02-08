@@ -35,9 +35,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
-        self.add(command.CmdCreateNPC())
-        self.add(command.CmdEditNPC())
-        self.add(command.CmdNPC())
+        self.add(command.CmdRecruitCompanion())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
