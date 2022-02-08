@@ -37,6 +37,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
         self.add(command.CmdRecruitCompanion())
         self.add(command.CmdMeditate())
+        self.add(command.CmdAwaken())
         
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
