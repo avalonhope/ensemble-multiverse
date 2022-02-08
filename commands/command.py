@@ -273,7 +273,7 @@ class CmdRecruitCompanion(Command):
     create a new companion and add to party
 
     Usage:
-        +createCompanion <name>
+        +recruitCompanion <name>
 
     Creates a new, named companion.
     """
@@ -286,7 +286,7 @@ class CmdRecruitCompanion(Command):
         "creates the object and names it"
         caller = self.caller
         if not self.args:
-            caller.msg("Usage: +createCompanion <name>")
+            caller.msg("Usage: +recruitCompanion <name>")
             return
         if not caller.location:
             # may not create companion when OOC
@@ -309,3 +309,33 @@ class CmdRecruitCompanion(Command):
         caller.msg(message % ("You", name))
         caller.location.msg_contents(message % (caller.key, name),
                                                 exclude=caller)
+        
+class CmdMeditate(Command):
+    """
+    enter inner world
+
+    Usage:
+        +meditate
+
+    Moves charcater into inner world
+    """
+    key = "+meditate"
+    aliases = ["+meditation"]
+    locks = "call: perm(innerworld)"
+    help_category = "inner world"
+    
+    def func(self):
+        "moves to inner world"
+        caller = self.caller
+        # create empty inner world if needed
+        if not caller.db.innerWorld:
+            caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World")
+        if not caller.location:
+            # may not create companion when OOC
+            caller.msg("You must have a location to recruit a companion.")
+            return
+        # save location with outer world
+        caller.db.outerWorld = caller.location
+        caller.location = caller.db.innerWorld
+        
+        
