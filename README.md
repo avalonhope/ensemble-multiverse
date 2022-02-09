@@ -1,4 +1,4 @@
-# Welcome to Starquest.vineyward.haus!
+# Welcome to Starquest.vineyard.haus!
 
 This is your game directory, set up to let you start with
 your new game right away. An overview of this directory is found here:
