@@ -327,12 +327,14 @@ class CmdMeditate(Command):
     def func(self):
         "moves to inner world"
         caller = self.caller
+        # gain experience and improve mental defenses
+        caller.db.mindshield += 1
         # create empty inner world if needed
         if not caller.db.innerWorld:
             caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World")
         if not caller.location:
-            # may not create companion when OOC
-            caller.msg("You must have a location to recruit a companion.")
+            # may not meditate when OOC
+            caller.msg("You must have a location to begin meditation.")
             return
         # save location with outer world
         if caller.in_medidation:
