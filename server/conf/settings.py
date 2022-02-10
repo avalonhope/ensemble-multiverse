@@ -31,15 +31,6 @@ from evennia.settings_default import *
 # Evennia base server config
 ######################################################################
 
-# This is the name of your game. Make it catchy!
-SERVERNAME = "Starquest"
-TELNET_PORTS = [3984]
-SSL_ENABLED = True
-SSL_PORTS = [3986]
-WEBSERVER_PORTS = [(3985, 3987)]
-WEBSOCKET_CLIENT_PORT = 3988
-WEBSOCKET_CLIENT_URL = "wss://starquest.vineyard.haus:3988"
-AMP_PORT = 3989
 MULTISESSION_MODE = 3
 MAX_NR_CHARACTERS = 10000000
 
