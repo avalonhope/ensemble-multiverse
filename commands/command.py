@@ -295,15 +295,12 @@ class CmdRecruitCompanion(Command):
         # make each part of name always start with capital letter
         name = self.args.strip().title()
         # create companion in caller's location
-        npc = create_object("characters.Character",
+        companion = create_object("characters.Character",
                       key=name,
                       location=caller.location,
                       locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
         # add to party
-        if caller.db.party is None:
-            caller.db.party = [name]
-        else:
-            caller.db.party.append(name)
+        companion.db.party = caller.id
         # announce
         message = "%s recruited '%s'."
         caller.msg(message % ("You", name))
