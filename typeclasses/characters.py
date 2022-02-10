@@ -44,5 +44,9 @@ class Character(DefaultCharacter):
         self.db.stamina = 1
         self.db.innerWorldLocation = None
         self.db.outerWorldLocation = None
+        self.db.mindshield = 0
+        self.db.mindmeld = 0
+        self.db.party = None
+        self.db.reputation = 0
         
         
