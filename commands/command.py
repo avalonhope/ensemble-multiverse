@@ -327,6 +327,11 @@ class CmdMeditate(Command):
     def func(self):
         "moves to inner world"
         caller = self.caller
+        # comsume some energy
+        if caller.db.energy < 1:
+            caller.msg("You are too tired. You need to rest.")
+            return
+        caller.db.energy -= 1
         # gain experience and improve mental defenses
         caller.db.mindshield += 1
         # create empty inner world if needed
