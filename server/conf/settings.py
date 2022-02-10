@@ -31,9 +31,8 @@ from evennia.settings_default import *
 # Evennia base server config
 ######################################################################
 
-# This is the name of your game. Make it catchy!
-SERVERNAME = "starquest"
-TELNET_PORTS = [3984]
+MULTISESSION_MODE = 3
+MAX_NR_CHARACTERS = 10000000
 
 
 ######################################################################
