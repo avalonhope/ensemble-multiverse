@@ -34,6 +34,10 @@ from evennia.settings_default import *
 MULTISESSION_MODE = 3
 MAX_NR_CHARACTERS = 10000000
 
+MEDITATION_COST = 10
+MINDSHIELD_GAIN = 5
+RECOVERY_RATE = 30
+
 
 ######################################################################
 # Settings given in secret_settings.py override those in this file.
