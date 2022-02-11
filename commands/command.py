@@ -422,6 +422,8 @@ class CmdRest(Command):
         if caller.db.resting:
             caller.msg("You continue resting")
             return
+        if not caller.db.stamina:
+            caller.db.stamina = INITIAL_STAMINA
         maximum_energy = int(caller.db.health * proficiency(caller.db.stamina))
         amount_to_recover = maximum_energy - self.db.energy
         if amount_to_recover <= 0:
