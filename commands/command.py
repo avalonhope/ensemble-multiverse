@@ -235,6 +235,9 @@ class CmdTrainSkill(Command):
 
     def func(self):
         "This performs the actual command"
+        if self.caller.db.energy <= 0:
+            self.caller.msg("You are too tired to train. You need to rest.")
+            return
         errmsg = "You must supply a valid skillname."
         if not self.args:
             self.caller.msg(errmsg)
@@ -243,20 +246,42 @@ class CmdTrainSkill(Command):
             if self.args == " strength":
                 if self.caller.db.strength is None:
                     self.caller.db.strength = 0
-                else:
-                    self.caller.db.strength += 1
+                self.caller.db.strength += self.caller.db.energy
+                self.caller.db.energy = 0
                 self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.strength))
             elif self.args == " agility":
                 if self.caller.db.agility is None:
                     self.caller.db.agility = 0
-                else:
-                    self.caller.db.agility += 1
+                self.caller.db.agility += self.caller.db.energy
+                self.caller.db.energy = 0
                 self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.agility))
             elif self.args == " speed":
                 if self.caller.db.speed is None:
                     self.caller.db.speed = 0
                 else:
-                    self.caller.db.speed += 1
+                    self.caller.db.speed += self.caller.db.energy
+                self.caller.db.energy = 0
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
+           elif self.args == " stamina":
+                if self.caller.db.stamina is None:
+                    self.caller.db.stamina = 0
+                else:
+                    self.caller.db.stamina += self.caller.db.energy
+                self.caller.db.energy = 0
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
+            elif self.args == " mindshield":
+                if self.caller.db.mindshield is None:
+                    self.caller.db.mindshield = 0
+                else:
+                    self.caller.db.mindshield += self.caller.db.energy
+                self.caller.db.energy = 0
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
+            elif self.args == " mindmeld":
+                if self.caller.db.mindmeld is None:
+                    self.caller.db.mindmeld = 0
+                else:
+                    self.caller.db.mindmeld += self.caller.db.energy
+                self.caller.db.energy = 0
                 self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
             else:
                 self.caller.msg("%s skill cannot be trained (yet)." % self.args)
@@ -325,12 +350,12 @@ class CmdMeditate(Command):
         "moves to inner world"
         caller = self.caller
         # comsume some energy
-        if caller.db.energy < 1:
+        if caller.db.energy < MEDITATION_COST:
             caller.msg("You are too tired. You need to rest.")
             return
-        caller.db.energy -= 1
+        caller.db.energy -= MEDITATION_COST
         # gain experience and improve mental defenses
-        caller.db.mindshield += 1
+        caller.db.mindshield += MINDSHIELD_GAIN
         # create empty inner world if needed
         if not caller.db.innerWorld:
             caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World")
@@ -338,14 +363,13 @@ class CmdMeditate(Command):
             # may not meditate when OOC
             caller.msg("You must have a location to begin meditation.")
             return
-        # save location with outer world
-        if caller.in_medidation:
+        if caller.db.in_medidation:
             caller.msg("You continue to meditate.")
-        else:
-            caller.in_meditation = True
-            caller.db.outerWorld = caller.location
-            caller.location = caller.db.innerWorld
-            caller.msg("You close your eyes and visualize your inner world.")
+            return
+        caller.db.in_meditation = True
+        caller.db.outerWorld = caller.location
+        caller.location = caller.db.innerWorld
+        caller.msg("You close your eyes and visualize your inner world.")
         
 class CmdAwaken(Command):
     """
@@ -362,7 +386,41 @@ class CmdAwaken(Command):
     def func(self):
         "moves to outer world"
         caller = self.caller
-        caller.in_meditation = false
+        caller.db.in_meditation = false
         caller.location = caller.db.outerWorld
         caller.msg("You leave your inner world and return to the outer world.")
+        
+class CmdRest(Command):
+    """
+    restore energy
+    Usage:
+        +rest
+    rest until maximum energy is reached
+    """
+    key = "+rest"
+    aliases = ["+sleep"]
+    locks = ""
+    help_category = "general"
+    
+    def func(self):
+        "recover energy"
+        caller = self.caller
+        if caller.db.resting = True:
+            caller.msg("You continue resting")
+            return
+        maximum_energy = int(caller.db.health * proficency(caller.db.stamina))
+        amount_to_recover = maximum_energy - self.db.energy
+        if amount_to_recover <= 0:
+            self.caller.msg("You are fully rested.")
+        time_to_recover = RECOVERY_RATE * amount_to_recover
+        caller.db.resting = True
+        utils.delay(time_to_recover, self.recover)
+        caller.msg("You begin resting.")
+        
+    def recover(self):
+        "This will be called when fully recovered"
+        caller = self.caller
+        caller.db.resting = False
+        self.db.energy = int(caller.db.health * proficency(caller.db.stamina))
+        self.caller.msg("You are fully rested now.")
         
