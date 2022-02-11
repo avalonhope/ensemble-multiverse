@@ -37,6 +37,7 @@ MAX_NR_CHARACTERS = 10000000
 MEDITATION_COST = 10
 MINDSHIELD_GAIN = 5
 RECOVERY_RATE = 30
+INITIAL_STAMINA = 1
 
 
 ######################################################################
