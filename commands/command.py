@@ -419,13 +419,13 @@ class CmdRest(Command):
     def func(self):
         "recover energy"
         caller = self.caller
-        if caller.db.resting = True:
+        if caller.db.resting:
             caller.msg("You continue resting")
             return
         maximum_energy = int(caller.db.health * proficency(caller.db.stamina))
         amount_to_recover = maximum_energy - self.db.energy
         if amount_to_recover <= 0:
-            self.caller.msg("You are fully rested.")
+            self.caller.msg("You are already fully rested.")
         time_to_recover = RECOVERY_RATE * amount_to_recover
         caller.db.resting = True
         utils.delay(time_to_recover, self.recover)
