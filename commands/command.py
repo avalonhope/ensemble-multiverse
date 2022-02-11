@@ -235,7 +235,7 @@ class CmdTrainSkill(Command):
 
     def func(self):
         "This performs the actual command"
-        if self.caller.db.energy <= 0:
+        if self.caller.db.energy <= 0 or caller.db.resting:
             self.caller.msg("You are too tired to train. You need to rest.")
             return
         errmsg = "You must supply a valid skillname."
@@ -364,7 +364,7 @@ class CmdMeditate(Command):
         "moves to inner world"
         caller = self.caller
         # comsume some energy
-        if caller.db.energy < MEDITATION_COST:
+        if caller.db.energy < MEDITATION_COST or caller.db.resting:
             caller.msg("You are too tired. You need to rest.")
             return
         caller.db.energy -= MEDITATION_COST
@@ -422,19 +422,19 @@ class CmdRest(Command):
         if caller.db.resting:
             caller.msg("You continue resting")
             return
-        maximum_energy = int(caller.db.health * proficency(caller.db.stamina))
+        maximum_energy = int(caller.db.health * proficiency(caller.db.stamina))
         amount_to_recover = maximum_energy - self.db.energy
         if amount_to_recover <= 0:
             self.caller.msg("You are already fully rested.")
         time_to_recover = RECOVERY_RATE * amount_to_recover
         caller.db.resting = True
         utils.delay(time_to_recover, self.recover)
-        caller.msg("You begin resting.")
+        caller.msg("You begin resting. You will be fully rested in %.1f hours." % time_to_recover / 3600)
         
     def recover(self):
         "This will be called when fully recovered"
         caller = self.caller
         caller.db.resting = False
-        self.db.energy = int(caller.db.health * proficency(caller.db.stamina))
+        self.db.energy = int(caller.db.health * proficiency(caller.db.stamina))
         self.caller.msg("You are fully rested now.")
         
