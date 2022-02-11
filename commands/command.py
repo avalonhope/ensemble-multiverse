@@ -261,7 +261,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.speed += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
-           elif self.args == " stamina":
+            elif self.args == " stamina":
                 if self.caller.db.stamina is None:
                     self.caller.db.stamina = 0
                 self.caller.db.stamina += self.caller.db.energy
