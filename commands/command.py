@@ -425,7 +425,7 @@ class CmdRest(Command):
         if not caller.db.stamina:
             caller.db.stamina = INITIAL_STAMINA
         maximum_energy = int(caller.db.health * proficiency(caller.db.stamina))
-        amount_to_recover = maximum_energy - self.db.energy
+        amount_to_recover = maximum_energy - caller.db.energy
         if amount_to_recover <= 0:
             self.caller.msg("You are already fully rested.")
         time_to_recover = RECOVERY_RATE * amount_to_recover
@@ -437,6 +437,6 @@ class CmdRest(Command):
         "This will be called when fully recovered"
         caller = self.caller
         caller.db.resting = False
-        self.db.energy = int(caller.db.health * proficiency(caller.db.stamina))
-        self.caller.msg("You are fully rested now.")
+        caller.db.energy = int(caller.db.health * proficiency(caller.db.stamina))
+        caller.msg("You are fully rested now.")
         
