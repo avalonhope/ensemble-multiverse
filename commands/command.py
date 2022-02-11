@@ -258,31 +258,45 @@ class CmdTrainSkill(Command):
             elif self.args == " speed":
                 if self.caller.db.speed is None:
                     self.caller.db.speed = 0
-                else:
-                    self.caller.db.speed += self.caller.db.energy
+                self.caller.db.speed += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
            elif self.args == " stamina":
                 if self.caller.db.stamina is None:
                     self.caller.db.stamina = 0
-                else:
-                    self.caller.db.stamina += self.caller.db.energy
+                self.caller.db.stamina += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.stamina)
             elif self.args == " mindshield":
                 if self.caller.db.mindshield is None:
                     self.caller.db.mindshield = 0
-                else:
-                    self.caller.db.mindshield += self.caller.db.energy
+                self.caller.db.mindshield += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.mindshield))
             elif self.args == " mindmeld":
                 if self.caller.db.mindmeld is None:
                     self.caller.db.mindmeld = 0
-                else:
-                    self.caller.db.mindmeld += self.caller.db.energy
+                self.caller.db.mindmeld += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.mindmeld))
+            elif self.args == " craft":
+                if self.caller.db.craft is None:
+                    self.caller.db.craft = 0
+                self.caller.db.craft += self.caller.db.energy
+                self.caller.db.energy = 0
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.craft))
+            elif self.args == " pilot":
+                if self.caller.db.pilot is None:
+                    self.caller.db.pilot = 0
+                self.caller.db.pilot += self.caller.db.energy
+                self.caller.db.energy = 0
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.pilot))
+            elif self.args == " shoot":
+                if self.caller.db.shoot is None:
+                    self.caller.db.shoot = 0
+                self.caller.db.shoot += self.caller.db.energy
+                self.caller.db.energy = 0
+                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.shoot))
             else:
                 self.caller.msg("%s skill cannot be trained (yet)." % self.args)
 
