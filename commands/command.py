@@ -8,6 +8,7 @@ Commands describe the input the account can do to the game.
 from evennia import create_object
 from evennia.commands.command import Command as BaseCommand
 from world.skills import proficiency
+from server.conf.settings import RECOVERY_RATE, INITIAL_STAMINA, MEDITATION_COST, MINDSHIELD_GAIN
 
 # from evennia import default_cmds
 
