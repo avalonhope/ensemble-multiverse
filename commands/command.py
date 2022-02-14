@@ -381,12 +381,17 @@ class CmdAwaken(Command):
     def func(self):
         "moves to outer world"
         caller = self.caller
-        if not caller.db.in_meditation:
+        if not caller.db.in_meditation and not.caller.db.resting:
             caller.msg("You are already awake.")
             return
+        if caller.db.in_mediation:
+            caller.location = caller.db.outerWorld
+            caller.msg("You leave your inner world and return to the outer world.")
+        else:
+            caller.msg("You awaken from your sleep but might not be fully rested yet.")
         caller.db.in_meditation = False
-        caller.location = caller.db.outerWorld
-        caller.msg("You leave your inner world and return to the outer world.")
+        caller.db.resting = False
+        
         
 class CmdRest(Command):
     """
