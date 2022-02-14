@@ -8,7 +8,7 @@ Commands describe the input the account can do to the game.
 from evennia import create_object
 from evennia.commands.command import Command as BaseCommand
 from world.skills import proficiency
-from server.conf.settings import RECOVERY_RATE, INITIAL_STAMINA, MEDITATION_COST, MINDSHIELD_GAIN
+from server.conf.settings import RECOVERY_RATE, MEDITATION_COST, MINDSHIELD_GAIN, OPTIONAL_SKILLS
 
 # from evennia import default_cmds
 
@@ -245,60 +245,37 @@ class CmdTrainSkill(Command):
             self.caller.msg(errmsg)
             return
         try:
-            if self.args == " strength":
+            skillname = self.args.strip().lower()
+            if skillname == "strength":
                 if self.caller.db.strength is None:
                     self.caller.db.strength = 0
                 self.caller.db.strength += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.strength))
-            elif self.args == " agility":
+                self.caller.msg("Your strength level is now %.2f." % proficiency(self.caller.db.strength))
+            elif skillname== "agility":
                 if self.caller.db.agility is None:
                     self.caller.db.agility = 0
                 self.caller.db.agility += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.agility))
-            elif self.args == " speed":
+                self.caller.msg("Your agility level is now %.2f." % proficiency(self.caller.db.agility))
+            elif skillname == "speed":
                 if self.caller.db.speed is None:
                     self.caller.db.speed = 0
                 self.caller.db.speed += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.speed))
-            elif self.args == " stamina":
+                self.caller.msg("Your spped level is now %.2f." % proficiency(self.caller.db.speed))
+            elif skillname == "stamina":
                 if self.caller.db.stamina is None:
                     self.caller.db.stamina = 0
                 self.caller.db.stamina += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.stamina))
-            elif self.args == " mindshield":
-                if self.caller.db.mindshield is None:
-                    self.caller.db.mindshield = 0
-                self.caller.db.mindshield += self.caller.db.energy
+                self.caller.msg("Your stamina level is now %.2f." % proficiency(self.caller.db.stamina))
+            elif skillname in OPTIONAL_SKILLS:
+                if skillname not in self.caller.db.skills.keys():
+                    self.caller.db.skills[skillname] = 0
+                self.caller.db.skills[skillname] += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.mindshield))
-            elif self.args == " mindmeld":
-                if self.caller.db.mindmeld is None:
-                    self.caller.db.mindmeld = 0
-                self.caller.db.mindmeld += self.caller.db.energy
-                self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.mindmeld))
-            elif self.args == " craft":
-                if self.caller.db.craft is None:
-                    self.caller.db.craft = 0
-                self.caller.db.craft += self.caller.db.energy
-                self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.craft))
-            elif self.args == " pilot":
-                if self.caller.db.pilot is None:
-                    self.caller.db.pilot = 0
-                self.caller.db.pilot += self.caller.db.energy
-                self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.pilot))
-            elif self.args == " shoot":
-                if self.caller.db.shoot is None:
-                    self.caller.db.shoot = 0
-                self.caller.db.shoot += self.caller.db.energy
-                self.caller.db.energy = 0
-                self.caller.msg("Your proficency is now %.2f." % proficiency(self.caller.db.shoot))
+                self.caller.msg("Your skill level is now %.2f." % proficiency(self.caller.db.skills[skillname]))
             else:
                 self.caller.msg("%s skill cannot be trained (yet)." % self.args)
 
@@ -371,7 +348,9 @@ class CmdMeditate(Command):
             return
         caller.db.energy -= MEDITATION_COST
         # gain experience and improve mental defenses
-        caller.db.mindshield += MINDSHIELD_GAIN
+        if "mindshield" not in caller.db.skills.keys():
+            caller.db.skills["mindshield"] = 0
+        caller.db.skills["mindshield"] += MINDSHIELD_GAIN
         # create empty inner world if needed
         if not caller.db.innerWorld:
             caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World")
@@ -425,7 +404,7 @@ class CmdRest(Command):
             caller.msg("You continue resting")
             return
         if not caller.db.stamina:
-            caller.db.stamina = INITIAL_STAMINA
+            caller.db.stamina = 0
         maximum_energy = int(caller.db.health * proficiency(caller.db.stamina))
         amount_to_recover = maximum_energy - caller.db.energy
         if amount_to_recover <= 0:
