@@ -192,17 +192,18 @@ class Command(BaseCommand):
 
 class CmdSetRace(Command):
     """
-    set the race of a character
+    set the species of a character
 
     Usage:
-      +setrace <race>
+      +setSpecies <species>
 
     This sets the race of the current character. This can only be
     used during character generation.
     """
     
-    key = "+setrace"
-    help_category = "mush"
+    key = "+setspecies"
+    aliases = ["+setrace", "+setRace", "+setSpecies"]
+    help_category = "special"
 
     def func(self):
         "This performs the actual command"
@@ -211,14 +212,14 @@ class CmdSetRace(Command):
             self.caller.msg(errmsg)
             return
         try:
-            race = str(self.args)
+            race = str(self.args.strip())
         except ValueError:
             self.caller.msg(errmsg)
             return
         
         # at this point the argument is tested as valid. Let's set it.
-        self.caller.db.race = race
-        self.caller.msg("Your Race was set to %s." % race)
+        self.caller.tags.add(race, category="species")
+        self.caller.msg("Your species was set to %s." % race)
 
 class CmdTrainSkill(Command):
     """
@@ -340,7 +341,7 @@ class CmdRecruitCompanion(Command):
                       location=caller.location,
                       locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
         # add to party
-        companion.db.party = caller.id
+        companion.tags.add(caller.name, category="party")
         # announce
         message = "%s recruited '%s'."
         caller.msg(message % ("You", name))
