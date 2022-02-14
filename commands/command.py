@@ -5,7 +5,7 @@ Commands describe the input the account can do to the game.
 
 """
 
-from evennia import create_object
+from evennia import create_object, utils
 from evennia.commands.command import Command as BaseCommand
 from world.skills import proficiency
 from server.conf.settings import RECOVERY_RATE, MEDITATION_COST, MINDSHIELD_GAIN, OPTIONAL_SKILLS
