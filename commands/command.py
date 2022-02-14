@@ -420,7 +420,7 @@ class CmdRest(Command):
         time_to_recover = RECOVERY_RATE * amount_to_recover
         caller.db.resting = True
         utils.delay(time_to_recover, self.recover)
-        caller.msg("You begin resting. You will be fully rested in %.1f hours." % time_to_recover / 3600)
+        caller.msg("You begin resting. You will be fully rested in %s seconds." % time_to_recover)
         
     def recover(self):
         "This will be called when fully recovered"
