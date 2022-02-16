@@ -343,7 +343,7 @@ class CmdMeditate(Command):
         "moves to inner world"
         caller = self.caller
         # comsume some energy
-        if caller.db.energy < MEDITATION_COST or caller.db.resting:
+        if not caller.db.energy or caller.db.energy < MEDITATION_COST or caller.db.resting:
             caller.msg("You are too tired. You need to rest.")
             return
         caller.db.energy -= MEDITATION_COST
