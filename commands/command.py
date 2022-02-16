@@ -348,6 +348,8 @@ class CmdMeditate(Command):
             return
         caller.db.energy -= MEDITATION_COST
         # gain experience and improve mental defenses
+        if not caller.db.skills:
+            caller.db.skills = []
         if "mindshield" not in caller.db.skills.keys():
             caller.db.skills["mindshield"] = 0
         caller.db.skills["mindshield"] += MINDSHIELD_GAIN
@@ -381,16 +383,12 @@ class CmdAwaken(Command):
     def func(self):
         "moves to outer world"
         caller = self.caller
-        if not caller.db.in_meditation and not caller.db.resting:
-            caller.msg("You are already awake.")
+        if not caller.db.in_meditation:
+            caller.msg("You are not in meditation.")
             return
-        if caller.db.in_mediation:
-            caller.location = caller.db.outerWorld
-            caller.msg("You leave your inner world and return to the outer world.")
-        else:
-            caller.msg("You awaken from your sleep but might not be fully rested yet.")
+        caller.location = caller.db.outerWorld
+        caller.msg("You leave your inner world and return to the outer world.")
         caller.db.in_meditation = False
-        caller.db.resting = False
         
         
 class CmdRest(Command):
