@@ -349,8 +349,9 @@ class CmdMeditate(Command):
         caller.db.energy -= MEDITATION_COST
         # gain experience and improve mental defenses
         if not caller.db.skills:
-            caller.db.skills = []
-        if "mindshield" not in caller.db.skills.keys():
+            caller.db.skills = {}
+            caller.db.skills["mindshield"] = 0
+        elif "mindshield" not in caller.db.skills.keys():
             caller.db.skills["mindshield"] = 0
         caller.db.skills["mindshield"] += MINDSHIELD_GAIN
         # create empty inner world if needed
