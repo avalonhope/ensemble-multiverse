@@ -343,11 +343,13 @@ class CmdMeditate(Command):
         "moves to inner world"
         caller = self.caller
         # comsume some energy
-        if caller.db.energy < MEDITATION_COST or caller.db.resting:
+        if not caller.db.energy or caller.db.energy < MEDITATION_COST or caller.db.resting:
             caller.msg("You are too tired. You need to rest.")
             return
         caller.db.energy -= MEDITATION_COST
         # gain experience and improve mental defenses
+        if not caller.db.skills:
+            caller.db.skills = []
         if "mindshield" not in caller.db.skills.keys():
             caller.db.skills["mindshield"] = 0
         caller.db.skills["mindshield"] += MINDSHIELD_GAIN
@@ -381,16 +383,12 @@ class CmdAwaken(Command):
     def func(self):
         "moves to outer world"
         caller = self.caller
-        if not caller.db.in_meditation and not caller.db.resting:
-            caller.msg("You are already awake.")
+        if not caller.db.in_meditation:
+            caller.msg("You are not in meditation.")
             return
-        if caller.db.in_mediation:
-            caller.location = caller.db.outerWorld
-            caller.msg("You leave your inner world and return to the outer world.")
-        else:
-            caller.msg("You awaken from your sleep but might not be fully rested yet.")
+        caller.location = caller.db.outerWorld
+        caller.msg("You leave your inner world and return to the outer world.")
         caller.db.in_meditation = False
-        caller.db.resting = False
         
         
 class CmdRest(Command):
@@ -413,7 +411,13 @@ class CmdRest(Command):
             return
         if not caller.db.stamina:
             caller.db.stamina = 0
+        if not caller.db.health:
+            caller.db.health = 100
         maximum_energy = int(caller.db.health * proficiency(caller.db.stamina))
+        if not caller.db.energy:
+            caller.db.energy = maximum_energy
+            caller.msg("You are now fully rested")
+            return
         amount_to_recover = maximum_energy - caller.db.energy
         if amount_to_recover <= 0:
             self.caller.msg("You are already fully rested.")
