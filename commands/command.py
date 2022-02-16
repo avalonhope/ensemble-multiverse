@@ -233,6 +233,7 @@ class CmdTrainSkill(Command):
     """
     
     key = "+trainskill"
+    aliases = ["+train"]
     help_category = "skills"
 
     def func(self):
@@ -420,6 +421,7 @@ class CmdRest(Command):
         amount_to_recover = maximum_energy - caller.db.energy
         if amount_to_recover <= 0:
             self.caller.msg("You are already fully rested.")
+            return
         time_to_recover = RECOVERY_RATE * amount_to_recover
         caller.db.resting = True
         utils.delay(time_to_recover, self.recover)
