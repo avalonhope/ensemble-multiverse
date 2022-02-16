@@ -37,7 +37,7 @@ class Character(DefaultCharacter):
         self.db.agility = 0
         self.db.speed = 0
         self.db.health = 100
-        self.db.stamnia = 0
+        self.db.stamina = 0
         self.db.energy = 100
         self.db.innerWorldLocation = None
         self.db.outerWorldLocation = None
