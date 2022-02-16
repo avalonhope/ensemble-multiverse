@@ -237,7 +237,7 @@ class CmdTrainSkill(Command):
 
     def func(self):
         "This performs the actual command"
-        if self.caller.db.energy <= 0 or caller.db.resting:
+        if self.caller.db.energy <= 0 or self.caller.db.resting:
             self.caller.msg("You are too tired to train. You need to rest.")
             return
         errmsg = "You must supply a valid skillname."
