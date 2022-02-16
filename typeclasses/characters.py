@@ -33,16 +33,15 @@ class Character(DefaultCharacter):
 
     def at_object_creation(self):
         "This is called when object is first created, only."
-        self.db.race = None
-        self.db.faction = None
-        self.db.subrace = None
-        self.db.strength = 1
-        self.db.agility = 1
-        self.db.speed = 1
+        self.db.strength = 0
+        self.db.agility = 0
+        self.db.speed = 0
         self.db.health = 100
-        self.db.energy = 1000
-        self.db.stamina = 1
+        self.db.stamnia = 0
+        self.db.energy = 100
         self.db.innerWorldLocation = None
         self.db.outerWorldLocation = None
+        self.db.skills = {}
+        self.db.reputation = 0
         
         
