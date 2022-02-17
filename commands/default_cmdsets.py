@@ -35,7 +35,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
-        self.add(command.CmdRecruitCompanion())
+        self.add(command.CmdImagine())
         self.add(command.CmdMeditate())
         self.add(command.CmdAwaken())
         self.add(command.CmdRest())
@@ -111,7 +111,7 @@ class ChargenCmdset(CmdSet):
         
 class TrainingCmdset(CmdSet):
     """
-    This cmdset it used in character generation areas.
+    This cmdset it used in training areas.
     """
     key = "Training"
     def at_cmdset_creation(self):
