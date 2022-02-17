@@ -324,7 +324,7 @@ class CmdImagine(Command):
         # announce
         message = "%s imagined '%s'."
         caller.msg(message % ("You", name))
-        caller.innerWorld.msg_contents(message % (caller.key, name),
+        caller.db.innerWorld.msg_contents(message % (caller.key, name),
                                                 exclude=caller)
         
 class CmdMeditate(Command):
