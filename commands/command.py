@@ -287,43 +287,44 @@ class CmdTrainSkill(Command):
         return
 
     
-class CmdRecruitCompanion(Command):
+class CmdImagine(Command):
     """
-    create a new companion and add to party
+    create a new imaginary companion and add to inner world
 
     Usage:
-        +recruitCompanion <name>
+        +imagine <name>
 
-    Creates a new, named companion.
+    Creates a new, imaginary companion.
     """
-    key = "+receruitcompanion"
-    aliases = ["+recruitCompanion"]
-    locks = "call:not perm(nocompanions)"
-    help_category = "party"
+    key = "+imagine"
+    help_category = "inner world"
     
     def func(self):
         "creates the object and names it"
         caller = self.caller
         if not self.args:
-            caller.msg("Usage: +recruitCompanion <name>")
+            caller.msg("Usage: +imagine <name>")
             return
-        if not caller.location:
-            # may not create companion when OOC
-            caller.msg("You must have a location to recruit a companion.")
+        if not caller.innerWorld:
+            # may not create companion without inner world
+            caller.msg("You must meditate before creating imaginary companions.")
             return
         # make each part of name always start with capital letter
         name = self.args.strip().title()
-        # create companion in caller's location
+        # create companion in Inner World
         companion = create_object("characters.Character",
                       key=name,
-                      location=caller.location,
+                      location=caller.innerWorld,
                       locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
         # add to party
-        companion.tags.add(caller.name, category="party")
+        if not caller.db.companions:
+            caller.db.companions = 1
+        else:
+            caller.db.companions += 1
         # announce
-        message = "%s recruited '%s'."
+        message = "%s imagined '%s'."
         caller.msg(message % ("You", name))
-        caller.location.msg_contents(message % (caller.key, name),
+        caller.innerWorld.msg_contents(message % (caller.key, name),
                                                 exclude=caller)
         
 class CmdMeditate(Command):
@@ -415,17 +416,19 @@ class CmdRest(Command):
             caller.db.stamina = 0
         if not caller.db.health:
             caller.db.health = 100
-        maximum_energy = int(caller.db.health * proficiency(caller.db.stamina))
+        stamina_level = proficiency(caller.db.stamina)
+        maximum_energy = int(caller.db.health * stamina_level)
         if caller.db.energy is None:
             caller.db.energy = 0
         amount_to_recover = maximum_energy - caller.db.energy
         if amount_to_recover <= 0:
             self.caller.msg("You are already fully rested.")
             return
-        time_to_recover = RECOVERY_RATE * amount_to_recover
+        time_to_recover = int(RECOVERY_RATE * amount_to_recover / stamina_level)
         caller.db.resting = True
         utils.delay(time_to_recover, self.recover)
-        caller.msg("You begin resting. You will be fully rested in %s seconds." % time_to_recover)
+        hours_to_recovery = time_to_recover / 3600.0
+        caller.msg("You begin resting. You will be fully rested in %.1f hours." % hours_to_recovery)
         
     def recover(self):
         "This will be called when fully recovered"
