@@ -305,7 +305,7 @@ class CmdImagine(Command):
         if not self.args:
             caller.msg("Usage: +imagine <name>")
             return
-        if not caller.innerWorld:
+        if not caller.db.innerWorld:
             # may not create companion without inner world
             caller.msg("You must meditate before creating imaginary companions.")
             return
@@ -314,7 +314,7 @@ class CmdImagine(Command):
         # create companion in Inner World
         companion = create_object("characters.Character",
                       key=name,
-                      location=caller.innerWorld,
+                      location=caller.db.innerWorld,
                       locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
         # add to party
         if not caller.db.companions:
