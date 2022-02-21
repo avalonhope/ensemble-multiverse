@@ -110,7 +110,7 @@ class TrainingCmdset(CmdSet):
         "This is called at initialization"
         self.add(command.CmdTrainSkill())
         
-class RoleplayCmdset(CmdSet):
+class RoleplayingCmdset(CmdSet):
     """
     This cmdset is used in roleplaying areas.
     """
