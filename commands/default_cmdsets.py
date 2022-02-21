@@ -16,7 +16,7 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 
 from evennia import default_cmds
 from evennia import CmdSet
-from commands import command
+from commands import command, roleplaying
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -102,7 +102,7 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
         
 class ChargenCmdset(CmdSet):
     """
-    This cmdset it used in character generation areas.
+    This cmdset is used in character generation areas.
     """
     key = "Chargen"
     def at_cmdset_creation(self):
@@ -111,9 +111,20 @@ class ChargenCmdset(CmdSet):
         
 class TrainingCmdset(CmdSet):
     """
-    This cmdset it used in training areas.
+    This cmdset is used in training areas.
     """
     key = "Training"
     def at_cmdset_creation(self):
         "This is called at initialization"
         self.add(command.CmdTrainSkill())
+        
+class RoleplayCmdset(CmdSet):
+    """
+    This cmdset is used in roleplaying areas.
+    """
+    key = "Roleplaying"
+    def at_cmdset_creation(self):
+        "This is called at initialization"
+        self.add(roleplaying.CmdSay())
+        self.add(roleplaying.CmdDo())
+        self.add(roleplaying.CmdHistory())
