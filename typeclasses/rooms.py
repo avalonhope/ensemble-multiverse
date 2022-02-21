@@ -6,7 +6,7 @@ Rooms are simple containers that has no location of their own.
 """
 
 from evennia import DefaultRoom
-from commands.default_cmdsets import ChargenCmdset, TrainingCmdset
+from commands.default_cmdsets import TrainingCmdset
 
 
 class Room(DefaultRoom):
@@ -20,17 +20,7 @@ class Room(DefaultRoom):
     properties and methods available on all Objects.
     """
     self.db.events = []
-   
-
-class ChargenRoom(Room):
-    """
-    This room class is used by character-generation rooms. It makes
-    the ChargenCmdset available.
-    """
-    def at_object_creation(self):
-        "this is called only at first creation"
-        self.cmdset.add(ChargenCmdset, permanent=True)
-        self.cmdset.add(TrainingCmdset, permanent=True)
+    self.cmdset.add(RoleplayingCmdset, permanent=True)
 
         
 class TrainingRoom(Room):
