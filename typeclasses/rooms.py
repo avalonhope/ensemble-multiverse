@@ -19,8 +19,8 @@ class Room(DefaultRoom):
     See examples/object.py for a list of
     properties and methods available on all Objects.
     """
-
-    pass
+    self.db.events = []
+   
 
 class ChargenRoom(Room):
     """
@@ -35,7 +35,7 @@ class ChargenRoom(Room):
         
 class TrainingRoom(Room):
     """
-    This room class is used by character-generation rooms. It makes
+    This room class is used by training rooms. It makes
     the TrainingCmdset available.
     """
     def at_object_creation(self):
