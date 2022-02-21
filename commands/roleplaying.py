@@ -34,7 +34,7 @@ class CmdDo(Command):
         
         self.caller.msg("You %s." % action)
         self.caller.location.msg(self.caller.name + " " + action)
-        self.caller.location.events.append(self.caller.name + " " + action)
+        self.caller.location.db.events.append(self.caller.name + " " + action)
         
 
 class CmdHistory(Command):
