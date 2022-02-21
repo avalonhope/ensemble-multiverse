@@ -43,5 +43,5 @@ class Character(DefaultCharacter):
         self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
-        
-        
+        self.db.events = []
+ 

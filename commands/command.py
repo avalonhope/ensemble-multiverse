@@ -190,37 +190,6 @@ class Command(BaseCommand):
 #             else:
 #                 self.character = None
 
-class CmdSetRace(Command):
-    """
-    set the species of a character
-
-    Usage:
-      +setSpecies <species>
-
-    This sets the race of the current character. This can only be
-    used during character generation.
-    """
-    
-    key = "+setspecies"
-    aliases = ["+setrace", "+setRace", "+setSpecies"]
-    help_category = "special"
-
-    def func(self):
-        "This performs the actual command"
-        errmsg = "You must supply a valid string."
-        if not self.args:
-            self.caller.msg(errmsg)
-            return
-        try:
-            race = str(self.args.strip())
-        except ValueError:
-            self.caller.msg(errmsg)
-            return
-        
-        # at this point the argument is tested as valid. Let's set it.
-        self.caller.tags.add(race, category="species")
-        self.caller.msg("Your species was set to %s." % race)
-
 class CmdTrainSkill(Command):
     """
     improve the skill of a character
