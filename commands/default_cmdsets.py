@@ -117,6 +117,5 @@ class RoleplayCmdset(CmdSet):
     key = "Roleplaying"
     def at_cmdset_creation(self):
         "This is called at initialization"
-        self.add(roleplaying.CmdSay())
         self.add(roleplaying.CmdDo())
         self.add(roleplaying.CmdHistory())
