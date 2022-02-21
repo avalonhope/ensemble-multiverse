@@ -19,8 +19,9 @@ class Room(DefaultRoom):
     See examples/object.py for a list of
     properties and methods available on all Objects.
     """
-    self.db.events = []
-    self.cmdset.add(RoleplayingCmdset, permanent=True)
+    def at_object_creation(self):
+        self.db.events = []
+        self.cmdset.add(RoleplayingCmdset, permanent=True)
 
         
 class TrainingRoom(Room):
