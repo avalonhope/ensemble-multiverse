@@ -39,6 +39,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(command.CmdMeditate())
         self.add(command.CmdAwaken())
         self.add(command.CmdRest())
+        self.add(command.CmdStats())
         
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
