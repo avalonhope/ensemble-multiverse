@@ -410,12 +410,12 @@ class CmdStats(Command):
     """
     Show the skill levels and stats of a character
     Usage:
-      +stats
+      +skills
     This shows the skills and stats of the current character.
     """
     
-    key = "+stats"
-    aliases = ["+skills"]
+    key = "+skills"
+    aliases = ["+profile"]
     help_category = "skills"
 
     def func(self):
