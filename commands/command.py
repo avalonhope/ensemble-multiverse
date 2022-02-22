@@ -420,14 +420,14 @@ class CmdStats(Command):
 
     def func(self):
         "This performs the actual command"
-         self.caller.msg("Your helath is now %d %%." % self.caller.db.health)
-         self.caller.msg("Your energy level is now %.2f." % proficiency(self.caller.db.energy))
-         self.caller.msg("Your reputation level is now %.2f." % proficiency(self.caller.db.reputation))
-         self.caller.msg("Your strength level is now %.2f." % proficiency(self.caller.db.strength))
-         self.caller.msg("Your agility level is now %.2f." % proficiency(self.caller.db.agility))
-         self.caller.msg("Your speed level is now %.2f." % proficiency(self.caller.db.speed))
-         self.caller.msg("Your stamina level is now %.2f." % proficiency(self.caller.db.stamina))
-         for skillname in self.caller.db.skills.keys():
+        self.caller.msg("Your health is now %d %%." % self.caller.db.health)
+        self.caller.msg("Your energy level is now %.2f." % proficiency(self.caller.db.energy))
+        self.caller.msg("Your reputation level is now %.2f." % proficiency(self.caller.db.reputation))
+        self.caller.msg("Your strength level is now %.2f." % proficiency(self.caller.db.strength))
+        self.caller.msg("Your agility level is now %.2f." % proficiency(self.caller.db.agility))
+        self.caller.msg("Your speed level is now %.2f." % proficiency(self.caller.db.speed))
+        self.caller.msg("Your stamina level is now %.2f." % proficiency(self.caller.db.stamina))
+        for skillname in self.caller.db.skills.keys():
             self.caller.msg(f "Your {skillname} level is now {round(proficiency(self.caller.db.skills[skillname]), 2)}.")
             
         return
