@@ -233,7 +233,7 @@ class CmdTrainSkill(Command):
                     self.caller.db.speed = 0
                 self.caller.db.speed += self.caller.db.energy
                 self.caller.db.energy = 0
-                self.caller.msg("Your spped level is now %.2f." % proficiency(self.caller.db.speed))
+                self.caller.msg("Your speed level is now %.2f." % proficiency(self.caller.db.speed))
             elif skillname == "stamina":
                 if self.caller.db.stamina is None:
                     self.caller.db.stamina = 0
@@ -406,3 +406,29 @@ class CmdRest(Command):
         caller.db.energy = int(caller.db.health * proficiency(caller.db.stamina))
         caller.msg("You are fully rested now.")
         
+class CmdStats(Command):
+    """
+    Show the skill levels and stats of a character
+    Usage:
+      +stats
+    This shows the skills and stats of the current character.
+    """
+    
+    key = "+stats"
+    aliases = ["+skills"]
+    help_category = "skills"
+
+    def func(self):
+        "This performs the actual command"
+         self.caller.msg("Your helath is now %d %%." % self.caller.db.health)
+         self.caller.msg("Your energy level is now %.2f." % proficiency(self.caller.db.energy))
+         self.caller.msg("Your reputation level is now %.2f." % proficiency(self.caller.db.reputation))
+         self.caller.msg("Your strength level is now %.2f." % proficiency(self.caller.db.strength))
+         self.caller.msg("Your agility level is now %.2f." % proficiency(self.caller.db.agility))
+         self.caller.msg("Your speed level is now %.2f." % proficiency(self.caller.db.speed))
+         self.caller.msg("Your stamina level is now %.2f." % proficiency(self.caller.db.stamina))
+         for skillname in self.caller.db.skills.keys():
+            self.caller.msg(f "Your {skillname} level is now {round(proficiency(self.caller.db.skills[skillname]), 2)}.")
+            
+        return
+    
