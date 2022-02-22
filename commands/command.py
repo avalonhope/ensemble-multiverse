@@ -428,7 +428,7 @@ class CmdStats(Command):
         self.caller.msg("Your speed level is now %.2f." % proficiency(self.caller.db.speed))
         self.caller.msg("Your stamina level is now %.2f." % proficiency(self.caller.db.stamina))
         for skillname in self.caller.db.skills.keys():
-            self.caller.msg(f "Your {skillname} level is now {round(proficiency(self.caller.db.skills[skillname]), 2)}.")
+            self.caller.msg(f"Your {skillname} level is now {round(proficiency(self.caller.db.skills[skillname]), 2)}.")
             
         return
     
