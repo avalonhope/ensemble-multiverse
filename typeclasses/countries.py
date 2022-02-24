@@ -16,4 +16,5 @@ class Country(DefaultRoom):
     properties and methods available on all Objects.
     """
 
-    pass
+    def at_object_creation(self):
+        self.db.level = Location.COUNTRY
