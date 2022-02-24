@@ -4,7 +4,7 @@ Countries are simple containers located within a Planet.
 """
 
 from evennia import DefaultRoom
-
+from typeclasses.rooms import Location
 
 class Country(DefaultRoom):
     """
