@@ -11,21 +11,22 @@ from commands.default_cmdsets import RoleplayingCmdset, TrainingCmdset
 
 
 class Location(Enum):
-    ROOM = 0
-    BUILDING = 1  # structure, cavern
-    AREA = 2  # street, village
-    DISTRICT = 3  # major village, town quarter
-    TOWN = 4  # space station, county
-    REGION = 5  # city, province, duchy
+    # Each level is contained with th next level up, for example a room is inside a building
+    ROOM = 0  # cannot have any sub-rooms, lowest possible level
+    BUILDING = 1  # structure, cavern, vehicle, shuttle
+    AREA = 2  # street, village, docking bay, open terrain
+    DISTRICT = 3  # major village, town quarter, large ship
+    TOWN = 4  # space station, county, shipyard
+    REGION = 5  # city, province, duchy, planet orbit, atmosphere
     COUNTRY = 6  # major country or minor planet
-    PLANET = 7
+    PLANET = 7  # inner worlds for most species
     SYSTEM = 8
-    SECTOR = 9
+    SECTOR = 9  # large group of star systems
     GALAXY = 10
     CLUSTER = 11
-    SUPERCLUSTER = 12
-    UNIVERSE = 13 # inner worlds
-    MULTIVERSE = 14 
+    SUPERCLUSTER = 12  # or other large cosmic structure
+    UNIVERSE = 13 # inner worlds for advanced species
+    MULTIVERSE = 14 # all of creation, visible and invisible, highest possible level
 
 
 class Room(DefaultRoom):
