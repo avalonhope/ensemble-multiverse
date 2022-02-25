@@ -41,6 +41,7 @@ class CmdFactionCreate(Command):
         # create faction
         faction = create_object("factions.Faction",
                                 key=name,
+                                location=None,
                                 locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
         faction.db.founder = caller
         faction.db.members = [caller.name]
