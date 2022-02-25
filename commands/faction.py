@@ -66,6 +66,6 @@ class CmdFactions(Command):
         # show list of factions
         factions = evennia.search_tag("faction")
         for faction in factions:
-            self.caller.msg(faction.name)
+            self.caller.msg(faction.name + " founded by " + faction.founder.name)
         
  
