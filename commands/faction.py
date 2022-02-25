@@ -65,7 +65,7 @@ class CmdFactions(Command):
     def func(self):
         "This performs the actual command"
         # show list of factions
-        factions = evennia.search_script_tag("faction")
+        factions = utils.search.search_script_tag("faction")
         self.caller.msg("There are %d factions:" % len(factions))
         for faction in factions:
             self.caller.msg(faction.name + " founded by " + faction.founder.name)
