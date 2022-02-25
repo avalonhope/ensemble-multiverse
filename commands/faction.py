@@ -30,12 +30,12 @@ class CmdFactionCreate(Command):
         
         caller = self.caller
         if caller.db.faction:
-          caller.msg("You already belong to %s." caller.db.faction.name)
+          caller.msg("You already belong to %s." % caller.db.faction.name)
           return
         # create a new faction
         # make each part of name always start with capital letter
         name = self.args.strip().title()
-        # create companion in Inner World
+        # create faction
         faction = create_object("factions.Faction",
                                 key=name,
                                 locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
