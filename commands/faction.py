@@ -43,7 +43,7 @@ class CmdFactionCreate(Command):
         faction.db.members = [caller.name]
         faction.db.leadership = [caller.name]
         faction.tags.add("faction")
-        caller.msg("You founded the faction called: %s." faction.name)
+        caller.msg("You founded the faction called: %s." % faction.name)
         
 
 class CmdFactions(Command):
