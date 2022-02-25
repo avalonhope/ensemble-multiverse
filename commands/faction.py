@@ -47,6 +47,7 @@ class CmdFactionCreate(Command):
         faction.db.members = [caller.name]
         faction.db.leadership = [caller.name]
         faction.tags.add("faction")
+        caller.db.faction = faction
         caller.msg("You founded the faction called: %s." % faction.name)
         
 
@@ -55,7 +56,7 @@ class CmdFactions(Command):
     show lists of factions
     Usage:
       +history
-    This emits a message about the roleplaying history.
+    This shows a list of faction names
     """
     
     key = "+factions"
@@ -65,6 +66,7 @@ class CmdFactions(Command):
         "This performs the actual command"
         # show list of factions
         factions = evennia.search_tag("faction")
+        self.caller.msg("There are %d factions:" % len(factions))
         for faction in factions:
             self.caller.msg(faction.name + " founded by " + faction.founder.name)
         
