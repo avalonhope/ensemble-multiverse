@@ -3,6 +3,8 @@ Faction Commands
 Commands for managing factions
 """
 
+import evennia
+
 from commands.command import Command
 
 class CmdFactionCreate(Command):
