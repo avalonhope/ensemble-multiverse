@@ -48,7 +48,7 @@ class CmdHistory(Command):
     """
     
     key = "+history"
-    aliases = ["+events"]
+    aliases = ["+events", "+journal"]
     help_category = "roleplaying"
 
     def func(self):
