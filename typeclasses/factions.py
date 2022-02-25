@@ -74,10 +74,6 @@ class Faction(DefaultScript):
     """
 
     def at_script_creation(self):
-      db.founder = None
-      db.leadership = []
-      db.members = []
-      db.titles = {}
-      db.subunit_name = "branch"  # division, guild, chapter
-      db.ranks = {}
+      self.db.titles = {}
+      self.db.ranks = {}
       
