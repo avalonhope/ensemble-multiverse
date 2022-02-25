@@ -6,6 +6,7 @@ Commands for managing factions
 import evennia
 
 from commands.command import Command
+from evennia import create_object, utils
 
 class CmdFactionCreate(Command):
     """
