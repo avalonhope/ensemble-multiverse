@@ -39,9 +39,10 @@ class CmdFactionCreate(Command):
         # make each part of name always start with capital letter
         name = self.args.strip().title()
         # create faction
-        faction = create_object("typeclasses.factions.Faction",
+        faction = create_script("typeclasses.factions.Faction",
                                 key=name,
-                                locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
+                                locks="edit:id(%i) and perm(Builders);call:false()" % caller.id,
+                                report_to=caller)
         faction.db.founder = caller
         faction.db.members = [caller.name]
         faction.db.leadership = [caller.name]
