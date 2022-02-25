@@ -68,6 +68,9 @@ class CmdFactions(Command):
         factions = utils.search.search_script_tag("faction")
         self.caller.msg("There are %d factions:" % len(factions))
         for faction in factions:
-            self.caller.msg(faction.name + " founded by " + faction.db.founder.name)
+            if faction.db.founder:
+                self.caller.msg(faction.name + " founded by " + faction.db.founder.name)
+            else:
+                self.caller.msg(faction.name)
         
  
