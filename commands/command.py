@@ -195,14 +195,14 @@ class CmdTrainSkill(Command):
     improve the skill of a character
 
     Usage:
-      +trainskill <skill> 
+      +train <skill> 
 
     This trains the skills of the current character. This can only be
     used in a training room.
     """
     
-    key = "+trainskill"
-    aliases = ["+train"]
+    key = "+train"
+    aliases = ["+learn", "+study", "+improve"]
     help_category = "skills"
 
     def func(self):
@@ -372,14 +372,16 @@ class CmdRest(Command):
     """
     key = "+rest"
     aliases = ["+sleep"]
-    locks = ""
     help_category = "general"
     
     def func(self):
         "recover energy"
         caller = self.caller
         if caller.db.resting:
-            caller.msg("You continue resting")
+            caller.msg("You continue resting.")
+            return
+        elif caller.db.busy:
+            caller.msg("You are too busy to rest now.")
             return
         if not caller.db.stamina:
             caller.db.stamina = 0
@@ -395,6 +397,7 @@ class CmdRest(Command):
             return
         time_to_recover = int(RECOVERY_RATE * amount_to_recover / stamina_level)
         caller.db.resting = True
+        caller.db.busy = True
         utils.delay(time_to_recover, self.recover)
         hours_to_recovery = time_to_recover / 3600.0
         caller.msg("You begin resting. You will be fully rested in %.1f hours." % hours_to_recovery)
@@ -403,7 +406,13 @@ class CmdRest(Command):
         "This will be called when fully recovered"
         caller = self.caller
         caller.db.resting = False
-        caller.db.energy = int(caller.db.health * proficiency(caller.db.stamina))
+        caller.db.busy = False
+        stamina_level = proficiency(caller.db.stamina)
+        # maximum energy level depends on health and stamina
+        caller.db.energy = int(caller.db.health * stamina_level)
+        # resting also restores some health percentage
+        if caller.db.health < 100:
+            caller.db.health = min(100, caller.db.health + int(stamina_level))
         caller.msg("You are fully rested now.")
         
 class CmdStats(Command):
