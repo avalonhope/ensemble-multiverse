@@ -392,7 +392,7 @@ class CmdRest(Command):
         if caller.db.energy is None:
             caller.db.energy = 0
         amount_to_recover = maximum_energy - caller.db.energy
-        if amount_to_recover <= 0:
+        if amount_to_recover <= 0 and caller.db.health == 100:
             self.caller.msg("You are already fully rested.")
             return
         time_to_recover = int(RECOVERY_RATE * amount_to_recover / stamina_level)
@@ -400,7 +400,11 @@ class CmdRest(Command):
         caller.db.busy = True
         utils.delay(time_to_recover, self.recover)
         hours_to_recovery = time_to_recover / 3600.0
-        caller.msg("You begin resting. You will be fully rested in %.1f hours." % hours_to_recovery)
+        if hours_to_recovery > 1.0:
+            caller.msg("You begin resting. You will be fully rested in %.1f hours." % hours_to_recovery)
+        else:
+            minutes_to_recovery = time_to_recover / 60.0
+            caller.msg("You begin your nap. You will be fully rested in %.1f minutes." % minutes_to_recovery)
         
     def recover(self):
         "This will be called when fully recovered"
@@ -429,7 +433,7 @@ class CmdStats(Command):
 
     def func(self):
         "This performs the actual command"
-        self.caller.msg("Your health is now %d %%." % self.caller.db.health)
+        self.caller.msg("Your health is now %d%%." % self.caller.db.health)
         self.caller.msg("Your energy level is now %.2f." % proficiency(self.caller.db.energy))
         self.caller.msg("Your reputation level is now %.2f." % proficiency(self.caller.db.reputation))
         self.caller.msg("Your strength level is now %.2f." % proficiency(self.caller.db.strength))
