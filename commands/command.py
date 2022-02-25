@@ -428,7 +428,7 @@ class CmdStats(Command):
     """
     
     key = "+skills"
-    aliases = ["+profile"]
+    aliases = ["+profile", "+status"]
     help_category = "skills"
 
     def func(self):
