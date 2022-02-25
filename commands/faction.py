@@ -33,7 +33,17 @@ class CmdFactionCreate(Command):
           caller.msg("You already belong to %s." caller.db.faction.name)
           return
         # create a new faction
-        pass
+        # make each part of name always start with capital letter
+        name = self.args.strip().title()
+        # create companion in Inner World
+        faction = create_object("factions.Faction",
+                                key=name,
+                                locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
+        faction.db.founder = caller
+        faction.db.members = [caller.name]
+        faction.db.leadership = [caller.name]
+        faction.tags.add("faction")
+        caller.msg("You founded the faction called: %s." faction.name)
         
 
 class CmdFactions(Command):
@@ -50,6 +60,8 @@ class CmdFactions(Command):
     def func(self):
         "This performs the actual command"
         # show list of factions
-        pass
+        factions = evennia.search_tag("faction")
+        for faction in factions:
+            self.caller.msg(faction.name)
         
  
