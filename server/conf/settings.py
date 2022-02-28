@@ -40,6 +40,37 @@ RECOVERY_RATE = 30
 
 OPTIONAL_SKILLS = ["archery", "leadership", "medicine", "mindmeld", "mindshield", "pilot"]
 
+DEFAULT_BUILDING = "Town Hall"
+DEFAULT_AREA = "Main Street"
+DEFAULT_DISTRICT = "Central District"
+DEFAULT_TOWN = "Difenland City"
+DEFAULT_REGION = "Capital Region" 
+DEFALT_COUNTRY = "Difenbland"  
+DEFAULT_PLANET = "Fleador Prime"
+DEFAULT_SYSTEM = "Fleador System"
+DEFAULT_SECTOR = "Fleador Sector"
+DEFAULT_GALAXY = "Milky Way Galaxy"
+DEFAULT_CLUSTER = "Virgo Cluster"
+DEFAULT_SUPERCLUSTER = "Virgo Supercluster"  
+DEFAULT_UNIVERSE = "The Known Universe"
+
+DEFAULT_LEVEL_0_TITLE = "Agent"
+DEFAULT_LEVEL_1_TITLE = "Sergeant"
+DEFAULT_LEVEL_2_TITLE = "Lieutenant"
+DEFAULT_LEVEL_3_TITLE = "Captain"
+DEFAULT_LEVEL_4_TITLE = "Inspector"
+DEFAULT_LEVEL_5_TITLE = "Deputy Chief Inspector"
+DEFAULT_LEVEL_6_TITLE = "Chief Inspector"
+DEFAULT_LEVEL_7_TITLE = "Superintendant"
+DEFAULT_LEVEL_8_TITLE = "Deputy Chief Superintendant"
+DEFAULT_LEVEL_9_TITLE = "Chief Superintendant"
+DEFAULT_LEVEL_10_TITLE = "High Commander"
+DEFAULT_LEVEL_11_TITLE = "Deputy Assistant Leader"
+DEFAULT_LEVEL_12_TITLE = "Assistant Leader"
+DEFAULT_LEVEL_13_TITLE = "Deputy Leader"
+DEFAULT_LEVEL_14_TITLE = "Faction Leader"
+
+
 ######################################################################
 # Settings given in secret_settings.py override those in this file.
 ######################################################################
