@@ -50,7 +50,7 @@ class CmdFactionCreate(Command):
         faction.db.leadership = [caller.name]
         faction.tags.add("faction")
         if caller.db.faction:
-            faction.db.super_faction = caller.db.faction
+            faction.db.superfaction = caller.db.faction
         caller.db.faction = faction
         caller.msg("You founded the faction called: %s." % faction.name)
         
