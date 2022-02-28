@@ -442,6 +442,11 @@ class CmdStats(Command):
         self.caller.msg("Your stamina level is now %.2f." % proficiency(self.caller.db.stamina))
         for skillname in self.caller.db.skills.keys():
             self.caller.msg(f"Your {skillname} skill level is now {round(proficiency(self.caller.db.skills[skillname]), 2)}.")
+        
+        if self.caller.db.faction:
+            self.caller.msg("You are a member of " + self.caller.db.faction.name)
+        else:
+            self.caller.msg("You do not belong to nay faction.")
             
         return
     
