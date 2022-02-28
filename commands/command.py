@@ -446,7 +446,7 @@ class CmdStats(Command):
         if self.caller.db.faction:
             self.caller.msg("You are a member of " + self.caller.db.faction.name)
         else:
-            self.caller.msg("You do not belong to nay faction.")
+            self.caller.msg("You do not belong to any faction.")
             
         return
     
