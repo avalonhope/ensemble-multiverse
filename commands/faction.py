@@ -32,12 +32,14 @@ class CmdFactionCreate(Command):
             return
         
         caller = self.caller
-        if caller.db.faction:
-          caller.msg("You already belong to %s." % caller.db.faction.name)
-          return
         # create a new faction
         # make each part of name always start with capital letter
         name = self.args.strip().title()
+        # search for an existing faction of the same name
+        existing = utils.search.search_script(name)
+        if len(existing) > 0:
+            caller.msg("This faction name is already in use.")
+            return
         # create faction
         faction = create_script("typeclasses.factions.Faction",
                                 key=name,
@@ -47,6 +49,8 @@ class CmdFactionCreate(Command):
         faction.db.members = [caller.name]
         faction.db.leadership = [caller.name]
         faction.tags.add("faction")
+        if caller.db.faction:
+            faction.db.super_faction = caller.db.faction
         caller.db.faction = faction
         caller.msg("You founded the faction called: %s." % faction.name)
         
@@ -72,5 +76,7 @@ class CmdFactions(Command):
                 self.caller.msg(faction.name + " founded by " + faction.db.founder.name)
             else:
                 self.caller.msg(faction.name)
+            if faction.db.superfaction:
+                self.caller.msg(" a subfaction of " + faction.db.superfaction.name)
         
  
