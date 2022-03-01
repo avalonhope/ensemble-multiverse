@@ -7,7 +7,7 @@ Rooms are simple containers that has no location of their own.
 
 from enum import Enum
 from evennia import DefaultRoom
-from commands.default_cmdsets import RoleplayingCmdset, TrainingCmdset
+from commands.default_cmdsets import TrainingCmdset
 
 
 class Location(Enum):
@@ -40,8 +40,6 @@ class Room(DefaultRoom):
     properties and methods available on all Objects.
     """
     def at_object_creation(self):
-        self.db.events = []
-        self.cmdset.add(RoleplayingCmdset, permanent=True)
         self.db.level = Location.ROOM
 
         
