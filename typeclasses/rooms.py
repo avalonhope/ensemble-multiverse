@@ -1,7 +1,7 @@
 """
 Room
 
-Rooms are simple containers that has no location of their own.
+Rooms are simple containers that have no sub-locations.
 
 """
 
