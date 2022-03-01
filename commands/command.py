@@ -9,6 +9,7 @@ from evennia import create_object, utils
 from evennia.commands.command import Command as BaseCommand
 from world.skills import proficiency
 from server.conf.settings import RECOVERY_RATE, MEDITATION_COST, MINDSHIELD_GAIN, OPTIONAL_SKILLS
+from typeclasses.rooms import LOCATION
 
 # from evennia import default_cmds
 
@@ -450,31 +451,28 @@ class CmdStats(Command):
             
         return
     
-class CmdBuild(Command):
+class CmdDiscover(Command):
     """
-    create a new entity, item or location
+    discover a new location
     Usage:
-        +build <type>
-    Creates a new entity, item or location.
+        +discover <type>
+    Discover a new location.
     """
-    key = "+build"
-    aliases = ["+make", "+construct", "+craft"]
-    help_category = "building"
+    key = "+discover"
+    help_category = "general"
     
     def func(self):
         "creates the object and names it"
         caller = self.caller
         if not self.args or "=" not in self.args:
-            caller.msg("Usage: +build <kind> = <name>")
+            caller.msg("Usage: +discover <kind> = <name>")
             return
         kind, name = [arg.strip() for arg in self.args.split('=', 1)]
         
         # make each part of name always start with capital letter
         name = name.title()
         kind = kind.lower()
-        item, duration = build(kind, name)
        
-   def build(self, kind, name):
         
         
        
