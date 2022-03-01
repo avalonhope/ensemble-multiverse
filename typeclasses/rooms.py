@@ -11,7 +11,7 @@ from commands.default_cmdsets import TrainingCmdset
 
 
 class Location(Enum):
-    # Each level is contained with th next level up, for example a room is inside a building
+    # Each level is contained with the next level up, for example a room is inside a building
     ROOM = 0  # cannot have any sub-rooms, lowest possible level
     BUILDING = 1  # structure, cavern, vehicle, shuttle
     AREA = 2  # street, village, docking bay, open terrain
