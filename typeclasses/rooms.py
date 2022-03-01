@@ -51,12 +51,3 @@ class TrainingRoom(Room):
     def at_object_creation(self):
         "this is called during training"
         self.cmdset.add(TrainingCmdset, permanent=True)
-        
-class Warehouse(Room):
-    """
-    This room class is used by warehouses. It makes
-    the WarehouseCmdset available.
-    """
-    def at_object_creation(self):
-        "Warehouse resource management"
-        self.cmdset.add(WarehouseCmdset, permanent=True)
