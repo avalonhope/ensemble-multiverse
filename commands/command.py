@@ -463,15 +463,13 @@ class CmdDiscover(Command):
     
     def func(self):
         "creates the object and names it"
-        caller = self.caller
         if not self.args or "=" not in self.args:
-            caller.msg("Usage: +discover <kind> = <name>")
+            caller.msg("Usage: +discover <kind>")
             return
-        kind, name = [arg.strip() for arg in self.args.split('=', 1)]
-        
-        # make each part of name always start with capital letter
-        name = name.title()
-        kind = kind.lower()
+         
+        kind = self.args.strip.lower()
+        caller = self.caller
+        location = caller.location
        
         
         
