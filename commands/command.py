@@ -450,3 +450,31 @@ class CmdStats(Command):
             
         return
     
+class CmdBuild(Command):
+    """
+    create a new entity, item or location
+    Usage:
+        +build <type>
+    Creates a new entity, item or location.
+    """
+    key = "+build"
+    aliases = ["+make", "+construct", "+craft"]
+    help_category = "building"
+    
+    def func(self):
+        "creates the object and names it"
+        caller = self.caller
+        if not self.args or "=" not in self.args:
+            caller.msg("Usage: +build <kind> = <name>")
+            return
+        kind, name = [arg.strip() for arg in self.args.split('=', 1)]
+        
+        # make each part of name always start with capital letter
+        name = name.title()
+        kind = kind.lower()
+        item, duration = build(kind, name)
+       
+   def build(self, kind, name):
+        
+        
+       
