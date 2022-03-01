@@ -38,7 +38,10 @@ MEDITATION_COST = 10
 MINDSHIELD_GAIN = 5
 RECOVERY_RATE = 30
 
-OPTIONAL_SKILLS = ["archery", "leadership", "medicine", "mindmeld", "mindshield", "pilot"]
+BUILDING_COST = 10
+BUILDING_RATE = 30
+
+OPTIONAL_SKILLS = ["archery", "leadership", "medicine", "mindmeld", "mindshield", "piloting", "building"]
 
 DEFAULT_BUILDING = "Town Hall"
 DEFAULT_AREA = "Main Street"
@@ -64,7 +67,7 @@ DEFAULT_LEVEL_6_TITLE = "Chief Inspector"
 DEFAULT_LEVEL_7_TITLE = "Superintendant"
 DEFAULT_LEVEL_8_TITLE = "Deputy Chief Superintendant"
 DEFAULT_LEVEL_9_TITLE = "Chief Superintendant"
-DEFAULT_LEVEL_10_TITLE = "Commander"
+DEFAULT_LEVEL_10_TITLE = "Superintendant General"
 DEFAULT_LEVEL_11_TITLE = "Deputy Assistant Leader"
 DEFAULT_LEVEL_12_TITLE = "Assistant Leader"
 DEFAULT_LEVEL_13_TITLE = "Deputy Leader"
