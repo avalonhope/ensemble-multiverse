@@ -451,26 +451,3 @@ class CmdStats(Command):
             
         return
     
-class CmdDiscover(Command):
-    """
-    discover a new location
-    Usage:
-        +discover <type>
-    Discover a new location.
-    """
-    key = "+discover"
-    help_category = "general"
-    
-    def func(self):
-        "creates the object and names it"
-        if not self.args or "=" not in self.args:
-            caller.msg("Usage: +discover <kind>")
-            return
-         
-        kind = self.args.strip.lower()
-        caller = self.caller
-        location = caller.location
-       
-        
-        
-       
