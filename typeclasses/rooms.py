@@ -16,9 +16,9 @@ class Location(Enum):
     BUILDING = 1  # structure, cavern, vehicle, shuttle
     AREA = 2  # street, village, docking bay, open terrain
     DISTRICT = 3  # major village, town quarter, large ship
-    TOWN = 4  # space station, county, shipyard, wilderness
-    REGION = 5  # city, province, duchy, planet orbit, atmosphere
-    COUNTRY = 6  # major country or minor planet
+    TOWN = 4  # space station, county, shipyard, wilderness, floating city
+    REGION = 5  # major city, province, duchy, atmospheric layer
+    COUNTRY = 6  # major country or minor planet, atmosphere of major planet
     PLANET = 7  # inner worlds for most species
     SYSTEM = 8
     SECTOR = 9  # large group of star systems
