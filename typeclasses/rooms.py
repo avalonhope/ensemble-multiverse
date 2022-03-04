@@ -41,13 +41,3 @@ class Room(DefaultRoom):
     """
     def at_object_creation(self):
         self.db.level = Location.ROOM
-
-        
-class TrainingRoom(Room):
-    """
-    This room class is used by training rooms. It makes
-    the TrainingCmdset available.
-    """
-    def at_object_creation(self):
-        "this is called during training"
-        self.cmdset.add(TrainingCmdset, permanent=True)
