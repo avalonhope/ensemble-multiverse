@@ -7,7 +7,6 @@ Rooms are simple containers that have no sub-locations.
 
 from enum import Enum
 from evennia import DefaultRoom
-from commands.default_cmdsets import TrainingCmdset
 
 
 class Location(Enum):
