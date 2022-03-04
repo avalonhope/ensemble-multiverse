@@ -42,6 +42,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(command.CmdStats())
         self.add(faction.CmdFactions())
         self.add(faction.CmdFactionCreate())
+        self.add(faction.CmdFactionClaim())
         
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
