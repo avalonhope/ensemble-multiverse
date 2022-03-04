@@ -59,7 +59,7 @@ class CmdFactions(Command):
     """
     show lists of factions
     Usage:
-      +history
+      +factions
     This shows a list of faction names
     """
     
@@ -80,3 +80,33 @@ class CmdFactions(Command):
                 self.caller.msg(" a subfaction of " + faction.db.superfaction.name)
         
  
+class CmdFactionClaim(Command):
+    """
+    associates your faction with this location, if not already taken
+    Usage:
+      +factionclaim
+    This calims this location for your faction
+    """
+    
+    key = "+factionclaim"
+    help_category = "roleplaying"
+
+    def func(self):
+        "This performs the actual command"
+        caller = self.caller
+        location = caller.location
+        if location.db.faction:
+            caller.msg("This location is already claimed by " + location.db.faction.name)
+            return
+       if caller.db.faction is None:
+            caller.msg("You do not belong to a faction yet.")
+            return
+        location.db.faction = caller.db.faction
+        if location.db.level is None:
+            caller.db.reputation += 1
+        else:
+            caller.db.reputation += 2 ** location.db.level
+        caller.msg(location.name + " is now claimed by " + location.db.faction.name)
+        location.msg("This located is now claimed by " + location.db.faction.name)
+        return
+    
