@@ -105,7 +105,7 @@ class CmdFactionClaim(Command):
         if location.db.level is None:
             caller.db.reputation += 1
         else:
-            caller.db.reputation += 2 ** location.db.level
+            caller.db.reputation += 2 ** int(location.db.level)
         caller.msg(location.name + " is now claimed by " + location.db.faction.name)
         location.msg("This located is now claimed by " + location.db.faction.name)
         return
