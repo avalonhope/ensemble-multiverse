@@ -43,6 +43,8 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(faction.CmdFactions())
         self.add(faction.CmdFactionCreate())
         self.add(faction.CmdFactionClaim())
+        self.add(command.CmdTrainSkill())
+
         
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
@@ -105,11 +107,4 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
         #
         
         
-class TrainingCmdset(CmdSet):
-    """
-    This cmdset is used in training areas.
-    """
-    key = "Training"
-    def at_cmdset_creation(self):
-        "This is called at initialization"
-        self.add(command.CmdTrainSkill())
+        
