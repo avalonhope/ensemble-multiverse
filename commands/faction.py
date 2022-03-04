@@ -98,7 +98,7 @@ class CmdFactionClaim(Command):
         if location.db.faction:
             caller.msg("This location is already claimed by " + location.db.faction.name)
             return
-       if caller.db.faction is None:
+        if caller.db.faction is None:
             caller.msg("You do not belong to a faction yet.")
             return
         location.db.faction = caller.db.faction
