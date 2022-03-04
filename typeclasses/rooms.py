@@ -5,11 +5,11 @@ Rooms are simple containers that have no sub-locations.
 
 """
 
-from enum import Enum
+from enum import IntEnum
 from evennia import DefaultRoom
 
 
-class Location(Enum):
+class Location(IntEnum):
     # Each level is contained with the next level up, for example a room is inside a building
     ROOM = 0  # cannot have any sub-rooms, lowest possible level
     BUILDING = 1  # structure, cavern, vehicle, shuttle
