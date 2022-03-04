@@ -1,7 +1,4 @@
-import deal
 
-@deal.post(lambda result: result >= 1.0)
-@deal.pure
 def proficiency (experience):
     """
     Calculate a charcater's skill proficency level based on experience points.
