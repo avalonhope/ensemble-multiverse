@@ -9,7 +9,6 @@ from evennia import create_object, utils
 from evennia.commands.command import Command as BaseCommand
 from world.skills import proficiency
 from server.conf.settings import RECOVERY_RATE, MEDITATION_COST, MINDSHIELD_GAIN, OPTIONAL_SKILLS, BUILDING_COST, BUILDING_RATE
-from typeclasses.rooms import LOCATION
 
 # from evennia import default_cmds
 
