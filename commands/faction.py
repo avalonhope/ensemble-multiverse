@@ -78,6 +78,12 @@ class CmdFactions(Command):
                 self.caller.msg(faction.name)
             if faction.db.superfaction:
                 self.caller.msg(" a subfaction of " + faction.db.superfaction.name)
+                
+        if self.caller.db.faction:
+            self.caller.msg("You are a member of " + self.caller.db.faction.name)
+        else:
+            self.caller.msg("You do not yet belong to any faction.")
+        return
         
  
 class CmdFactionClaim(Command):
