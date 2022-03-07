@@ -377,12 +377,6 @@ class CmdRest(Command):
     def func(self):
         "recover energy"
         caller = self.caller
-        if caller.db.resting:
-            caller.msg("You continue resting.")
-            return
-        elif caller.db.busy:
-            caller.msg("You are too busy to rest now.")
-            return
         if not caller.db.stamina:
             caller.db.stamina = 0
         if not caller.db.health:
@@ -396,8 +390,6 @@ class CmdRest(Command):
             self.caller.msg("You are already fully rested.")
             return
         time_to_recover = int(RECOVERY_RATE * amount_to_recover / stamina_level)
-        caller.db.resting = True
-        caller.db.busy = True
         utils.delay(time_to_recover, self.recover)
         hours_to_recovery = time_to_recover / 3600.0
         if hours_to_recovery > 1.0:
@@ -409,8 +401,6 @@ class CmdRest(Command):
     def recover(self):
         "This will be called when fully recovered"
         caller = self.caller
-        caller.db.resting = False
-        caller.db.busy = False
         stamina_level = proficiency(caller.db.stamina)
         # maximum energy level depends on health and stamina
         caller.db.energy = int(caller.db.health * stamina_level)
