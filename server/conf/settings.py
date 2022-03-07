@@ -41,7 +41,10 @@ RECOVERY_RATE = 300  # five minutes per energy point
 BUILDING_COST = 10
 BUILDING_RATE = 30
 
-OPTIONAL_SKILLS = ["archery", "leadership", "medicine", "mindmeld", "mindshield", "piloting", "building"]
+DISCOVERY_COST = 100
+DISCOVERY_RATE = 300 # five minutes for level one, twenty minutes for level two, ...
+
+OPTIONAL_SKILLS = ["archery", "leadership", "medicine", "mindmeld", "mindshield", "pilot", "build", "discover", "explore", "craft"]
 
 DEFAULT_BUILDING = "Town Hall"
 DEFAULT_AREA = "Main Street"
