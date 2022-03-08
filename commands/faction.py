@@ -149,7 +149,7 @@ class CmdFactionJoin(Command):
             else:
                 caller.msg("You are now a member of " + faction.name)
         else:
-            caller.msg("You already belong to a different faction.")
+            caller.msg("You already belong to " + caller.db.faction.name)
          
         return
     
