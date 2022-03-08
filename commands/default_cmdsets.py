@@ -43,6 +43,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(faction.CmdFactions())
         self.add(faction.CmdFactionCreate())
         self.add(faction.CmdFactionClaim())
+        self.add(faction.CmdFactionJoin())
         self.add(command.CmdTrainSkill())
 
         
