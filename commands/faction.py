@@ -114,7 +114,7 @@ class CmdFactionClaim(Command):
             caller.db.reputation += 1
         else:
             caller.db.reputation += 2 ** int(location.db.level)
-        if caller.db.reputation > faction.db.leader.db.reputation:
+        if faction.db.leader is None or caller.db.reputation > faction.db.leader.db.reputation:
             faction.db.leader = caller
             caller.msg("You are now the faction leader.")
         caller.msg(location.name + " is now claimed by " + location.db.faction.name)
