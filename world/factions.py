@@ -1,15 +1,15 @@
 def subfaction(child, parent):
   """Check if one faction is a subfaction of another."""
   if child.db.superfaction is None:
-    return false
+    return False
   elif child.db.superfaction.name == parent.name:
-    return true
+    return True
   else:
     superfaction = child.db.superfaction
-    found = false
+    found = False
     while superfaction.db.superfaction is not None:
       if superfaction.db.superfaction.name == parent.name:
-        found = true
+        found = True
         break
       superfaction = superfaction.db.superfaction
     return found
