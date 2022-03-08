@@ -73,7 +73,7 @@ class CmdFactions(Command):
         self.caller.msg("There are %d factions:" % len(factions))
         for faction in factions:
             if faction.db.leader:
-                self.caller.msg(faction.name + " lead by " + faction.db.leader.name)
+                self.caller.msg(faction.name + " led by " + faction.db.leader.name)
             else:
                 self.caller.msg(faction.name)
             if faction.db.superfaction:
