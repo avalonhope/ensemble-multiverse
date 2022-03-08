@@ -7,6 +7,7 @@ import evennia
 
 from commands.command import Command
 from evennia import create_object, create_script, utils
+from world.factions import subfaction
 
 class CmdFactionCreate(Command):
     """
@@ -45,9 +46,8 @@ class CmdFactionCreate(Command):
                                 key=name,
                                 locks="edit:id(%i) and perm(Builders);call:false()" % caller.id,
                                 report_to=caller)
-        faction.db.founder = caller
-        faction.db.members = [caller.name]
-        faction.db.leadership = [caller.name]
+        faction.db.leader = caller
+        caller.tags.add(faction.name, category="faction")
         faction.tags.add("faction")
         if caller.db.faction:
             faction.db.superfaction = caller.db.faction
@@ -72,8 +72,8 @@ class CmdFactions(Command):
         factions = utils.search.search_script_tag("faction")
         self.caller.msg("There are %d factions:" % len(factions))
         for faction in factions:
-            if faction.db.founder:
-                self.caller.msg(faction.name + " founded by " + faction.db.founder.name)
+            if faction.db.leader:
+                self.caller.msg(faction.name + " lead by " + faction.db.leader.name)
             else:
                 self.caller.msg(faction.name)
             if faction.db.superfaction:
@@ -91,7 +91,7 @@ class CmdFactionClaim(Command):
     associates your faction with this location, if not already taken
     Usage:
       +factionclaim
-    This calims this location for your faction
+    Associate this location with your faction
     """
     
     key = "+factionclaim"
@@ -108,11 +108,49 @@ class CmdFactionClaim(Command):
             caller.msg("You do not belong to a faction yet.")
             return
         location.db.faction = caller.db.faction
+        faction = caller.db.faction
+        location.tags.add(faction.name, category="faction")
         if location.db.level is None:
             caller.db.reputation += 1
         else:
             caller.db.reputation += 2 ** int(location.db.level)
+        if caller.db.reputation > faction.db.leader.db.reputation:
+            faction.db.leader = caller
+            caller.msg("You are now the faction leader.")
         caller.msg(location.name + " is now claimed by " + location.db.faction.name)
         location.msg("This located is now claimed by " + location.db.faction.name)
         return
+ 
+class CmdFactionJoin(Command):
+    """
+    Join the local faction or subfaction
+    Usage:
+      +factionjoin
+    This adds you to the local faction
+    """
     
+    key = "+factionjoin"
+    help_category = "roleplaying"
+
+    def func(self):
+        "This performs the actual command"
+        caller = self.caller
+        location = caller.location
+        if location.db.faction is None:
+            caller.msg("There is no local faction to join. You must find the right location.")
+            return
+        faction = location.db.faction
+        if caller.db.faction is None or subfaction(faction, caller.db.faction):
+            caller.db.faction = faction
+            caller.tags.add(faction.name, category="faction")
+            if caller.db.reputation > faction.db.leader.db.reputation:
+                faction.db.leader = caller
+                caller.msg("You are now the leader of " + faction.name)
+            else:
+                caller.msg("You are now a member of " + faction.name)
+        else:
+            caller.msg("You already belong to a different faction.")
+         
+        return
+    
+
