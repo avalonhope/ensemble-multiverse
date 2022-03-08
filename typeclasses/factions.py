@@ -1,9 +1,8 @@
 """
 Factions
-Factions are groups of characters, including the founder.
-Factions contain a list of members, subgroups, ranks and orginistaional structure.
-Factions can have unit names for their subunits and unique names for their ranks.
-Founders and leaders can configure factions using the faction commands from a Faction House or Faction Room.
+Factions are groups of characters.
+Factions can be associated with locations.
+Factions can have nested subfactions.
 """
 
 from evennia import DefaultScript
