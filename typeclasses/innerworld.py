@@ -3,7 +3,7 @@ Inner Worlds
 Inner Worlds exist within characters that are Plural Systems.
 """
 from evennia import DefaultRoom
-from typeclasses.room import Location
+from typeclasses.rooms import Location
 
 
 class Home(DefaultRoom):
@@ -12,4 +12,4 @@ class Home(DefaultRoom):
     """
 
     def at_object_creation(self):
-        self.db.level = Location.PLANET
+        self.db.level = Location.UNIVERSE
