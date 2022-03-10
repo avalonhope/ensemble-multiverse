@@ -52,6 +52,12 @@ class CmdFactionCreate(Command):
         if caller.db.faction:
             faction.db.superfaction = caller.db.faction
         caller.db.faction = faction
+        # shared inner world by which faction members may communicate and interact
+        faction.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World of %s" % faction.name)
+        faction.db.innerWorld.tags.add("Inner World")
+        faction.db.innerWorld.db.faction = faction
+        faction.db.innerWorld.tags.add(faction.name, category="faction")
+        # announce
         caller.msg("You founded the faction called: %s." % faction.name)
         
 
