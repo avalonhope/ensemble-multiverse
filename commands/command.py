@@ -290,6 +290,11 @@ class CmdImagine(Command):
             caller.db.companions = 1
         else:
             caller.db.companions += 1
+        # add to faction
+        if caller.db.faction is not None:
+            faction = caller.db.faction
+            companion.db.faction = faction
+            companion.tags.add(faction.name, category="faction")
         # announce
         message = "%s imagined '%s'."
         caller.msg(message % ("You", name))
@@ -328,6 +333,11 @@ class CmdMeditate(Command):
         # create empty inner world if needed
         if not caller.db.innerWorld:
             caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World of %s" % caller.name)
+            # add inner world to faction
+            if caller.db.faction is not None:
+                faction = caller.db.faction
+                caller.db.innerWorld.db.faction = faction
+                caller.db.innerWorld.tags.add(faction.name, category="faction")
         if not caller.location:
             # may not meditate when OOC
             caller.msg("You must have a location to begin meditation.")
