@@ -343,7 +343,7 @@ class CmdMeditate(Command):
             # may not meditate when OOC
             caller.msg("You must have a location to begin meditation.")
             return
-        if caller.db.in_medidation:
+        if caller.db.in_meditation:
             caller.msg("You continue to meditate.")
             return
         caller.db.in_meditation = True
