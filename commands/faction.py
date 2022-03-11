@@ -206,6 +206,9 @@ class CmdFactionSpace(Command):
             return
         caller.db.in_meditation = True
         caller.db.outerWorld = caller.location
-        caller.move_to(faction.db.innerWorld)
+        
         caller.msg("You close your eyes and visualize the shared inner world of your faction.")
+        caller.move_to(faction.db.innerWorld)
+        return
+    
 
