@@ -348,8 +348,9 @@ class CmdMeditate(Command):
             return
         caller.db.in_meditation = True
         caller.db.outerWorld = caller.location
-        caller.move_to(caller.db.innerWorld)
         caller.msg("You close your eyes and visualize your inner world.")
+        caller.move_to(caller.db.innerWorld)
+        return
         
 class CmdAwaken(Command):
     """
@@ -369,9 +370,10 @@ class CmdAwaken(Command):
         if not caller.db.in_meditation:
             caller.msg("You are not in meditation.")
             return
-        caller.move_to(caller.db.outerWorld)
         caller.msg("You leave your inner world and return to the outer world.")
+        caller.move_to(caller.db.outerWorld)
         caller.db.in_meditation = False
+        return
         
         
 class CmdRest(Command):
