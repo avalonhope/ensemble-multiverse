@@ -159,7 +159,7 @@ class CmdFactionJoin(Command):
          
         return
     
-    class CmdFactionSpace(Command):
+class CmdFactionSpace(Command):
     """
     enter shared inner world of faction
     Usage:
