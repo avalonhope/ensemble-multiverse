@@ -163,7 +163,7 @@ class CmdFactionJoin(Command):
     """
     enter shared inner world of faction
     Usage:
-        +factionspace
+      +factionspace
     Moves character into shared inner world of faction
     """
     key = "+factionspace"
