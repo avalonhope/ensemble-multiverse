@@ -159,4 +159,52 @@ class CmdFactionJoin(Command):
          
         return
     
+    class CmdFactionSpace(Command):
+    """
+    enter shared inner world of faction
+    Usage:
+        +factionspace
+    Moves character into shared inner world of faction
+    """
+    key = "+factionspace"
+    aliases = ["+factionworld"]
+    help_category = "inner world"
+    
+    def func(self):
+        "moves to inner world of faction"
+        caller = self.caller
+        if caller.db.faction is None:
+            caller.msg("You do not yet belong to nay faction.")
+            return
+       faction = caller.db.faction
+        # comsume some energy
+        if not caller.db.energy or caller.db.energy < MEDITATION_COST or caller.db.resting:
+            caller.msg("You are too tired. You need to rest.")
+            return
+        caller.db.energy -= MEDITATION_COST
+        # gain experience and improve mental defenses
+        if not caller.db.skills:
+            caller.db.skills = {}
+            caller.db.skills["mindshield"] = 0
+        elif "mindshield" not in caller.db.skills.keys():
+            caller.db.skills["mindshield"] = 0
+        caller.db.skills["mindshield"] += MINDSHIELD_GAIN
+        # create empty inner world if needed
+        if not faction.db.innerWorld:
+            faction.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World of %s" % faction.name)
+            faction.db.innerWorld.tags.add("Inner World")
+            faction.db.innerWorld.tags.add(faction.name, category="faction")
+            faction.db.innerWorld.db.faction = faction
+        if not caller.location:
+            # may not meditate when OOC
+            caller.msg("You must have a location to begin meditation.")
+            return
+        if caller.db.in_medidation:
+            caller.msg("You visualize the shared inner world of your faction.")
+            caller.move_to(faction.db.innerWorld)
+            return
+        caller.db.in_meditation = True
+        caller.db.outerWorld = caller.location
+        caller.move_to(faction.db.innerWorld)
+        caller.msg("You close your eyes and visualize the shared inner world of your faction.")
 
