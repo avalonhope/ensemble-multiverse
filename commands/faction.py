@@ -175,7 +175,7 @@ class CmdFactionSpace(Command):
         "moves to inner world of faction"
         caller = self.caller
         if caller.db.faction is None:
-            caller.msg("You do not yet belong to nay faction.")
+            caller.msg("You do not yet belong to any faction.")
             return
         faction = caller.db.faction
         # comsume some energy
@@ -200,7 +200,7 @@ class CmdFactionSpace(Command):
             # may not meditate when OOC
             caller.msg("You must have a location to begin meditation.")
             return
-        if caller.db.in_medidation:
+        if caller.db.in_meditation:
             caller.msg("You visualize the shared inner world of your faction.")
             caller.move_to(faction.db.innerWorld)
             return
