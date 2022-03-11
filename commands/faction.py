@@ -176,7 +176,7 @@ class CmdFactionSpace(Command):
         if caller.db.faction is None:
             caller.msg("You do not yet belong to nay faction.")
             return
-       faction = caller.db.faction
+        faction = caller.db.faction
         # comsume some energy
         if not caller.db.energy or caller.db.energy < MEDITATION_COST or caller.db.resting:
             caller.msg("You are too tired. You need to rest.")
