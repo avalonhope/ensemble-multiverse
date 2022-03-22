@@ -2,7 +2,6 @@
 Faction Commands
 Commands for managing factions
 """
-import deal
 import evennia
 
 from commands.command import Command
