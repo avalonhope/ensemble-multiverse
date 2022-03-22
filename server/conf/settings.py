@@ -4,7 +4,7 @@ Evennia settings file.
 The available options are found in the default settings file found
 here:
 
-/home/avalon/starquest/evennia/evennia/settings_default.py
+../../evennia/evennia/settings_default.py
 
 Remember:
 
