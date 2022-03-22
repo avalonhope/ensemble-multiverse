@@ -44,10 +44,11 @@ BUILDING_RATE = 30
 DISCOVERY_COST = 100
 DISCOVERY_RATE = 300 # five minutes for level one, twenty minutes for level two, ...
 
-OPTIONAL_SKILLS = ["archery", "leadership", "medicine", "mindmeld", "mindshield", "pilot", "build", "discover", "explore", "craft"]
+OPTIONAL_SKILLS = ["agriculture", "archery", "ecology", "electronics", "horticulture", "leadership", 
+                   "medicine", "microbiology", "mindmeld", "mindshield", "robotics", "piloting", "building", "discovery", "exploration", "crafting"]
 
 DEFAULT_BUILDING = "Town Hall"
-DEFAULT_AREA = "Main Street"
+DEFAULT_STREET = "Main Street"
 DEFAULT_DISTRICT = "Central District"
 DEFAULT_TOWN = "Difenland City"
 DEFAULT_REGION = "Capital Region" 
