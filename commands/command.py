@@ -207,7 +207,7 @@ class CmdTrainSkill(Command):
 
     def func(self):
         "This performs the actual command"
-        if self.caller.db.energy <= 0 or self.caller.db.resting:
+        if self.caller.db.energy <= 0 or self.caller.db.health <= 0:
             self.caller.msg("You are too tired to train. You need to rest.")
             return
         errmsg = "You must supply a valid skillname."
@@ -400,6 +400,7 @@ class CmdRest(Command):
             caller.db.energy = 0
         amount_to_recover = maximum_energy - caller.db.energy
         if amount_to_recover <= 0 and caller.db.health == 100:
+            self.caller.db.resting = False
             self.caller.msg("You are already fully rested.")
             return
         time_to_recover = int(RECOVERY_RATE * amount_to_recover / stamina_level)
