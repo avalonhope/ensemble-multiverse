@@ -8,7 +8,7 @@ Commands describe the input the account can do to the game.
 from evennia import create_object, utils
 from evennia.commands.command import Command as BaseCommand
 from world.skills import proficiency
-from server.conf.settings import RECOVERY_RATE, MEDITATION_COST, OPTIONAL_SKILLS
+from server.conf.settings import RECOVERY_RATE, SKILLS
 
 # from evennia import default_cmds
 
@@ -240,7 +240,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.stamina += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg("Your stamina level is now %.2f." % proficiency(self.caller.db.stamina))
-            elif skillname in OPTIONAL_SKILLS:
+            elif skillname in SKILLS:
                 if skillname not in self.caller.db.skills.keys():
                     self.caller.db.skills[skillname] = 0
                 self.caller.db.skills[skillname] += self.caller.db.energy
@@ -285,11 +285,7 @@ class CmdImagine(Command):
                       key=name,
                       location=caller.db.innerWorld,
                       locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
-        # add to party
-        if not caller.db.companions:
-            caller.db.companions = 1
-        else:
-            caller.db.companions += 1
+ 
         # add to faction
         if caller.db.faction is not None:
             faction = caller.db.faction
@@ -318,11 +314,6 @@ class CmdMeditate(Command):
     def func(self):
         "moves to inner world"
         caller = self.caller
-        # comsume some energy
-        if not caller.db.energy or caller.db.energy < MEDITATION_COST or caller.db.resting:
-            caller.msg("You are too tired. You need to rest.")
-            return
-        caller.db.energy -= MEDITATION_COST
       
         # create empty inner world if needed
         if not caller.db.innerWorld:
