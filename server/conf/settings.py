@@ -34,10 +34,16 @@ from evennia.settings_default import *
 MULTISESSION_MODE = 3
 MAX_NR_CHARACTERS = 10000000
 
-RECOVERY_RATE = 300  # five minutes per energy point, about eight hours for complete rest
+######################################################################
+# Starquest (Infinite Worlds) parameters
+######################################################################
 
-OPTIONAL_SKILLS = ["agriculture", "archery", "ecology", "electronics", "horticulture", "leadership", 
-                   "medicine", "microbiology", "robotics", "piloting", "building", "discovery", "exploration", "crafting"]
+RECOVERY_RATE = 300  # five minutes per energy point
+
+SKILLS = ["agriculture", "archery", "ecology", "electronics", 
+          "horticulture", "leadership", 
+          "medicine", "microbiology", "robotics", "piloting", 
+          "building", "discovery", "exploration", "crafting"]
 
 
 ######################################################################
