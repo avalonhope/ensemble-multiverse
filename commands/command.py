@@ -308,7 +308,6 @@ class CmdMeditate(Command):
     """
     key = "+meditate"
     aliases = ["+meditation"]
-    locks = "call: perm(innerworld)"
     help_category = "inner world"
     
     def func(self):
@@ -332,7 +331,8 @@ class CmdMeditate(Command):
             caller.msg("You continue to meditate.")
             return
         caller.db.in_meditation = True
-        caller.db.outerWorld = caller.location
+        if caller.location is not caller.db.innerWorld:
+            caller.db.outerWorld = caller.location
         caller.msg("You close your eyes and visualize your inner world.")
         caller.move_to(caller.db.innerWorld)
         return
@@ -346,7 +346,6 @@ class CmdAwaken(Command):
     """
     key = "+awaken"
     aliases = ["+awaken"]
-    locks = "call: perm(innerworld)"
     help_category = "inner world"
     
     def func(self):
