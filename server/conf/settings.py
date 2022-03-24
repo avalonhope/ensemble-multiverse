@@ -34,48 +34,10 @@ from evennia.settings_default import *
 MULTISESSION_MODE = 3
 MAX_NR_CHARACTERS = 10000000
 
-MEDITATION_COST = 10
-MINDSHIELD_GAIN = 5
-RECOVERY_RATE = 300  # five minutes per energy point
-
-BUILDING_COST = 10
-BUILDING_RATE = 30
-
-DISCOVERY_COST = 100
-DISCOVERY_RATE = 300 # five minutes for level one, twenty minutes for level two, ...
+RECOVERY_RATE = 300  # five minutes per energy point, about eight hours for complete rest
 
 OPTIONAL_SKILLS = ["agriculture", "archery", "ecology", "electronics", "horticulture", "leadership", 
-                   "medicine", "microbiology", "mindmeld", "mindshield", "robotics", "piloting", "building", "discovery", "exploration", "crafting"]
-
-DEFAULT_BUILDING = "Town Hall"
-DEFAULT_STREET = "Main Street"
-DEFAULT_DISTRICT = "Central District"
-DEFAULT_TOWN = "Difenland City"
-DEFAULT_REGION = "Capital Region" 
-DEFALT_COUNTRY = "Difenland"  
-DEFAULT_PLANET = "Fleador Prime"
-DEFAULT_SYSTEM = "Fleador System"
-DEFAULT_SECTOR = "Fleador Sector"
-DEFAULT_GALAXY = "Milky Way Galaxy"
-DEFAULT_CLUSTER = "Virgo Cluster"
-DEFAULT_SUPERCLUSTER = "Virgo Supercluster"  
-DEFAULT_UNIVERSE = "The Known Universe"
-
-DEFAULT_LEVEL_0_TITLE = "Agent"
-DEFAULT_LEVEL_1_TITLE = "Sergeant"
-DEFAULT_LEVEL_2_TITLE = "Lieutenant"
-DEFAULT_LEVEL_3_TITLE = "Captain"
-DEFAULT_LEVEL_4_TITLE = "Inspector"
-DEFAULT_LEVEL_5_TITLE = "Deputy Chief Inspector"
-DEFAULT_LEVEL_6_TITLE = "Chief Inspector"
-DEFAULT_LEVEL_7_TITLE = "Superintendant"
-DEFAULT_LEVEL_8_TITLE = "Deputy Chief Superintendant"
-DEFAULT_LEVEL_9_TITLE = "Chief Superintendant"
-DEFAULT_LEVEL_10_TITLE = "Superintendant General"
-DEFAULT_LEVEL_11_TITLE = "Deputy Assistant Leader"
-DEFAULT_LEVEL_12_TITLE = "Assistant Leader"
-DEFAULT_LEVEL_13_TITLE = "Deputy Leader"
-DEFAULT_LEVEL_14_TITLE = "Faction Leader"
+                   "medicine", "microbiology", "robotics", "piloting", "building", "discovery", "exploration", "crafting"]
 
 
 ######################################################################
