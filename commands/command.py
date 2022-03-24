@@ -8,7 +8,7 @@ Commands describe the input the account can do to the game.
 from evennia import create_object, utils
 from evennia.commands.command import Command as BaseCommand
 from world.skills import proficiency
-from server.conf.settings import RECOVERY_RATE, MEDITATION_COST, MINDSHIELD_GAIN, OPTIONAL_SKILLS, BUILDING_COST, BUILDING_RATE
+from server.conf.settings import RECOVERY_RATE, MEDITATION_COST, OPTIONAL_SKILLS
 
 # from evennia import default_cmds
 
@@ -323,13 +323,7 @@ class CmdMeditate(Command):
             caller.msg("You are too tired. You need to rest.")
             return
         caller.db.energy -= MEDITATION_COST
-        # gain experience and improve mental defenses
-        if not caller.db.skills:
-            caller.db.skills = {}
-            caller.db.skills["mindshield"] = 0
-        elif "mindshield" not in caller.db.skills.keys():
-            caller.db.skills["mindshield"] = 0
-        caller.db.skills["mindshield"] += MINDSHIELD_GAIN
+      
         # create empty inner world if needed
         if not caller.db.innerWorld:
             caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World of %s" % caller.name)
