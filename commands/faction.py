@@ -146,8 +146,9 @@ class CmdFactionJoin(Command):
             return
         faction = location.db.faction
         if caller.db.faction is None or subfaction(faction, caller.db.faction):
-            caller.db.faction = faction
-            caller.tags.add(faction.name, category="faction")
+            if faction is not caller.db.faction:
+                caller.db.faction = faction
+                caller.tags.add(faction.name, category="faction")
             if faction.db.leader is None or caller.db.reputation > faction.db.leader.db.reputation:
                 faction.db.leader = caller
                 caller.msg("You are now the leader of " + faction.name)
