@@ -7,7 +7,6 @@ import evennia
 from commands.command import Command
 from evennia import create_object, create_script, utils
 from world.factions import subfaction
-from server.conf.settings import MEDITATION_COST
 
 class CmdFactionCreate(Command):
     """
