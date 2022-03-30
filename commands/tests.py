@@ -2,7 +2,7 @@ import unittest
   
 from evennia.commands.default.tests import CommandTest
 
-from commands.faction import CmdFactionClaim
+from commands.faction import CmdFactionClaim, CmdLocalManager
 from typeclasses.characters import Character
 from typeclasses.rooms import Room
 
@@ -21,7 +21,7 @@ class TestFactionClaim(CommandTest):
     # check the increase in reputation for this character
     pass
     
- def test_dispute_claim(self)
+ def test_disputed_claim(self):
     # create an empty room
     # create a character and faction
     # claim the room
@@ -32,3 +32,6 @@ class TestFactionClaim(CommandTest):
     # second character claims room successfully
     pass
     
+class TestLocalManager(CommandTest):
+  """Test the determination of manager for a location."""
+  pass
