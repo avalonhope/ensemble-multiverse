@@ -1,6 +1,6 @@
 def subfaction(child, parent):
   """Check if one faction is a subfaction of another."""
-  if child is parent
+  if child is parent:
     return True
   elif child.db.superfaction is None:
     return False
