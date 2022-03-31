@@ -182,7 +182,7 @@ class CmdFactionSpace(Command):
             return
         
         faction = caller.location.db.faction
-        if not subfaction(faction, caller.db.faction):
+        if not subfaction(caller.db.faction, faction):
             caller.msg("You are not a member of the faction or sub-faction for this location.")
             return
         
