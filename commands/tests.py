@@ -21,7 +21,7 @@ class TestFactionClaim(CommandTest):
     # check the increase in reputation for this character
     pass
     
- def test_disputed_claim(self):
+  def test_disputed_claim(self):
     # create an empty room
     # create a character and faction
     # claim the room
