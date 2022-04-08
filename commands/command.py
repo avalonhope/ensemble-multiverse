@@ -447,8 +447,8 @@ class CmdRace(Command):
 
     def func(self):
         "This performs the actual command"
-         caller = self.caller
-         if caller.db.race is None:
+        caller = self.caller
+        if caller.db.race is None:
             caller.db.race = self.args.strip().title()
-         caller.msg("You are a " + caller.db.race) 
-         return
+        caller.msg("You are a " + caller.db.race) 
+        return
