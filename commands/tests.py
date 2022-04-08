@@ -2,7 +2,7 @@ import unittest
   
 from evennia.commands.default.tests import CommandTest
 
-from commands.faction import CmdFactionClaim, CmdLocalManager
+from commands.faction import CmdFactionClaim
 from typeclasses.characters import Character
 from typeclasses.rooms import Room
 
