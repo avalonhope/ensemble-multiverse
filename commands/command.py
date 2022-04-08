@@ -433,3 +433,22 @@ class CmdStats(Command):
             
         return
     
+class CmdRace(Command):
+    """
+    Set or show the the species or race of a character
+    Usage:
+      +race <name>
+    This sets or shows the race of the current character.
+    """
+    
+    key = "+race"
+    aliases = ["+species", "+kind"]
+    help_category = "general"
+
+    def func(self):
+        "This performs the actual command"
+         caller = self.caller
+         if caller.db.race is None:
+            caller.db.race = self.args.strip().title()
+         caller.msg("You are a " + caller.db.race) 
+         return
