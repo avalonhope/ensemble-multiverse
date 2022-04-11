@@ -389,6 +389,7 @@ class CmdRest(Command):
             return
         time_to_recover = int(RECOVERY_RATE * amount_to_recover / stamina_level)
         utils.delay(time_to_recover, self.recover)
+        self.caller.db.resting = True
         hours_to_recovery = time_to_recover / 3600.0
         if hours_to_recovery > 1.0:
             caller.msg("You begin resting. You will be fully rested in %.1f hours." % hours_to_recovery)
