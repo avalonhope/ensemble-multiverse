@@ -451,5 +451,6 @@ class CmdRace(Command):
         caller = self.caller
         if caller.db.race is None or len(caller.db.race) < 2:
             caller.db.race = self.args.strip().title()
+            caller.tags.add(caller.db.race, category="race")
         caller.msg("You are a " + caller.db.race) 
         return
