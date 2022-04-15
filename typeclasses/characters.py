@@ -8,7 +8,6 @@ creation commands.
 
 """
 from evennia import DefaultCharacter
-import deal
 
 class Character(DefaultCharacter):
     """
