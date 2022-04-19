@@ -212,8 +212,9 @@ class CmdQuest(Command):
     This shows a list of faction names
     """
     
-    key = "+factions"
-    help_category = "roleplaying"
+    key = "+quest"
+    aliases = ["+factionquest", "+myquest"]
+    help_category = "quests"
 
     def func(self):
         "This performs the actual command"
