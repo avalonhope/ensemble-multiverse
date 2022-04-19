@@ -47,6 +47,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(faction.CmdFactionSpace())
         self.add(command.CmdTrainSkill())
         self.add(command.CmdRace())
+        self.add(command.CmdQuest())
 
         
 
