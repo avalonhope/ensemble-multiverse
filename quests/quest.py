@@ -1,7 +1,10 @@
 """
 Quests
 
-Quests are a type of script.
+Quests are a type of script.  Quests can be assigned to factions and
+faction members work together to complete the quest.  Multipe factions
+can co-operate on the same quest, but each faction may only have one
+quest at a time.
 
 Scripts are powerful jacks-of-all-trades. They have no in-game
 existence and can be used to represent persistent game systems in some
