@@ -203,3 +203,24 @@ class CmdFactionSpace(Command):
         caller.msg("You meditate and visualize the shared inner world of your faction.")
         caller.move_to(faction.db.innerWorld)
         return
+
+class CmdQuest(Command):
+    """
+    show details of quest for this faction
+    Usage:
+      +quest
+    This shows a list of faction names
+    """
+    
+    key = "+factions"
+    help_category = "roleplaying"
+
+    def func(self):
+        "This performs the actual command"
+        faction = self.caller.db.faction
+        if faction.db.quest is None:
+            self.caller.msg("Your faction has not chosen a quest yet.")
+        else:
+            quest = faction.db.quest
+            self.caller.msg(quest.db.status)
+        return
