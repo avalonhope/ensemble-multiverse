@@ -48,7 +48,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(command.CmdRace())
         self.add(faction.CmdQuest())
 
-        
+
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
     """
@@ -108,6 +108,6 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
-        
-        
-        
+
+
+

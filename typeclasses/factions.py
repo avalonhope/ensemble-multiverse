@@ -76,4 +76,4 @@ class Faction(DefaultScript):
       self.db.titles = {}
       self.db.ranks = {}
       self.persistent = True
-      
+

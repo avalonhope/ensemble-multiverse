@@ -18,7 +18,7 @@ class Planet(DefaultRoom):
 
     def at_object_creation(self):
         self.db.level = Location.PLANET
-        
+
 class Moon(DefaultRoom):
     """
     Moons are like any Object, except their location 
@@ -31,7 +31,7 @@ class Moon(DefaultRoom):
 
     def at_object_creation(self):
         self.db.level = Location.COUNTRY
-        
+
 class Sun(DefaultRoom):
     """
     Suns are like any Object, except their location 
@@ -44,5 +44,5 @@ class Sun(DefaultRoom):
 
     def at_object_creation(self):
         self.db.level = Location.PLANET
-        
-        
+
+
