@@ -60,15 +60,6 @@ class AccountCmdSet(default_cmds.AccountCmdSet):
 
     key = "DefaultAccount"
 
-    def at_cmdset_creation(self):
-        """
-        Populates the cmdset
-        """
-        super().at_cmdset_creation()
-        #
-        # any commands you add below will overload the default ones.
-        #
-
 
 class UnloggedinCmdSet(default_cmds.UnloggedinCmdSet):
     """
@@ -78,15 +69,6 @@ class UnloggedinCmdSet(default_cmds.UnloggedinCmdSet):
 
     key = "DefaultUnloggedin"
 
-    def at_cmdset_creation(self):
-        """
-        Populates the cmdset
-        """
-        super().at_cmdset_creation()
-        #
-        # any commands you add below will overload the default ones.
-        #
-
 
 class SessionCmdSet(default_cmds.SessionCmdSet):
     """
@@ -95,19 +77,6 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
     """
 
     key = "DefaultSession"
-
-    def at_cmdset_creation(self):
-        """
-        This is the only method defined in a cmdset, called during
-        its creation. It should populate the set with command instances.
-
-        As and example we just add the empty base `Command` object.
-        It prints some info.
-        """
-        super().at_cmdset_creation()
-        #
-        # any commands you add below will overload the default ones.
-        #
 
 
 
