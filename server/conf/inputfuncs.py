@@ -26,27 +26,3 @@ as argument.
 
 """
 
-# def oob_echo(session, *args, **kwargs):
-#     """
-#     Example echo function. Echoes args, kwargs sent to it.
-#
-#     Args:
-#         session (Session): The Session to receive the echo.
-#         args (list of str): Echo text.
-#         kwargs (dict of str, optional): Keyed echo text
-#
-#     """
-#     session.msg(oob=("echo", args, kwargs))
-#
-#
-# def default(session, cmdname, *args, **kwargs):
-#     """
-#     Handles commands without a matching inputhandler func.
-#
-#     Args:
-#         session (Session): The active Session.
-#         cmdname (str): The (unmatched) command name
-#         args, kwargs (any): Arguments to function.
-#
-#     """
-#     pass
