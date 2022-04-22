@@ -17,8 +17,8 @@ class Region(DefaultRoom):
 
     def at_object_creation(self):
         self.db.level = Location.REGION
-        
-       
+
+
 class Town(DefaultRoom):
     """
     Towns are like any Object, except their location is within a Region. They also use basetype_setup() to
@@ -30,4 +30,4 @@ class Town(DefaultRoom):
 
     def at_object_creation(self):
         self.db.level = Location.TOWN
-        
+

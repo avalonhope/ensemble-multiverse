@@ -200,7 +200,7 @@ class CmdTrainSkill(Command):
     This trains the skills of the current character. This can only be
     used in a training room.
     """
-    
+
     key = "+train"
     aliases = ["+learn", "+study", "+improve"]
     help_category = "skills"
@@ -252,10 +252,10 @@ class CmdTrainSkill(Command):
         except ValueError:
             self.caller.msg(errmsg)
             return
-        
+
         return
 
-    
+
 class CmdImagine(Command):
     """
     create a new imaginary companion and add to inner world
@@ -267,7 +267,7 @@ class CmdImagine(Command):
     """
     key = "+imagine"
     help_category = "inner world"
-    
+
     def func(self):
         "creates the object and names it"
         caller = self.caller
@@ -285,7 +285,7 @@ class CmdImagine(Command):
                       key=name,
                       location=caller.db.innerWorld,
                       locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
- 
+
         # add to faction
         if caller.db.faction is not None:
             faction = caller.db.faction
@@ -296,7 +296,7 @@ class CmdImagine(Command):
         caller.msg(message % ("You", name))
         caller.db.innerWorld.msg_contents(message % (caller.key, name),
                                                 exclude=caller)
-        
+
 class CmdMeditate(Command):
     """
     enter inner world
@@ -309,11 +309,11 @@ class CmdMeditate(Command):
     key = "+meditate"
     aliases = ["+meditation"]
     help_category = "inner world"
-    
+
     def func(self):
         "moves to inner world"
         caller = self.caller
-      
+
         # create empty inner world if needed
         if not caller.db.innerWorld:
             caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World of %s" % caller.name)
@@ -336,7 +336,7 @@ class CmdMeditate(Command):
         caller.msg("You close your eyes and visualize your inner world.")
         caller.move_to(caller.db.innerWorld)
         return
-        
+
 class CmdAwaken(Command):
     """
     leave inner world
@@ -347,7 +347,7 @@ class CmdAwaken(Command):
     key = "+awaken"
     aliases = ["+awaken"]
     help_category = "inner world"
-    
+
     def func(self):
         "moves to outer world"
         caller = self.caller
@@ -358,8 +358,8 @@ class CmdAwaken(Command):
         caller.move_to(caller.db.outerWorld)
         caller.db.in_meditation = False
         return
-        
-        
+
+
 class CmdRest(Command):
     """
     restore energy
@@ -370,7 +370,7 @@ class CmdRest(Command):
     key = "+rest"
     aliases = ["+sleep"]
     help_category = "general"
-    
+
     def func(self):
         "recover energy"
         caller = self.caller
@@ -396,7 +396,7 @@ class CmdRest(Command):
         else:
             minutes_to_recovery = time_to_recover / 60.0
             caller.msg("You begin your nap. You will be fully rested in %.1f minutes." % minutes_to_recovery)
-        
+
     def recover(self):
         "This will be called when fully recovered"
         caller = self.caller
@@ -407,7 +407,7 @@ class CmdRest(Command):
         if caller.db.health < 100:
             caller.db.health = min(100, caller.db.health + int(stamina_level))
         caller.msg("You are fully rested now.")
-        
+
 class CmdStats(Command):
     """
     Show the skill levels and stats of a character
@@ -415,7 +415,7 @@ class CmdStats(Command):
       +skills
     This shows the skills and stats of the current character.
     """
-    
+
     key = "+skills"
     aliases = ["+profile", "+status"]
     help_category = "skills"
@@ -431,9 +431,9 @@ class CmdStats(Command):
         self.caller.msg("Your stamina level is now %.2f." % proficiency(self.caller.db.stamina))
         for skillname in self.caller.db.skills.keys():
             self.caller.msg(f"Your {skillname} skill level is now {round(proficiency(self.caller.db.skills[skillname]), 2)}.")
-            
+
         return
-    
+
 class CmdRace(Command):
     """
     Set or show the the species or race of a character
@@ -441,7 +441,7 @@ class CmdRace(Command):
       +race <name>
     This sets or shows the race of the current character.
     """
-    
+
     key = "+race"
     aliases = ["+species", "+kind"]
     help_category = "general"

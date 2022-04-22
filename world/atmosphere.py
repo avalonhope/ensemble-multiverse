@@ -7,4 +7,4 @@ class Layers(Enum):
   MESOSPHERE = 2
   THERMOSPHERE = 3
   EXOSPHERE = 5
-  
+
