@@ -87,7 +87,6 @@ class CmdFactions(Command):
             self.caller.msg("You are a member of " + self.caller.db.faction.name)
         else:
             self.caller.msg("You do not yet belong to any faction.")
-        return
 
 
 class CmdFactionClaim(Command):
@@ -223,4 +222,3 @@ class CmdQuest(Command):
         else:
             quest = faction.db.quest
             self.caller.msg(quest.db.status)
-        return
