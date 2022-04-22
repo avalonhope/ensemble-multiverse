@@ -296,8 +296,6 @@ class CmdStats(Command):
         for skillname in self.caller.db.skills.keys():
             self.caller.msg(f"Your {skillname} skill level is now {round(proficiency(self.caller.db.skills[skillname]), 2)}.")
 
-        return
-
 class CmdRace(Command):
     """
     Set or show the the species or race of a character
@@ -317,4 +315,3 @@ class CmdRace(Command):
             caller.db.race = self.args.strip().title()
             caller.tags.add(caller.db.race, category="race")
         caller.msg("You are a " + caller.db.race) 
-        return
