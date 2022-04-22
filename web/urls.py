@@ -10,7 +10,6 @@ from evennia.web.urls import urlpatterns
 
 # eventual custom patterns
 custom_patterns = [
-    # url(r'/desired/url/', view, name='example'),
 ]
 
 # this is required by Django.

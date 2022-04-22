@@ -45,7 +45,3 @@ and can be used to customize it to each session.
 
 """
 
-# def capitalize(text, *args, **kwargs):
-#    "Silly capitalize example. Used as {capitalize() ... {/capitalize"
-#    session = kwargs.get("session")
-#    return text.capitalize()
