@@ -180,7 +180,7 @@ class CmdMeditate(Command):
 
         # create empty inner world if needed
         if not caller.db.innerWorld:
-            caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Inner World of %s" % caller.name)
+            caller.db.innerWorld = create_object("typeclasses.innerworld.Home", key = "Entrance to Inner World of %s" % caller.name)
             caller.db.innerWorld.tags.add("Inner World")
             # add inner world to faction
             if caller.db.faction is not None:
