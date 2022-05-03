@@ -307,8 +307,6 @@ class PhysicalObject(DefaultObject):
 
      """
 
-    pass
-
 class EthericObject(DefaultObject):
     """
     These kinds of objects exist in inner worlds, faction spaces and
@@ -450,6 +448,4 @@ class EthericObject(DefaultObject):
                                  object speaks
 
      """
-
-    pass
 
