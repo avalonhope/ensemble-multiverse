@@ -112,3 +112,8 @@ class ShadowBeing(DefaultCharacter):
         self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
+
+
+class Tulpa(EthericBeing):
+    """A tulpa is a created thoughtform within a Plural System."""
+    pass
