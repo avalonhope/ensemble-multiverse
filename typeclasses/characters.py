@@ -42,7 +42,7 @@ class Character(DefaultCharacter):
         self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
- 
+
 class EthericBeing(DefaultCharacter):
     """
     The Character defaults to reimplementing some of base Object's hook methods with the
@@ -110,4 +110,3 @@ class ShadowBeing(DefaultCharacter):
         self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
- 
