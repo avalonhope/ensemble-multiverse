@@ -161,6 +161,7 @@ class Object(DefaultObject):
 
     pass
 
+
 class PhysicalObject(DefaultObject):
     """
     This is the root typeclass object, implementing an in-game Evennia
@@ -307,6 +308,7 @@ class PhysicalObject(DefaultObject):
 
      """
 
+    
 class EthericObject(DefaultObject):
     """
     These kinds of objects exist in inner worlds, faction spaces and
