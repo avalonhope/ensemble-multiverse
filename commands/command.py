@@ -130,6 +130,7 @@ class CmdImagine(Command):
     Creates a new, imaginary companion.
     """
     key = "+imagine"
+    aliases = ["+thoughtform", "+tulpa"]
     help_category = "inner world"
 
     def func(self):
@@ -145,7 +146,7 @@ class CmdImagine(Command):
         # make each part of name always start with capital letter
         name = self.args.strip().title()
         # create companion in Inner World
-        companion = create_object("characters.Character",
+        companion = create_object("characters.Tulpa",
                       key=name,
                       location=caller.db.innerWorld,
                       locks="edit:id(%i) and perm(Builders);call:false()" % caller.id)
