@@ -116,4 +116,3 @@ class ShadowBeing(DefaultCharacter):
 
 class Tulpa(EthericBeing):
     """A tulpa is a created thoughtform within a Plural System."""
-    pass
