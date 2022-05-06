@@ -459,5 +459,5 @@ class StorageObject (PhysicalObject):
 
 
 class ShadowObject (DefaultObject):
-    """These objects are semi-inisible and are mostly composed of dark matter."""
+    """These objects are semi-invisible and are mostly composed of dark matter."""
     pass
