@@ -451,13 +451,11 @@ class EthericObject(DefaultObject):
 
      """
 
-    
+
 class StorageObject (PhysicalObject):
     """These are containers such as boxes with other objects inside, but mobile
     and too small to be a room; characters cannot fit inside."""
-    pass
 
 
 class ShadowObject (DefaultObject):
     """These objects are semi-invisible and are mostly composed of dark matter."""
-    pass
