@@ -12,10 +12,8 @@ def step_impl(context):
 @when("the quest command is used")
 def step_impl(context):
     """Run the quest command."""
-    pass
 
 
 @then("a list of quests is shown")
 def setp_impl(context):
     """Check that a list of quests is shown."""
-    pass
