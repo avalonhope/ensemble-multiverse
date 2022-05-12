@@ -308,7 +308,7 @@ class PhysicalObject(DefaultObject):
 
      """
 
-    
+
 class EthericObject(DefaultObject):
     """
     These kinds of objects exist in inner worlds, faction spaces and
@@ -462,10 +462,10 @@ class StorageObject (PhysicalObject):
 class ShadowObject (DefaultObject):
     """These objects are semi-invisible and are mostly composed of dark matter."""
 
-    
+
 class Fixture (PhysicalObject):
     """These objects are fixed in position."""
-    
-    
+
+
 class LargePlant (Fixture):
     """These objects are living and may conatin fruits, nuts or berries."""
