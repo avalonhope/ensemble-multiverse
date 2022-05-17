@@ -10,3 +10,8 @@ def step_impl(context):
 def step_impl(context):
   context.planet.atmosphere = planets.Atmosphere()
   
+@given("the planet has enough sunlight")
+def step_impl(context):
+    context.planet.sun = planets.Sun()
+    context.planet.sunlight_level = biospheres.OPTIMAL_SUNLIGHT_LEVEL
+    
