@@ -4,6 +4,7 @@ from world.skills import proficiency
 class TestSkills(EvenniaTest):
     def test_proficiency(self):
         examples = {
+            -1: 1.0,
             0: 1.0,
             1000: 2.0,
             8000: 3.0,
