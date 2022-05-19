@@ -11,4 +11,4 @@ class TestSkills(EvenniaTest):
           64000: 5.0,
         }
         for value in expected:
-          self.assertEqual(proficency(value), expected(value))
+          self.assertEqual(proficiency(value), expected[value])
