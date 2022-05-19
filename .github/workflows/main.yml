@@ -28,7 +28,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Set up Evennia
         run: |
-          pip install -upgrade pip
+          pip install --upgrade pip
           git clone https://github.com/evennia/evennia.git ../evennia
           pip install -e ../evennia
 
