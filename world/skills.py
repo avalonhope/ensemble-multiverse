@@ -1,4 +1,6 @@
+from icontract import ensures
 
+@ensures(lambda result: result > = 1.0)
 def proficiency (experience):
     """
     Calculate a charcater's skill proficency level based on experience points.
