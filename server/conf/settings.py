@@ -55,4 +55,3 @@ except ImportError:
     print("secret_settings.py file not found or failed to import.")
     SERVERNAME = "Starquest - Infinite Worlds"
     WEBSERVER_ENABLED = False
-
