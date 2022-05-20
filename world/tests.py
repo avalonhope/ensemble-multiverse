@@ -4,7 +4,7 @@ from world.skills import proficiency
 
 class TestSkills(EvenniaTest):
     """Test skills system."""
-    
+
     def test_proficiency(self):
         """"Test skill level calculation."""
         examples = {
