@@ -2,7 +2,9 @@ from evennia.utils.test_resources import EvenniaTest
 from world.skills import proficiency
 
 class TestSkills(EvenniaTest):
+    """Test skills system."""
     def test_proficiency(self):
+        """"Test skill level calculation."""
         examples = {
             -1: 1.0,
             0: 1.0,
