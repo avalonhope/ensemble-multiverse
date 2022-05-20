@@ -1,6 +1,13 @@
 from evennia.utils.test_resources import EvenniaTest
+from hypothesis import given
+from hypothesis.strategies import integers
 from world.skills import proficiency
 
+
+@given(integers())
+def test_proficiency(expereince):
+    skill_level = proficiency(experience)
+    assert skill_level >= 1.0
 
 class TestSkills(EvenniaTest):
     """Test skills system."""
