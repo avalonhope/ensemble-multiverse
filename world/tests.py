@@ -5,9 +5,17 @@ from world.skills import proficiency
 
 
 @given(integers())
-def test_proficiency(expereince):
-    skill_level = proficiency(experience)
-    assert skill_level >= 1.0
+def test_proficiency_min_value(x):
+    assert proficiency(x) >= 1.0
+    
+@given(integers(), integers())
+def test_proficiency_strictly_increasing(x, y):
+    if x < y and x >= 0:
+        assert proficiency(x) < proficiency(y)
+    elif x > y and y >= 0:
+        assert proficiency(x) > proficiency(y)
+    elif x == y:
+        assert proficiency(x) == proficiency(y)
 
 class TestSkills(EvenniaTest):
     """Test skills system."""
