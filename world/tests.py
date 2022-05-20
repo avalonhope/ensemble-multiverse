@@ -9,18 +9,24 @@ def test_proficiency_min_value(x):
     if proficiency(x) < 1.0:
         raise AssertionError
 
+        
 @given(integers(), integers())
 def test_proficiency_strictly_increasing(x, y):
-    if x < y and x >= 0:
-        if proficiency(x) >= proficiency(y):
+    if x < y and x >= 0 and proficiency(x) >= proficiency(y):
             raise AssertionError
-    elif x > y and y >= 0:
-        if proficiency(x) <= proficiency(y):
+    elif x > y and y >= 0 and proficiency(x) <= proficiency(y):
             raise AssertionError
-    elif x == y:
-        if proficiency(x) != proficiency(y):
+    elif x == y and proficiency(x) != proficiency(y):
             raise AssertionError
 
+            
+@given(integers())
+def test_inverse_proficiency(x):
+    skill_level = proficiency(x)
+    if x != ((skill_level - 1) * 10) ** 3:
+        raise AssertionError
+
+            
 class TestSkills(EvenniaTest):
     """Test skills system."""
 
