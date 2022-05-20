@@ -6,16 +6,20 @@ from world.skills import proficiency
 
 @given(integers())
 def test_proficiency_min_value(x):
-    assert proficiency(x) >= 1.0
-    
+    if proficiency(x) < 1.0:
+        raise AssertionError
+
 @given(integers(), integers())
 def test_proficiency_strictly_increasing(x, y):
     if x < y and x >= 0:
-        assert proficiency(x) < proficiency(y)
+        if proficiency(x) >= proficiency(y):
+            raise AssertionError
     elif x > y and y >= 0:
-        assert proficiency(x) > proficiency(y)
+        if proficiency(x) <= proficiency(y):
+            raise AssertionError
     elif x == y:
-        assert proficiency(x) == proficiency(y)
+        if proficiency(x) != proficiency(y):
+            raise AssertionError
 
 class TestSkills(EvenniaTest):
     """Test skills system."""
