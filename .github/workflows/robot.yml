@@ -31,4 +31,4 @@ jobs:
     - name: Test with robot
       run: |
         robot --version
-        robot robot/tests/robot
+        robot robot/tests.robot
