@@ -14,12 +14,12 @@ def test_proficiency_min_value(x):
 @given(integers(), integers())
 def test_proficiency_strictly_increasing(x, y):
     """Verify that result is strictly increasing."""
-    if x < y and x >= 0 and proficiency(x) >= proficiency(y):
-            raise AssertionError
-    if x > y and y >= 0 and proficiency(x) <= proficiency(y):
-            raise AssertionError
+    if 0 <= x < y and proficiency(x) >= proficiency(y):
+        raise AssertionError
+    if x > y >= 0 and proficiency(x) <= proficiency(y):
+        raise AssertionError
     if x == y and proficiency(x) != proficiency(y):
-            raise AssertionError
+        raise AssertionError
 
 
 @given(integers())
