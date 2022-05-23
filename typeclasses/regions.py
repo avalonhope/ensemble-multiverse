@@ -6,6 +6,7 @@ Regions are simple containers located within a Country.
 from evennia import DefaultRoom
 from typeclasses.rooms import Location
 
+
 class Region(DefaultRoom):
     """
     Regions are like any Object, except their location is within a Country. They also use basetype_setup() to
@@ -30,4 +31,3 @@ class Town(DefaultRoom):
 
     def at_object_creation(self):
         self.db.level = Location.TOWN
-

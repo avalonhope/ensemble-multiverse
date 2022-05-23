@@ -9,8 +9,7 @@ help.
 from evennia.web.urls import urlpatterns
 
 # eventual custom patterns
-custom_patterns = [
-]
+custom_patterns = []
 
 # this is required by Django.
 urlpatterns = custom_patterns + urlpatterns
