@@ -35,7 +35,7 @@ def step_impl(context):
 
 @when(u'C asks to join faction B')
 def step_impl(context):
-    context.result = actions.join_faction(context.character_A, context.faction_B)
+    context.result = actions.join_faction(context.character_C, context.faction_B)
 
 
 @then(u'C is not allowed to join faction B')
