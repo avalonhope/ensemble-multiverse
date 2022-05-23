@@ -31,4 +31,3 @@ class TestFactionClaim(CommandTest):
 
 class TestLocalManager(CommandTest):
   """Test the determination of manager for a location."""
-  pass

@@ -159,8 +159,6 @@ class Object(DefaultObject):
 
      """
 
-    pass
-
 
 class PhysicalObject(DefaultObject):
     """
