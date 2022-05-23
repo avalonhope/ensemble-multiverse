@@ -86,7 +86,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.strength += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg("Your strength level is now %.2f." % proficiency(self.caller.db.strength))
-            elif skillname== "agility":
+            elif skillname == "agility":
                 if self.caller.db.agility is None:
                     self.caller.db.agility = 0
                 self.caller.db.agility += self.caller.db.energy
