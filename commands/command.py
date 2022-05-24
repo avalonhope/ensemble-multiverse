@@ -68,7 +68,7 @@ class CmdTrainSkill(Command):
     help_category = "skills"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command"."""
         if self.caller.db.energy <= 0 or self.caller.db.health <= 0:
             self.caller.msg("You are too tired to train. You need to rest.")
             return
@@ -132,7 +132,7 @@ class CmdImagine(Command):
     help_category = "inner world"
 
     def func(self):
-        "creates the object and names it"
+        """creates the object and names it"."""
         caller = self.caller
         if not self.args:
             caller.msg("Usage: +imagine <name>")
@@ -174,7 +174,7 @@ class CmdMeditate(Command):
     help_category = "inner world"
 
     def func(self):
-        "moves to inner world"
+        """moves to inner world"."""
         caller = self.caller
 
         # create empty inner world if needed
@@ -212,7 +212,7 @@ class CmdAwaken(Command):
     help_category = "inner world"
 
     def func(self):
-        "moves to outer world"
+        """moves to outer world."""
         caller = self.caller
         if not caller.db.in_meditation:
             caller.msg("You are not in meditation.")
@@ -235,7 +235,7 @@ class CmdRest(Command):
     help_category = "general"
 
     def func(self):
-        "recover energy"
+        """recover energy"""
         caller = self.caller
         if not caller.db.stamina:
             caller.db.stamina = 0
@@ -261,7 +261,7 @@ class CmdRest(Command):
             caller.msg("You begin your nap. You will be fully rested in %.1f minutes." % minutes_to_recovery)
 
     def recover(self):
-        "This will be called when fully recovered"
+        """This will be called when fully recovered."""
         caller = self.caller
         stamina_level = proficiency(caller.db.stamina)
         # maximum energy level depends on health and stamina
@@ -284,7 +284,7 @@ class CmdStats(Command):
     help_category = "skills"
 
     def func(self):
-        "This performs the actual command"
+        """Display profile."""
         self.caller.msg("Your health is now %d%%." % self.caller.db.health)
         self.caller.msg("Your energy is now %d." % self.caller.db.energy)
         self.caller.msg("Your reputation level is now %.2f." % proficiency(self.caller.db.reputation))
@@ -308,7 +308,7 @@ class CmdRace(Command):
     help_category = "general"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command."""
         caller = self.caller
         if caller.db.race is None or len(caller.db.race) < 2:
             caller.db.race = self.args.strip().title()
