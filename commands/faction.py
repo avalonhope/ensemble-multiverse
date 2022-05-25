@@ -3,10 +3,10 @@ Faction Commands
 Commands for managing factions
 """
 
-from commands.command import Command
+from commands.command import Command  # type: ignore
 from evennia import create_object, create_script, utils
-from world.factions import subfaction
-
+from world.factions import subfaction  # type: ignore
+  
 class CmdFactionCreate(Command):
     """
     create faction
