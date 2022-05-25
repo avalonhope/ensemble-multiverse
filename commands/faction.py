@@ -219,7 +219,7 @@ class CmdFactionSpace(Command):
             caller.db.in_meditation = True
             caller.db.outerWorld = caller.location
 
-        # TODO if a shadow being is present in personal inner world it may follow 
+        # TODO if a shadow being is present in personal inner world it may follow
         # through into the faction world
 
         caller.msg("You meditate and visualize the shared inner world of your faction.")
