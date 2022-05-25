@@ -4,7 +4,7 @@ Planets are located within a Star System and may contain Countries.
 """
 
 from evennia import DefaultRoom
-from typeclasses.rooms import Location
+from rooms import Location
 
 class Planet(DefaultRoom):
     """
