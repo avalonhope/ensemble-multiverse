@@ -40,10 +40,22 @@ MAX_NR_CHARACTERS = 10000000
 
 RECOVERY_RATE = 300  # five minutes per energy point
 
-SKILLS = ["agriculture", "archery", "ecology", "electronics", 
-          "horticulture", "leadership", 
-          "medicine", "microbiology", "robotics", "piloting", 
-          "building", "discovery", "exploration", "crafting"]
+SKILLS = [
+    "agriculture",
+    "archery",
+    "ecology",
+    "electronics",
+    "horticulture",
+    "leadership",
+    "medicine",
+    "microbiology",
+    "robotics",
+    "piloting",
+    "building",
+    "discovery",
+    "exploration",
+    "crafting",
+]
 
 
 ######################################################################
