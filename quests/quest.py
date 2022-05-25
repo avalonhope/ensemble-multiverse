@@ -81,5 +81,3 @@ class Quest(DefaultScript):
                   save temporary variables you want should survive a reload.
       at_server_shutdown() - called at a full server shutdown.
     """
-
-    pass

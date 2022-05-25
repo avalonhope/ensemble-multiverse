@@ -1,3 +1,4 @@
+# type: ignore
 from behave import *
 
 

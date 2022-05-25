@@ -157,9 +157,7 @@ class Object(DefaultObject):
      at_say(speaker, message)  - by default, called if an object inside this
                                  object speaks
 
-     """
-
-    pass
+    """
 
 
 class PhysicalObject(DefaultObject):
@@ -306,7 +304,7 @@ class PhysicalObject(DefaultObject):
      at_say(speaker, message)  - by default, called if an object inside this
                                  object speaks
 
-     """
+    """
 
 
 class EthericObject(DefaultObject):
@@ -449,23 +447,23 @@ class EthericObject(DefaultObject):
      at_say(speaker, message)  - by default, called if an object inside this
                                  object speaks
 
-     """
+    """
 
 
-class StorageObject (PhysicalObject):
+class StorageObject(PhysicalObject):
     """
     These are containers such as boxes with other objects inside, but mobile
     and too small to be a room; characters cannot fit inside.
     """
 
 
-class ShadowObject (DefaultObject):
+class ShadowObject(DefaultObject):
     """These objects are semi-invisible and are mostly composed of dark matter."""
 
 
-class Fixture (PhysicalObject):
+class Fixture(PhysicalObject):
     """These objects are fixed in position."""
 
 
-class LargePlant (Fixture):
+class LargePlant(Fixture):
     """These objects are living and may conatin fruits, nuts or berries."""
