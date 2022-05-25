@@ -5,7 +5,7 @@ Regions are simple containers located within a Country.
 
 from evennia import DefaultRoom
 from typing import Any
-from typeclasses.rooms import Location  # type: Any
+from typeclasses.rooms import Location  # type: ignore
 
 
 class Region(DefaultRoom):
