@@ -1,11 +1,10 @@
 import icontract
 
-import world.characters
-import world.factions
+from world import characters, factions
 
-@icontract.requires(character is not None)
-@icontract.requires(faction is not None)
-def join_faction(character, faction):
+@icontract.require(character is not None)
+@icontract.require(faction is not None)
+def join_faction(character: characters.Character, faction: factions.Faction):
   """A character asks to join a faction."""
   if character.faction() is faction:
     return True
