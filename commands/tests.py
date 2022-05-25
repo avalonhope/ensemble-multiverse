@@ -12,7 +12,7 @@ class TestFactionClaim(CommandTest):
         """Test that an unclaimed room can be claimed."""
 
     def test_disputed_claim(self):
-        """Test dispute handling for already claimed rooms.""
+        """Test dispute handling for already claimed rooms."""
 
 
 class TestLocalManager(CommandTest):
