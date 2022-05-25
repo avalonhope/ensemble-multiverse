@@ -25,7 +25,7 @@ put secret game- or server-specific settings in secret_settings.py.
 """
 
 # Use the defaults from Evennia unless explicitly overridden
-from evennia.settings_default import *
+from evennia.settings_default import *  # type: ignore
 
 ######################################################################
 # Evennia base server config
@@ -50,7 +50,7 @@ SKILLS = ["agriculture", "archery", "ecology", "electronics",
 # Settings given in secret_settings.py override those in this file.
 ######################################################################
 try:
-    from server.conf.secret_settings import *
+    from server.conf.secret_settings import *  # type: ignore
 except ImportError:
     print("secret_settings.py file not found or failed to import.")
     SERVERNAME = "Starquest - Infinite Worlds"
