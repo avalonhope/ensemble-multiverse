@@ -30,6 +30,6 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with MyPy
       run: |
-        mypy --follow-imports=silent --namespace-packages .
+        mypy --follow-imports=silent --namespace-packages --explicit-package-bases .
         mypy --install-types --non-interactive .
         mypy .
