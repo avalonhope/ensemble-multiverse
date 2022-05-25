@@ -20,7 +20,7 @@ def test_proficiency_strictly_increasing(x, y):
         raise AssertionError
     if x == y and proficiency(x) != proficiency(y):
         raise AssertionError
- 
+
 
 
 @given(integers())
