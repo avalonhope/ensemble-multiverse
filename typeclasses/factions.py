@@ -73,4 +73,4 @@ class Faction(DefaultScript):
     """
 
     def at_script_creation(self):
-      self.persistent = True
+        self.persistent = True
