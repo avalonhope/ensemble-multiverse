@@ -42,4 +42,4 @@ def step_impl(context):
 def step_impl(context):
     if not context.result:
         raise AssertionError
-        
+
