@@ -1,7 +1,7 @@
-from evennia.utils.test_resources import EvenniaTest
+from evennia.utils.test_resources import EvenniaTest  # type: ignore
 from hypothesis import given
 from hypothesis.strategies import integers
-from world.skills import proficiency
+from world.skills import proficiency  # type: ignore
 
 
 @given(integers())
