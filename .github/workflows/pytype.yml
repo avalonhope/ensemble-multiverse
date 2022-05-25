@@ -33,6 +33,6 @@ jobs:
           git clone https://github.com/evennia/evennia.git ../evennia
           pip install -e ../evennia
           
-    - name: Test with pytest
+    - name: Check with pytype
       run: |
         pytype .
