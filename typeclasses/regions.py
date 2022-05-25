@@ -10,7 +10,8 @@ from typeclasses.rooms import Location  # type: ignore
 
 class Region(DefaultRoom):
     """
-    Regions are like any Object, except their location is within a Country. They also use basetype_setup() to
+    Regions are like any Object, except their location is within a Country.
+    They also use basetype_setup() to
     add locks so they cannot be puppeted or picked up.
     (to change that, use at_object_creation instead)
     See examples/object.py for a list of
@@ -23,7 +24,8 @@ class Region(DefaultRoom):
 
 class Town(DefaultRoom):
     """
-    Towns are like any Object, except their location is within a Region. They also use basetype_setup() to
+    Towns are like any Object, except their location is within a Region.
+    They also use basetype_setup() to
     add locks so they cannot be puppeted or picked up.
     (to change that, use at_object_creation instead)
     See examples/object.py for a list of
