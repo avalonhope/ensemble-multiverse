@@ -31,5 +31,3 @@ jobs:
     - name: Test with MyPy
       run: |
         mypy --follow-imports=silent --namespace-packages --explicit-package-bases .
-        mypy --install-types --non-interactive .
-        mypy .
