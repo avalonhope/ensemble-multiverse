@@ -80,4 +80,5 @@ class Biosphere(DefaultScript):
     """
 
     def at_script_creation(self):
+        """Biospheres are persistent."""
         self.persistent = True
