@@ -7,8 +7,8 @@ Commands describe the input the account can do to the game.
 
 from evennia import create_object, utils
 from evennia.commands.command import Command as BaseCommand
-from world.skills import proficiency
-from server.conf.settings import RECOVERY_RATE, SKILLS
+from world.skills import proficiency  # type: ignore
+from server.conf.settings import RECOVERY_RATE, SKILLS  # type: ignore
 
 
 class Command(BaseCommand):
