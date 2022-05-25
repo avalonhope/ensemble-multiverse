@@ -9,6 +9,7 @@ class TestFactionClaim(CommandTest):
     room_typeclass = Room
 
     def test_unclaimed_room(self):
+        """Test that an unclaimed room can be claimed."""
         # create an empty room
         # create a character
         # create a faction
@@ -19,6 +20,7 @@ class TestFactionClaim(CommandTest):
         pass
 
     def test_disputed_claim(self):
+        """Test dispute handling for already claimed rooms."""
         # create an empty room
         # create a character and faction
         # claim the room
