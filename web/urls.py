@@ -1,3 +1,4 @@
+# type: ignore
 """
 Url definition file to redistribute incoming URL requests to django
 views. Search the Django documentation for "URL dispatcher" for more
