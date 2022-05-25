@@ -73,6 +73,4 @@ class Faction(DefaultScript):
     """
 
     def at_script_creation(self):
-        self.db.titles = {}
-        self.db.ranks = {}
         self.persistent = True
