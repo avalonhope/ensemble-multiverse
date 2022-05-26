@@ -133,6 +133,5 @@ class SpaceCraft(DefaultObject):
      at_drop(dropper)          - called when this object has been dropped.
      at_say(speaker, message)  - by default, called if an object inside this
                                  object speaks
- 
+
     """
- 
