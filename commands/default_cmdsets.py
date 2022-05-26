@@ -15,7 +15,8 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 """
 
 from evennia import default_cmds
-from commands import command, faction
+from commands import command, faction  # type: ignore
+
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -49,7 +50,6 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(faction.CmdQuest())
 
 
-
 class AccountCmdSet(default_cmds.AccountCmdSet):
     """
     This is the cmdset available to the Account at all times. It is
@@ -77,6 +77,3 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
     """
 
     key = "DefaultSession"
-
-
-

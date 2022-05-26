@@ -1,6 +1,6 @@
 from evennia.commands.default.tests import CommandTest
-from typeclasses.characters import Character
-from typeclasses.rooms import Room
+from typeclasses.characters import Character  # type: ignore
+from typeclasses.rooms import Room  # type: ignore
 
 
 class TestFactionClaim(CommandTest):

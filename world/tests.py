@@ -1,7 +1,7 @@
-from evennia.utils.test_resources import EvenniaTest
+from evennia.utils.test_resources import EvenniaTest  # type: ignore
 from hypothesis import given
 from hypothesis.strategies import integers
-from world.skills import proficiency
+from world.skills import proficiency  # type: ignore
 
 
 @given(integers())
@@ -22,7 +22,6 @@ def test_proficiency_strictly_increasing(x, y):
         raise AssertionError
 
 
-
 @given(integers())
 def test_inverse_proficiency(x):
     """Test that the result is the correct value."""
@@ -35,7 +34,7 @@ class TestSkills(EvenniaTest):
     """Test skills system."""
 
     def test_proficiency(self):
-        """"Test skill level calculation."""
+        """Test skill level calculation."""
         examples = {
             -1: 1.0,
             0: 1.0,
