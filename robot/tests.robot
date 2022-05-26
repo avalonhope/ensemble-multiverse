@@ -8,4 +8,5 @@ Directory Structure Test
   Should Be True  True
   Directory Should Exist  world
   Directory Should Exist  commands
-  Directory Should Exist  quests
+  Directory Should Exist  typeclasses
+  Directory Should Exist  server
