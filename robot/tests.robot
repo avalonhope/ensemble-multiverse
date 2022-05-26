@@ -1,4 +1,5 @@
 *** Test Cases ***
 
-Empty Test
+Structure Test
   Should Be True  True
+  Directory Should Exist  world
