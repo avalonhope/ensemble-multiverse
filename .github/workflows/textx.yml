@@ -31,5 +31,5 @@ jobs:
     - name: Check TextX models
       run: |
         textx check world/entity.tx
-        textx check state_machine.tx
-        textx check workflow.tx
+        textx check world/state_machine.tx
+        textx check world/workflow.tx
