@@ -1,4 +1,11 @@
+*** Settings ***
+Documentation     Starquest - Infinite Worlds
+Library           OperatingSystem
+
 *** Test Cases ***
 
-Empty Test
+Directory Structure Test
   Should Be True  True
+  Directory Should Exist  world
+  Directory Should Exist  commands
+  Directory Should Exist  quests
