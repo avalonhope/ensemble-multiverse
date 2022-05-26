@@ -21,4 +21,3 @@ def start_plugin_services(portal):
 
     portal - a reference to the main portal application.
     """
-    pass
