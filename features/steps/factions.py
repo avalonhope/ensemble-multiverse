@@ -3,12 +3,12 @@ from world import actions, characters, factions
 
 
 @behave.given(u'we have a faction A')
-def step_impl(context):
+def step_given_a_faction(context):
     context.faction_A = factions.Faction()
 
 
 @behave.given(u'we have a character C')
-def step_impl(context):
+def step_given_a_character(context):
     context.character_C = characters.Character()
 
 
