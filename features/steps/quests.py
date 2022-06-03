@@ -17,7 +17,7 @@ def step_create_quest(context):
 
 
 @when("the {command_name} command is used")
-def step_call_commands(context):
+def step_call_commands(context, command_name):
     """Run the command."""
     context.list_of_quests = context.character.command(command_name)
 
