@@ -34,4 +34,6 @@ jobs:
           pip install -e ../evennia
 
     - name: Run unit tests with branch coverage
-      run: coverage --fail-under 80 --branch -m evennia test --settings settings.py
+      run: | 
+          coverage --branch -m evennia test --settings settings.py
+          coverage report -m --fail-under=80
