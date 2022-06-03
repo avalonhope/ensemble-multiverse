@@ -2,6 +2,7 @@
 from behave import *
 from typeclasses.characters import Character
 
+
 @given("a character exists")
 def step_impl(context):
     """Create a test character."""
