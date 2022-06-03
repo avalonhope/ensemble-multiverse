@@ -35,5 +35,5 @@ jobs:
 
     - name: Run unit tests with branch coverage
       run: | 
-          coverage --branch -m evennia test --settings settings.py
+          coverage run --branch -m evennia test --settings settings.py
           coverage report -m --fail-under=80
