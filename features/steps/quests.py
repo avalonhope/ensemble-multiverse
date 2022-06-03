@@ -23,6 +23,7 @@ def step_call_commands(context):
 
 
 @then("a list of available quests is shown")
-def step_list_of_quests(context):
+def step_check_list_of_quests(context):
     """Check that a list of quests is shown."""
-    assert context.list_of_quests is not None
+    if context.list_of_quests is None:
+        raise AssertionError
