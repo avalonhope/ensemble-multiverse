@@ -1,6 +1,6 @@
 # type: ignore
 from behave import given, when, then
-from typeclasses.characters import Character
+from world.characters import Character
 
 
 @given("a character exists")
