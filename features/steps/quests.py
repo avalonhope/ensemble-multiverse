@@ -8,7 +8,8 @@ from world.quests import Quest
 def step_create_character(context):
     """Create a test character."""
     context.character = LeadCharacter()
-    
+
+
 @given("a quest exists")
 def step_create_quest(context):
     """Create a quest."""
