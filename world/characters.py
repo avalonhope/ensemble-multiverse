@@ -1,2 +1,2 @@
-class LeadCharacter():
-  """Leading character for a quest party."""
+class LeadCharacter:
+    """Leading character for a quest party."""
