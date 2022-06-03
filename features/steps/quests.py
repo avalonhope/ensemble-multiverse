@@ -1,10 +1,11 @@
 # type: ignore
 from behave import *
+from typeclasses.characters import Character
 
-
-@given("a new character has been created")
+@given("a character exists")
 def step_impl(context):
     """Create a test character."""
+    context.character = Character()
 
 
 @when("the quest command is used")
