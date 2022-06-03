@@ -1,12 +1,12 @@
 # type: ignore
 from behave import given, when, then
-from world.characters import Character
+from world.characters import LeadCharacter
 
 
 @given("a character exists")
 def step_create_character(context):
     """Create a test character."""
-    context.character = Character()
+    context.character = LeadCharacter()
 
 
 @when("the quests command is used")
