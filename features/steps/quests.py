@@ -1,7 +1,7 @@
 # type: ignore
 from behave import given, when, then
 from world.characters import LeadCharacter
-from world.quests import Quest
+from world.quests.quest import Quest
 
 
 @given("a character exists")
