@@ -1,5 +1,6 @@
 import icontract
 
+
 class System:
     """Workflow and Business Logic system for Starquest - Infinite Worlds."""
 
