@@ -1,5 +1,5 @@
 import unittest
-from world.logic.system import System
+from world.logic.system import System as LogicSystem
 
 
 class TestLogic(unittest.TestCase):
@@ -7,4 +7,5 @@ class TestLogic(unittest.TestCase):
 
     def test_sanity_check(self):
         """Test System Integrity."""
+        system = LogicSystem()
         self.assertTrue(system.active())
