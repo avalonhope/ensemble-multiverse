@@ -1,5 +1,5 @@
 import unittest
-from world.logic.system import System as LogicSystem
+from world.logic.system import System as LogicSystem  # type: ignore
 
 
 class TestLogic(unittest.TestCase):
