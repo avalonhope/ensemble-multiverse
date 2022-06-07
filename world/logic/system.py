@@ -4,7 +4,7 @@ import icontract
 class System:
     """Workflow and Business Logic system for Starquest - Infinite Worlds."""
 
-    @icontract.ensures(lambda result: result is True)
+    @icontract.ensure(lambda result: result is True)
     def active(self):
         """System integrity status."""
         return True
