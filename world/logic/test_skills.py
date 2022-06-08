@@ -1,7 +1,7 @@
-from evennia.utils.test_resources import EvenniaTest  # type: ignore
+import unittest
 from hypothesis import given
 from hypothesis.strategies import integers
-from world.skills import proficiency  # type: ignore
+from world.logic.skills import proficiency  # type: ignore
 
 
 @given(integers())
@@ -30,7 +30,7 @@ def test_inverse_proficiency(x):
         raise AssertionError
 
 
-class TestSkills(EvenniaTest):
+class TestSkills(unittest.TestCase):
     """Test skills system."""
 
     def test_proficiency(self):
