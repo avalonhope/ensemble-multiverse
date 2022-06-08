@@ -26,7 +26,7 @@ class TestSkills(unittest.TestCase):
     def test_inverse_proficiency(self, x):
         """Test that the result is the correct value."""
         skill_level = proficiency(x)
-        self.assertEqual(x, ((skill_level - 1) * 10) ** 3)
+        self.assertAlmostEqual(x, ((skill_level - 1) * 10) ** 3)
 
     def test_proficiency(self):
         """Test skill level calculation."""
