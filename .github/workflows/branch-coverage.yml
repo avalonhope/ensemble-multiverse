@@ -31,4 +31,4 @@ jobs:
     - name: Branch coverage wwith unittest
       run: |
         coverage run --branch -m unittest discover world/logic
-        coverage report -m --fail-under=0
+        coverage report -m --fail-under=100
