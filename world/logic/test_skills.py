@@ -6,7 +6,7 @@ from world.logic.skills import proficiency  # type: ignore
 
 class TestSkills(unittest.TestCase):
     """Test skills system."""
-    
+
     @given(integers())
     def test_proficiency_min_value(self, x):
         """Test minimum value of result."""
@@ -22,13 +22,12 @@ class TestSkills(unittest.TestCase):
         if x == y:
             self.assertEqual(proficiency(y), proficiency(x))
 
-
     @given(integers())
     def test_inverse_proficiency(self, x):
         """Test that the result is the correct value."""
         skill_level = proficiency(x)
         self.assertEqual(x, ((skill_level - 1) * 10) ** 3)
-    
+
     def test_proficiency(self):
         """Test skill level calculation."""
         examples = {
@@ -42,6 +41,7 @@ class TestSkills(unittest.TestCase):
         }
         for experience, level in examples.items():
             self.assertEqual(proficiency(experience), level)
-            
+
+
 if __name__ == "__main__":
     unittest.main()
