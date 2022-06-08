@@ -46,7 +46,3 @@ class TestSkills(unittest.TestCase):
         }
         for experience, level in examples.items():
             self.assertEqual(proficiency(experience), level)
-
-
-if __name__ == "__main__":
-    unittest.main()
