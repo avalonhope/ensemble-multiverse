@@ -13,12 +13,12 @@ class TestSkills(unittest.TestCase):
         self.assertGreaterEqual(proficiency(x), 1.0)
 
     @given(integers(), integers())
-    def test_proficiency_strictly_increasing(self, x, y):
+    def test_proficiency_increasing_with_experience(self, x, y):
         """Verify that result is strictly increasing."""
         if 0 <= x < y:
-            self.assertGreater(proficiency(y), proficiency(x))
+            self.assertGreaterEqual(proficiency(y), proficiency(x))
         if x > y >= 0:
-            self.assertGreater(proficiency(x), proficiency(y))
+            self.assertGreaterEqual(proficiency(x), proficiency(y))
         if x == y:
             self.assertEqual(proficiency(y), proficiency(x))
 
