@@ -6,11 +6,11 @@ def subfaction(child, parent):
         return False
     if child.db.superfaction is parent:
         return True
-    subfaction = child.db.superfaction
+    faction = child.db.superfaction
     found = False
-    while subfaction.db.superfaction is not None:
-        if subfaction.db.superfaction is parent:
+    while faction.db.superfaction is not None:
+        if faction.db.superfaction is parent:
             found = True
             break
-        subfaction = subfaction.db.superfaction
+        faction = faction.db.superfaction
     return found
