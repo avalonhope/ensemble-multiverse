@@ -1,2 +1,2 @@
-class Quest():
-  """Quests are multi-user interactive stories."""
+class Quest:
+    """Quests are multi-user interactive stories."""
