@@ -27,7 +27,7 @@ class TestSkills(unittest.TestCase):
         """Test that the result is the correct value."""
         skill_level = proficiency(x)
         if x > 0:
-            self.assertAlmostEqual(x, ((skill_level - 1) * 10) ** 3)
+            self.assertAlmostEqual(x, round(((skill_level - 1) * 10) ** 3), 1)
         else:
             self.assertEqual(skill_level, 1.0)
 
