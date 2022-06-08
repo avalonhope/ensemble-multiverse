@@ -1,7 +1,8 @@
 from enum import Enum
 
 
-class Layers(Enum):
+class AtmosphericLayers(Enum):
+    """Layers within the atmosphere of a planet."""
     # https://www.nasa.gov/mission_pages/sunearth/science/atmosphere-layers2.html
     TROPOSPHERE = 0
     STRATOSPHERE = 1
