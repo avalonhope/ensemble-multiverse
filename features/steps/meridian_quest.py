@@ -1,4 +1,4 @@
-from world.quests import Quest  # type: ignore
+from world.logic.quests import Quest  # type: ignore
 
 
 class Meridian(Quest):
