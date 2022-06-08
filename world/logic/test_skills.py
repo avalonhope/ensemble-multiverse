@@ -28,7 +28,7 @@ class TestSkills(unittest.TestCase):
         skill_level = proficiency(x)
         if x > 0:
             y = int(((skill_level - 1.0) * 10) ** 3)
-            self.assertEqual(proficiency(x), proficiency(y))
+            self.assertAlmostEqual(proficiency(x), proficiency(y), places=1)
         else:
             self.assertEqual(skill_level, 1.0)
 
