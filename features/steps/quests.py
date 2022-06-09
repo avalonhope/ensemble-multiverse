@@ -1,5 +1,4 @@
 # type: ignore
-from unittest import mock
 from behave import given, when, then
 from world.logic.characters import LeadCharacter
 from world.logic.quests import Quest
