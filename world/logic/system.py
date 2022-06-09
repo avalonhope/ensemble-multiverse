@@ -1,5 +1,5 @@
 import icontract
-from evennia import utils
+from evennia.utils.search import search_script_tag
 
 
 class System:
@@ -13,5 +13,5 @@ class System:
     def quests(self):
         """List of available quests."""
         # show list of factions
-        quests = utils.search.search_script_tag("quest")
+        quests = search_script_tag("quest")
         return [quest.name for quest in quests]
