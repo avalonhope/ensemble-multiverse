@@ -1,7 +1,7 @@
 class Quest:
     """Quests are multi-user interactive stories."""
 
-    def __init__():
+    def __init__(self):
         """The beginning of the story."""
         self.participants = []
 
