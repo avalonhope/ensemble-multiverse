@@ -10,11 +10,13 @@ class LeadCharacter:
         self.system = LogicSystem()
 
     @icontract.require(lambda command_name: command_name is not None)
-    def command(self, command_name: str):
+    def command(self, command_name: str, target=None):
         """Execute a command on this character or party."""
         this_command = command_name.lower()
         if this_command == "quests":
             result = self.system.quests()
+        elif this_command == "joinquest" and target is not None:
+            result = target.add_participant(self)
         else:
             result = None
         return result
