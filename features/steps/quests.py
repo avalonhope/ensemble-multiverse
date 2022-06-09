@@ -14,13 +14,13 @@ def create_character(context):
 def create_quest(context):
     """Create a quest."""
     context.quest = Quest()
-    
-    
+
+
 @when("the quests command is used")
 def quests_command(context):
     """Run the command."""
     context.list_of_quests = context.character.command("quests")
-    
+
 
 @when("the joinquest command is used")
 def joinquest_command(context):
