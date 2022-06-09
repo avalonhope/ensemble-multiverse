@@ -1,6 +1,7 @@
 import icontract
 from evennia import utils
 
+
 class System:
     """Workflow and Business Logic system for Starquest - Infinite Worlds."""
 
@@ -8,7 +9,7 @@ class System:
     def active(self):
         """System integrity status."""
         return True
-    
+
     def quests(self):
         """List of available quests."""
         # show list of factions
