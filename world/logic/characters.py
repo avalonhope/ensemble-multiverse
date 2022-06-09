@@ -1,4 +1,4 @@
-from system import System as LogicSystem
+from world.logic.system import System as LogicSystem
 import icontract
 
 
