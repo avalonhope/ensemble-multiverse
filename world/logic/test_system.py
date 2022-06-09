@@ -9,8 +9,6 @@ class TestLogic(unittest.TestCase):
         """Test System Integrity."""
         system = LogicSystem()
         self.assertTrue(system.active())
-        
+
     def test_quests(self):
         """Test List of Quests."""
-        
-        
