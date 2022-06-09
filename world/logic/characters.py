@@ -14,5 +14,6 @@ class LeadCharacter:
         this_command = command_name.lower()
         if this_command == "quests":
             result = self.system.quests()
-        else result = None
+        else:
+            result = None
         return result
