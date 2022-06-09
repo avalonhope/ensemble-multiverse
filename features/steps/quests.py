@@ -31,10 +31,12 @@ def check_list_of_quests(context):
 
 @given("the quest has an existing partipant")
 def quest_already_has_participants(context):
+    """Ensure that the quest has at least one pariticipant."""
     context.quest.add_participant(LeadCharacter())
 
 
 @then("the character is added to the list of quest participants")
 def check_character_added_to_quest(context):
+    """Check that the character is registered as a participant."""
     if context.character not in context.quest.participants():
         raise AssertionError
