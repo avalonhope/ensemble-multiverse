@@ -1,9 +1,12 @@
 import icontract
-from evennia.utils.search import search_script_tag
-
+from server.conf.settings import QUESTS
 
 class System:
     """Workflow and Business Logic system for Starquest - Infinite Worlds."""
+    
+    def __init__(self):
+        """The Beginning."""
+        self.quests = QUESTS
 
     @icontract.ensure(lambda result: result is True)
     def active(self):
@@ -12,6 +15,4 @@ class System:
 
     def quests(self):
         """List of available quests."""
-        # show list of factions
-        quests = search_script_tag("quest")
-        return [quest.name for quest in quests]
+        return self.quests
