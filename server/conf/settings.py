@@ -57,6 +57,9 @@ SKILLS = [
     "crafting",
 ]
 
+QUESTS = [
+    "Meridian",
+]
 
 ######################################################################
 # Settings given in secret_settings.py override those in this file.
