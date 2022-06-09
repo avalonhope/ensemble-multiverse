@@ -1,6 +1,7 @@
 import icontract
 from world.quest_settings import QUESTS
 
+
 class System:
     """Workflow and Business Logic system for Starquest - Infinite Worlds."""
 
