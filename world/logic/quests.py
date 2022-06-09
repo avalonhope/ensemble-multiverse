@@ -5,7 +5,7 @@ class Quest:
         """The beginning of the story."""
         self.participants = []
 
-    def participants(self):
+    def list_participants(self):
         """List of participants."""
         return self.participants
 
