@@ -38,5 +38,5 @@ def quest_already_has_participants(context):
 @then("the character is added to the list of quest participants")
 def check_character_added_to_quest(context):
     """Check that the character is registered as a participant."""
-    if context.character not in context.quest.participants():
+    if context.character not in context.quest.list_participants():
         raise AssertionError
