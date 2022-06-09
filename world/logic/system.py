@@ -1,5 +1,5 @@
 import icontract
-from world.quest_settings import QUESTS
+from world.quest_settings import QUESTS  # type: ignore
 
 
 class System:
