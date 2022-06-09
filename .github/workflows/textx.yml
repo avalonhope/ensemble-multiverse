@@ -33,3 +33,4 @@ jobs:
         textx check world/entity.tx
         textx check world/state_machine.tx
         textx check world/workflow.tx
+        textx check world/quest.tx
