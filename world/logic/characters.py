@@ -5,9 +5,10 @@ import icontract
 class LeadCharacter:
     """Leading character for a quest party."""
 
-    def __init__(self):
+    def __init__(self, name=""):
         """Lead character for a quest party."""
         self.system = LogicSystem()
+        self.name = name
 
     @icontract.require(lambda command_name: command_name is not None)
     def command(self, command_name: str, target=None):
