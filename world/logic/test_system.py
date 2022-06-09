@@ -7,12 +7,12 @@ class TestLogic(unittest.TestCase):
 
     def setUp(self):
         """Set up the system under test."""
-        system = LogicSystem()
+        self.system = LogicSystem()
 
     def test_active(self):
         """Test System Integrity."""
-        self.assertTrue(system.active())
+        self.assertTrue(self.system.active())
 
     def test_quests(self):
         """Test List of Quests."""
-        self.assertNotNone(system.quests())
+        self.assertNotNone(self.system.quests())
