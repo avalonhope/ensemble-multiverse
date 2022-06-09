@@ -32,7 +32,7 @@ jobs:
       run: |
           git clone https://github.com/evennia/evennia.git ../evennia
           pip install -e ../evennia
-    - name: Branch coverage wwith unittest
+    - name: Branch coverage with unittest
       run: |
         coverage run --branch -m unittest discover world/logic
         coverage report -m --fail-under=100
