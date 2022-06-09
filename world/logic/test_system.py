@@ -15,4 +15,4 @@ class TestLogic(unittest.TestCase):
 
     def test_quests(self):
         """Test List of Quests."""
-        self.assertNotNone(self.system.quests())
+        self.assertTrue(self.system.quests() is not None)
