@@ -14,12 +14,18 @@ def create_character(context):
 def create_quest(context):
     """Create a quest."""
     context.quest = Quest()
-
-
-@when("the {command_name} command is used")
-def call_commands(context, command_name):
+    
+    
+@when("the quests command is used")
+def quests_command(context):
     """Run the command."""
-    context.list_of_quests = context.character.command(command_name)
+    context.list_of_quests = context.character.command("quests")
+    
+
+@when("the joinquest command is used")
+def joinquest_command(context):
+    """Run the command."""
+    context.list_of_quests = context.character.command("joinquest", context.quest)
 
 
 @then("a list of available quests is shown")
