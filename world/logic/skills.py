@@ -2,7 +2,7 @@ import icontract
 
 
 @icontract.ensure(lambda result: result >= 1.0)
-def proficiency (experience):
+def proficiency(experience):
     """
     Calculate a charcater's skill proficency level based on experience points.
 
@@ -12,5 +12,4 @@ def proficiency (experience):
     """
     if experience <= 0:
         return 1.0
-    return 1.0 + 0.1 * round(experience ** 0.33333, 1)
-
+    return 1.0 + 0.1 * round(experience ** (1.0 / 3.0), 1)
