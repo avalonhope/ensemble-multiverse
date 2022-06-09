@@ -4,7 +4,7 @@ from world.logic.system import System as LogicSystem  # type: ignore
 
 class TestLogic(unittest.TestCase):
     """Test Workflow and Business Logic."""
-    
+
     def setUp(self):
         """Set up the system under test."""
         system = LogicSystem()
