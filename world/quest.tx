@@ -1,0 +1,32 @@
+/*
+  Quest DSL grammar.
+*/
+
+QuestModel:
+    goals+=Goal
+    scenarios+=Scenario  
+;
+
+Scenario:
+    'scenario' name=ID '{'
+        characters*=Character
+        locations+=Location
+    '}'
+;
+
+Location:
+  'type' name=ID
+;
+
+Goal:
+  'type' name=ID
+;
+
+Character:
+    'type' name=ID
+;
+
+// Special rule for comments. Comments start with //
+Comment:
+    /\/\/.*$/
+;
