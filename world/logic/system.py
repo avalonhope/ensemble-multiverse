@@ -6,7 +6,7 @@ class System:
 
     def __init__(self):
         """The Beginning."""
-        self.quests = []
+        self.list_of_quests = []
 
     @icontract.ensure(lambda result: result is True)
     def active(self):
@@ -15,4 +15,4 @@ class System:
 
     def quests(self):
         """List of available quests."""
-        return self.quests
+        return self.list_of_quests
