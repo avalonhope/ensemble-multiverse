@@ -16,4 +16,4 @@ Feature: Quests
     And a quest exists
     And the quest has an existing partipant
     When the joinquest command is used
-    Then the character is added to the list of quest articipants
+    Then the character is added to the list of quest participants
