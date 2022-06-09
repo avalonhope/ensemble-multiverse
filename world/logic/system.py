@@ -1,5 +1,4 @@
 import icontract
-from server.conf.settings import QUESTS
 
 
 class System:
@@ -7,7 +6,7 @@ class System:
 
     def __init__(self):
         """The Beginning."""
-        self.quests = QUESTS
+        self.quests = []
 
     @icontract.ensure(lambda result: result is True)
     def active(self):
