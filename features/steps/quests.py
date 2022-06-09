@@ -27,15 +27,14 @@ def check_list_of_quests(context):
     """Check that a list of quests is shown."""
     if context.list_of_quests is None:
         raise AssertionError
- 
 
-@given('the quest has an existing partipant')
+
+@given("the quest has an existing partipant")
 def quest_already_has_participants(context):
     context.quest.add_participant(LeadCharacter())
 
 
-@then('the character is added to the list of quest participants')
+@then("the character is added to the list of quest participants")
 def check_character_added_to_quest(context):
     if context.character not in context.quest.participants():
         raise AssertionError
-
