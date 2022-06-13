@@ -3,7 +3,7 @@ Inner Worlds
 Inner Worlds exist within characters that are Plural Systems.
 """
 from evennia import DefaultRoom
-from typeclasses.rooms import Location  # type: ignore
+from world.logic.locations import Location  # type: ignore
 
 
 class Home(DefaultRoom):
