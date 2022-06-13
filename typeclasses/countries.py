@@ -4,7 +4,7 @@ Countries are simple containers located within a Planet.
 """
 
 from evennia import DefaultRoom
-from typeclasses.rooms import Location  # type: ignore
+from world.logic.locations import Location  # type: ignore
 
 
 class Country(DefaultRoom):
