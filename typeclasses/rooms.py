@@ -20,5 +20,6 @@ class Room(DefaultRoom):
     See examples/object.py for a list of
     properties and methods available on all Objects.
     """
+
     def at_object_creation(self):
         self.db.level = Location.ROOM
