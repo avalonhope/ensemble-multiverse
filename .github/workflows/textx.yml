@@ -30,7 +30,7 @@ jobs:
         pip install textX[cli]
     - name: Check TextX models
       run: |
-        textx check world/entity.tx
-        textx check world/state_machine.tx
-        textx check world/workflow.tx
-        textx check world/quest.tx
+        textx check world/model/entity.tx
+        textx check world/model/state_machine.tx
+        textx check world/model/workflow.tx
+        textx check world/model/quest.tx
