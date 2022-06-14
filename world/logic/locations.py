@@ -1,3 +1,5 @@
+from enum import IntEnum
+
 class Location(IntEnum):
     """System of Room and Object Types"""
 
