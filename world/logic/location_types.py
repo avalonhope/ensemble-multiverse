@@ -1,7 +1,7 @@
 from enum import IntEnum
 
 
-class Location(IntEnum):
+class LocationType(IntEnum):
     """System of Room and Object Locations."""
 
     # Each level is contained with the next level up,
@@ -16,7 +16,7 @@ class Location(IntEnum):
     REGION = 5  # major city, province, duchy, atmospheric layer
     COUNTRY = 6  # major country or minor planet, atmosphere of major planet, moon
     PLANET = 7  # planets, stars, inner worlds for most species
-    SYSTEM = 8  # single star system
+    SYSTEM = 8  # single star system or a deep space region
     SECTOR = 9  # large group of star systems
     GALAXY = 10  # single galaxy, inner world for some species
     CLUSTER = 11  # galaxy cluster or group
