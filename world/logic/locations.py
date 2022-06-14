@@ -2,11 +2,12 @@ from enum import IntEnum
 
 
 class Location(IntEnum):
-    """System of Room and Object Types"""
+    """System of Room and Object Locations."""
 
-    # Each level is contained with the next level up, for example a room is inside a building
-    # A command room is a room associated with a Station
-    # A starship is an object within a Star System, but also has associated rooms
+    # Each level is contained with the next level up,
+    # for example: a room is inside a building,
+    # a command room is a room associated with a Station, and
+    # a starship is an object within a Star System, but also has associated rooms
     ROOM = 0  # cannot have any sub-rooms, lowest possible level
     BUILDING = 1  # structure, cavern, vehicle, shuttle
     AREA = 2  # street, village, docking bay, open terrain
