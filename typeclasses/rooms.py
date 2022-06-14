@@ -4,8 +4,6 @@ Room
 Rooms are simple containers that have no sub-locations.
 
 """
-
-from enum import IntEnum
 from evennia import DefaultRoom
 from world.logic.locations import Location
 
