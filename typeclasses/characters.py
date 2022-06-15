@@ -113,6 +113,8 @@ class ShadowBeing(DefaultCharacter):
         self.db.skills = {}
         self.db.reputation = 0
 
+class InnerCharacter(EthericBeing):
+    """A person within an inner world of a plural system."
 
-class Tulpa(EthericBeing):
+class Tulpa(InnerCharacter):
     """A tulpa is a created thoughtform within a Plural System."""
