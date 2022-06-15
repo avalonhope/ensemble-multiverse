@@ -213,7 +213,7 @@ class CmdMeditate(Command):
                 key=caller.key,
                 location=caller.db.innerWorld,
                 locks="edit:id(%i) and perm(Builders);call:false()" % caller.id,
-        )
+            )
         if not caller.location:
             # may not meditate when OOC
             caller.msg("You must have a location to begin meditation.")
