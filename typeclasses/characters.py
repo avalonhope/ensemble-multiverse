@@ -9,6 +9,7 @@ creation commands.
 """
 from evennia import DefaultCharacter
 
+
 class Character(DefaultCharacter):
     """
     The Character defaults to reimplementing some of base Object's hook methods with the
@@ -113,8 +114,10 @@ class ShadowBeing(DefaultCharacter):
         self.db.skills = {}
         self.db.reputation = 0
 
+
 class InnerCharacter(EthericBeing):
     """A person within an inner world of a plural system."""
+
 
 class Tulpa(InnerCharacter):
     """A tulpa is a created thoughtform within a Plural System."""
