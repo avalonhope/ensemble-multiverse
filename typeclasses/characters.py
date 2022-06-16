@@ -114,7 +114,7 @@ class ShadowBeing(DefaultCharacter):
         self.db.reputation = 0
 
 class InnerCharacter(EthericBeing):
-    """A person within an inner world of a plural system."
+    """A person within an inner world of a plural system."""
 
 class Tulpa(InnerCharacter):
     """A tulpa is a created thoughtform within a Plural System."""
