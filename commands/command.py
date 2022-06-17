@@ -206,6 +206,14 @@ class CmdMeditate(Command):
                 faction = caller.db.faction
                 caller.db.innerWorld.db.faction = faction
                 caller.db.innerWorld.tags.add(faction.name, category="faction")
+        # create inner character, if needed
+        if not caller.db.innerSelf:
+            caller.db.innerSelf = create_object(
+                "characters.InnerCharacter",
+                key=caller.key,
+                location=caller.db.innerWorld,
+                locks="edit:id(%i) and perm(Builders);call:false()" % caller.id,
+            )
         if not caller.location:
             # may not meditate when OOC
             caller.msg("You must have a location to begin meditation.")

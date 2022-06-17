@@ -9,6 +9,7 @@ creation commands.
 """
 from evennia import DefaultCharacter
 
+
 class Character(DefaultCharacter):
     """
     The Character defaults to reimplementing some of base Object's hook methods with the
@@ -22,7 +23,8 @@ class Character(DefaultCharacter):
     at_post_unpuppet(account) -  when Account disconnects from the Character, we
                     store the current location in the pre_logout_location Attribute and
                     move it to a None-location so the "unpuppeted" character
-                    object does not need to stay on grid. Echoes "Account has disconnected"
+                    object does not need to stay on grid.
+                    Echoes "Account has disconnected"
                     to the room.
     at_pre_puppet - Just before Account re-connects, retrieves the character's
                     pre_logout_location Attribute and move it back on the grid.
@@ -57,7 +59,8 @@ class EthericBeing(DefaultCharacter):
     at_post_unpuppet(account) -  when Account disconnects from the Character, we
                     store the current location in the pre_logout_location Attribute and
                     move it to a None-location so the "unpuppeted" character
-                    object does not need to stay on grid. Echoes "Account has disconnected"
+                    object does not need to stay on grid.
+                    Echoes "Account has disconnected"
                     to the room.
     at_pre_puppet - Just before Account re-connects, retrieves the character's
                     pre_logout_location Attribute and move it back on the grid.
@@ -92,7 +95,8 @@ class ShadowBeing(DefaultCharacter):
     at_post_unpuppet(account) -  when Account disconnects from the Character, we
                     store the current location in the pre_logout_location Attribute and
                     move it to a None-location so the "unpuppeted" character
-                    object does not need to stay on grid. Echoes "Account has disconnected"
+                    object does not need to stay on grid.
+                    Echoes "Account has disconnected"
                     to the room.
     at_pre_puppet - Just before Account re-connects, retrieves the character's
                     pre_logout_location Attribute and move it back on the grid.
@@ -114,5 +118,9 @@ class ShadowBeing(DefaultCharacter):
         self.db.reputation = 0
 
 
-class Tulpa(EthericBeing):
+class InnerCharacter(EthericBeing):
+    """A person within an inner world of a plural system."""
+
+
+class Tulpa(InnerCharacter):
     """A tulpa is a created thoughtform within a Plural System."""
