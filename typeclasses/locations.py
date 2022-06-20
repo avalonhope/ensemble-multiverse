@@ -1,6 +1,4 @@
-"""
-Locations
-"""
+"""Locations"""
 
 from evennia import DefaultRoom
 
