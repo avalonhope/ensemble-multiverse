@@ -1,12 +1,11 @@
 """Towns"""
 
-from evennia import DefaultRoom
-from typing import Any
-from world.logic.locations import Location  # type: ignore
+from typeclasses.locations import Location
+from world.logic.locations import LocationType
 
 
-class Town(DefaultRoom):
+class Town(Location):
     """Towns may contain Building and Vehicle objects."""
 
     def at_object_creation(self):
-        self.db.level = Location.TOWN
+        self.db.locationType = LocationType.TOWN
