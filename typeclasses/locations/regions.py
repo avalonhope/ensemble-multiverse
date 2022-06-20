@@ -1,14 +1,13 @@
 """
 Region
-Regions are simple containers located within a Country.
+Regions are locations within a Country location
 """
 
-from evennia import DefaultRoom
-from typing import Any
-from world.logic.locations import Location  # type: ignore
+from typeclasses.locations import Location
+from world.logic.locations import LocationType  # type: ignore
 
 
-class Region(DefaultRoom):
+class Region(Location):
     """
     Regions are like any Object, except their location is within a Country.
     They also use basetype_setup() to
