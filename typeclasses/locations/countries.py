@@ -11,4 +11,5 @@ class Country(Location):
     """Countries may contain RegionObjects and CityObjects."""
 
     def at_object_creation(self):
+        """When a country location is created."""
         self.db.level = LocationType.COUNTRY
