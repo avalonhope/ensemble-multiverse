@@ -4,6 +4,7 @@ from typeclasses.rooms import Room  # type: ignore
 
 
 class TestFactionClaim(CommandTest):
+    """Test faction location claims."""
 
     character_typeclass = Character
     room_typeclass = Room
