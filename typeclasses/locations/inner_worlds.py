@@ -7,4 +7,4 @@ class InnerWorld(Location):
     """An inner world exists within the soul of a character."""
 
     def at_object_creation(self):
-        self.db.locationType = LocationType.MULTIVERSE
+        self.db.locationType = LocationType.UNIVERSE
