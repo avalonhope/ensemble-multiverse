@@ -12,6 +12,7 @@ class Town(Location):
 
     def at_object_creation(self):
         self.db.locationType = LocationType.TOWN
-        
+
+
 class Road(DefaultExit):
     """Roads are the connectors for travel between Towns."""
