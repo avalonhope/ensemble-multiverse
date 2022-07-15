@@ -1,6 +1,6 @@
 """ Planets are located within a Star System and may contain Countries. """
 
-from typeclasses.locations import Location
+from typeclasses.locations.locations import Location
 from world.logic.locations import LocationType
 
 
