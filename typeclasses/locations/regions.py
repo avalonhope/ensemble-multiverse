@@ -3,7 +3,8 @@ Region
 Regions are locations within a Country location
 """
 
-from typeclasses.locations import Location
+from typeclasses.locations.locations import Location
+from world.logic.locations import LocationType
 
 
 class Region(Location):
@@ -17,4 +18,4 @@ class Region(Location):
     """
 
     def at_object_creation(self):
-        self.db.level = Location.REGION
+        self.db.location_type = LocationType.REGION
