@@ -1,6 +1,7 @@
 """
 SpaceCraft
-SpaceCraft are vehicles that can ascend verically into orbit or descend to a landing site.
+SpaceCraft are vehicles that can ascend verically into orbit or
+descend to a landing site.
 Unlike aircraft they cannot fly horizontally through the athmosphere.
 Unlike ground or sea vehicles they cannot move over terrain.
 Unlike starships they cannot move between star systems.
