@@ -1,4 +1,4 @@
-Fetaure: Towns
+Feature: Towns
 
   Scenario: Zones
     Given a character is located in a town
