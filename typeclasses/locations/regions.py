@@ -18,4 +18,5 @@ class Region(Location):
     """
 
     def at_object_creation(self):
+        """Initial properties of a region."""
         self.db.location_type = LocationType.REGION
