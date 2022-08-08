@@ -1,7 +1,7 @@
 """Planets are located within a Star System and may contain Countries."""
 
 from typeclasses.locations.locations import Location
-from world.logic.locations import LocationType
+from world.logic.location_types import LocationType
 
 
 class Planet(Location):
