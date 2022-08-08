@@ -11,6 +11,7 @@ class Town(Location):
     """Towns."""
 
     def at_object_creation(self):
+        """Initial properties of a town."""
         self.db.locationType = LocationType.TOWN
 
 
