@@ -4,7 +4,7 @@ Regions are locations within a Country location
 """
 
 from typeclasses.locations.locations import Location
-from world.logic.locations import LocationType
+from world.logic.location_types import LocationType
 
 
 class Region(Location):
