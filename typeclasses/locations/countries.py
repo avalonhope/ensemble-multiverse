@@ -3,7 +3,7 @@ Country
 Countries are simple containers located within a Planet.
 """
 
-from typeclasses.locations.locations import Location
+from typeclasses.locations.locations import Location  # type: ignore
 from world.logic.location_types import LocationType  # type: ignore
 
 
