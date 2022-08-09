@@ -2,8 +2,8 @@
 import icontract
 
 from evennia import DefaultExit
-from typeclasses.locations.locations import Location
-from world.logic.location_types import LocationType
+from typeclasses.locations.locations import Location  # type: ignore
+from world.logic.location_types import LocationType  # type: ignore
 
 
 @icontract.invariant(lambda self: self.locationType == LocationType.TOWN)
