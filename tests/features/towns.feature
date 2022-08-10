@@ -1,12 +1,12 @@
 Feature: Towns
 
   Scenario: Zones
-    Given a character is located in a town
+    Given a character is located within a town
     When the zones command is used
     Then a list of zones within the town is shown
     
  Scenario: Roads
-   Given a character is located in a town
+   Given a character is located within a town
    When the roads command is used
    Then a list of roads out of town is shown
 
