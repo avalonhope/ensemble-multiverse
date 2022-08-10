@@ -1,6 +1,7 @@
 from behave import given, when, then
 
-@when(u'the zones command is used')
+
+@when("the zones command is used")
 def get_zones(context):
     pass
 
