@@ -1,8 +1,12 @@
 from behave import given, when, then
 
+@when(u'the zones command is used')
+def get_zones(context):
+    pass
+
 
 @then("a list of zones within the town is shown")
-def zones(context):
+def list_zones(context):
     pass
 
 
