@@ -3,6 +3,7 @@ from world.logic.locations.town import Road, Town
 from world.logic.mobile import Vehicle
 from world.logic.commands import TravelCommand
 
+
 @when("the zones command is used")
 def get_zones(context):
     """Get list of zones for this town."""
