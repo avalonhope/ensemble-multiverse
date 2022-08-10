@@ -21,17 +21,17 @@ def show_roads(context):
     pass
 
 
-@given("a charcater is located within a town")
+@given("a character is located within a town")
 def in_town(context):
     pass
 
 
-@given("the charcater is onboard a vehicle")
+@given("the character is onboard a vehicle")
 def in_vehicle(context):
     pass
 
 
-@given("the charcater has control of the vehicle")
+@given("the character has control of the vehicle")
 def driving_vehice(context):
     pass
 
