@@ -240,7 +240,9 @@ class CmdQuest(Command):
         "This performs the actual command"
         faction = self.caller.db.faction
         if faction is None or faction.db.quest is None:
-            self.caller.msg("You are not in a faction or your faction has not chosen a quest yet.")
+            self.caller.msg(
+                "You are not in a faction or your faction has not chosen a quest yet."
+            )
         else:
             quest = faction.db.quest
             self.caller.msg(quest.db.status)
