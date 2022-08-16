@@ -1,3 +1,13 @@
-@dig Antartica
-@set tag Antartica = country
-@set tag Antartica = Earth : planet
+dig Antartica
+tag Antartica = country
+tag Antartica = Earth : planet
+
+dig Mars
+tag Mars = planet
+
+dig Earth
+tag Earth = planet
+tag Earth = Solar : star-system
+
+dig Luna
+tag Luna = satelite-planet
