@@ -1,7 +1,4 @@
 {
-    "include": [
-        "../evennia"
-    ],
     "strict": [
         "world"
     ]
