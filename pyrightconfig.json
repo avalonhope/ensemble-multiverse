@@ -3,6 +3,6 @@
         "world"
     ],
     "extraPaths": [
-        "../evennia"
+        "../evennia/**"
     ]
 }
