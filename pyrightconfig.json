@@ -1,0 +1,5 @@
+{
+  "reportMissingImports": false,
+  "reportMissingTypeStubs": false,
+  "typeCheckingMode": "basic",
+}
