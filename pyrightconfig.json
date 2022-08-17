@@ -1,5 +1,8 @@
 {
     "strict": [
         "world"
+    ],
+    "extraPaths": [
+        "../evennia"
     ]
 }
