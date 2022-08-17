@@ -1,8 +1,5 @@
 {
-    "strict": [
-        "world"
-    ],
-    "extraPaths": [
-        "../evennia/**"
-    ]
+  "reportMissingImports": false,
+  "reportMissingTypeStubs": false,
+  "typeCheckingMode": "basic",
 }
