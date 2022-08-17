@@ -1,5 +1,8 @@
 {
-    "executionEnvironments": [
-        {"root": "."}
+    "include": [
+        "../evennia"
+    ],
+    "strict": [
+        "world"
     ]
 }
