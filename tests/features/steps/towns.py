@@ -45,7 +45,7 @@ def in_vehicle(context):
 @given("the character has control of the vehicle")
 def driving_vehice(context):
     """Set the driver of the vehicle."""
-    context.vehicle.set_driver(contect.character)
+    context.vehicle.set_driver(context.character)
 
 
 @when("the travel command is used")
