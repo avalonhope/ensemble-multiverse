@@ -32,15 +32,11 @@ def at_server_stop():
 
 
 def at_server_reload_start():
-    """
-    This is called only when server starts back up after a reload.
-    """
+    """This is called only when server starts back up after a reload."""
 
 
 def at_server_reload_stop():
-    """
-    This is called only time the server stops before a reload.
-    """
+    """This is called only time the server stops before a reload."""
 
 
 def at_server_cold_start():
