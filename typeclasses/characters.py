@@ -9,6 +9,7 @@ creation commands.
 """
 from evennia import DefaultCharacter
 
+
 class Character(DefaultCharacter):
     """
     The Character defaults to reimplementing some of base Object's hook methods with the
@@ -108,8 +109,6 @@ class ShadowBeing(DefaultCharacter):
         self.db.health = 100
         self.db.stamina = 0
         self.db.energy = 100
-        self.db.innerWorldLocation = None
-        self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
 
