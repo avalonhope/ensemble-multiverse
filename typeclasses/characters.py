@@ -39,8 +39,6 @@ class Character(DefaultCharacter):
         self.db.health = 100
         self.db.stamina = 0
         self.db.energy = 100
-        self.db.innerWorldLocation = None
-        self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
 
@@ -74,8 +72,6 @@ class EthericBeing(DefaultCharacter):
         self.db.health = 100
         self.db.stamina = 0
         self.db.energy = 100
-        self.db.innerWorldLocation = None
-        self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
 
