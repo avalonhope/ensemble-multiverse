@@ -1,6 +1,4 @@
-"""
-Web plugin hooks.
-"""
+"""Web plugin hooks."""
 
 
 def at_webserver_root_creation(web_root):
