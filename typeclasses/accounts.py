@@ -67,7 +67,7 @@ class Account(DefaultAccount):
 
      msg(text=None, **kwargs)
      execute_cmd(raw_string, session=None)
-     search(ostring, global_search=False, attribute_name=None, use_nicks=False, 
+     search(ostring, global_search=False, attribute_name=None, use_nicks=False,
             location=None, ignore_errors=False, account=False)
      is_typeclass(typeclass, exact=False)
      swap_typeclass(new_typeclass, clean_attributes=False, no_default=True)
