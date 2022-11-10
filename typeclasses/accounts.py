@@ -43,7 +43,8 @@ class Account(DefaultAccount):
 
      key (string) - name of account
      name (string)- wrapper for user.username
-     aliases (list of strings) - aliases to the object. Will be saved to database as AliasDB entries but returned as strings.
+     aliases (list of strings) - aliases to the object. 
+                                 Will be saved to database as AliasDB entries but returned as strings.
      dbref (int, read-only) - unique #id-number. Also "id" can be used.
      date_created (string) - time stamp of object creation
      permissions (list of strings) - list of permission strings
