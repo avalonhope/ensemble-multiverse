@@ -32,7 +32,7 @@ your settings file:
 """
 
 
-def cmdparser(raw_string, cmdset, _caller, match_index=None):
+def cmdparser(raw_string, cmdset, _caller, _match_index=None):
     """
     This function is called by the cmdhandler once it has
     gathered and merged all valid cmdsets valid for this particular parsing.
@@ -40,7 +40,7 @@ def cmdparser(raw_string, cmdset, _caller, match_index=None):
     raw_string - the unparsed text entered by the caller.
     cmdset - the merged, currently valid cmdset
     _caller - the caller triggering this parsing
-    match_index - an optional integer index to pick a given match in a
+    _match_index - an optional integer index to pick a given match in a
                   list of same-named command matches.
 
     Returns:
