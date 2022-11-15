@@ -26,7 +26,7 @@ line to your settings file:
 """
 
 
-def at_search_result(_matches, _caller, query="", quiet=False, **kwargs):
+def at_search_result(_matches, _caller, _query="", _quiet=False, **kwargs):
     """
     This is a generic hook for handling all processing of a search
     result, including error reporting.
@@ -38,8 +38,8 @@ def at_search_result(_matches, _caller, query="", quiet=False, **kwargs):
             if a single match should the result pass through.
         _caller (Object): The object performing the search and/or which should
         receive error messages.
-    query (str, optional): The search query used to produce `matches`.
-        quiet (bool, optional): If `True`, no messages will be echoed to caller
+        _query (str, optional): The search query used to produce `matches`.
+        _quiet (bool, optional): If `True`, no messages will be echoed to caller
             on errors.
 
     Keyword Args:
