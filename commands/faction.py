@@ -77,7 +77,7 @@ class CmdFactions(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command"""
         # show list of factions
         factions = utils.search.search_script_tag("faction")
         self.caller.msg("There are %d factions:" % len(factions))
@@ -107,7 +107,7 @@ class CmdFactionClaim(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command"""
         caller = self.caller
         location = caller.location
         if location.db.faction:
@@ -148,7 +148,7 @@ class CmdFactionJoin(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command"""
         caller = self.caller
         location = caller.location
         if location.db.faction is None:
@@ -188,7 +188,7 @@ class CmdFactionSpace(Command):
     help_category = "inner world"
 
     def func(self):
-        "moves to inner world of faction"
+        """moves to inner world of faction"""
         caller = self.caller
         if caller.location is None:
             caller.msg("You must be in-character.")
@@ -236,8 +236,8 @@ class CmdQuest(Command):
     aliases = ["+factionquest", "+myquest"]
     help_category = "quests"
 
-    def func(self):
-        "This performs the actual command"
+    def func(self):""
+        """This performs the actual command"""
         faction = self.caller.db.faction
         if faction is None or faction.db.quest is None:
             self.caller.msg(
