@@ -307,8 +307,8 @@ class CmdStats(Command):
 
     def func(self):
         """Display profile."""
-        self.caller.msg("Your health is now {self.caller.db.health})
-        self.caller.msg("Your energy is now {self.caller.db.energy})
+        self.caller.msg("Your health is now {self.caller.db.health}")
+        self.caller.msg("Your energy is now {self.caller.db.energy}")
         self.caller.msg(
             "Your reputation level is now {proficiency(self.caller.db.reputation)}"
         )
