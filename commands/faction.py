@@ -62,7 +62,7 @@ class CmdFactionCreate(Command):
         faction.db.innerWorld.db.faction = faction
         faction.db.innerWorld.tags.add(faction.name, category="faction")
         # announce
-        caller.msg(f"You founded the faction called: {faction.name}"
+        caller.msg(f"You founded the faction called: {faction.name}")
 
 
 class CmdFactions(Command):
