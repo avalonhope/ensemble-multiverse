@@ -44,7 +44,7 @@ class CmdFactionCreate(Command):
         faction = create_script(
             "typeclasses.factions.Faction",
             key=name,
-            locks="edit:id(%i) and perm(Builders);call:false()" % caller.id,
+            locks=f"edit:id({caller.id}) and perm(Builders);call:false()" % caller.id,
             report_to=caller,
         )
         faction.db.leader = caller
