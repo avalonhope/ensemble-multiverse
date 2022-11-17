@@ -25,4 +25,3 @@ as argument.
     default(session, cmdname, *args, **kwargs)
 
 """
-
