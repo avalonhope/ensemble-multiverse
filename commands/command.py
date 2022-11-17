@@ -271,14 +271,12 @@ class CmdRest(Command):
         utils.delay(time_to_recover, self.recover)
         self.caller.db.resting = True
         if time_to_recover > 3600.0:
-            hours_to_recovery = round(time_to_recover / 3600.0, 1)
             caller.msg(
-                "You begin resting. You will be fully rested in {hours_to_recovery} hours."
+                f"You begin resting. You will be fully rested in {round(time_to_recover / 3600.0, 1)} hours."
             )
         else:
-            minutes_to_recovery = round(time_to_recover / 60.0, 1)
             caller.msg(
-                "You begin your nap. You will be fully rested in {minutes_to_recovery} minutes."
+                f"You begin your nap. You will be fully rested in {round(time_to_recover / 60.0, 1)} minutes."
             )
 
     def recover(self):
