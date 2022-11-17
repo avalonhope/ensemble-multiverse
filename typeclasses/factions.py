@@ -72,5 +72,7 @@ class Faction(DefaultScript):
       at_server_shutdown() - called at a full server shutdown.
     """
 
-    def at_script_creation(self):
+    def __init__(self):
+        """Define the initial attributes of a faction."""
+        super().__init__()
         self.persistent = True

@@ -40,7 +40,8 @@ Possible keywords are:
 - `attrs` - Attributes, expressed as a list of tuples on the form `(attrname, value)`,
   `(attrname, value, category)`, or `(attrname, value, category, locks)`. If using one
    of the shorter forms, defaults are used for the rest.
-- `tags` - Tags, as a list of tuples `(tag,)`, `(tag, category)` or `(tag, category, data)`.
+- `tags` - Tags, as a list of tuples `(tag,)`, `(tag, category)`
+                                      or `(tag, category, data)`.
 -  Any other keywords are interpreted as Attributes with no category or lock.
    These will internally be added to `attrs` (eqivalent to `(attrname, value)`.
 
@@ -48,9 +49,9 @@ See the `spawn` command and `evennia.prototypes.spawner.spawn` for more info.
 
 """
 
-## example of module-based prototypes using
-## the variable name as `prototype_key` and
-## simple Attributes
+# example of module-based prototypes using
+# the variable name as `prototype_key` and
+# simple Attributes
 
 # from random import randint
 #

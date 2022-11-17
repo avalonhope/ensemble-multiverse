@@ -9,6 +9,7 @@ creation commands.
 """
 from evennia import DefaultCharacter
 
+
 class Character(DefaultCharacter):
     """
     The Character defaults to reimplementing some of base Object's hook methods with the
@@ -31,15 +32,13 @@ class Character(DefaultCharacter):
     """
 
     def at_object_creation(self):
-        "This is called when object is first created, only."
+        """This is called when object is first created, only."""
         self.db.strength = 0
         self.db.agility = 0
         self.db.speed = 0
         self.db.health = 100
         self.db.stamina = 0
         self.db.energy = 100
-        self.db.innerWorldLocation = None
-        self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
 
@@ -66,15 +65,13 @@ class EthericBeing(DefaultCharacter):
     """
 
     def at_object_creation(self):
-        "This is called when object is first created, only."
+        """This is called when object is first created, only."""
         self.db.strength = 0
         self.db.agility = 0
         self.db.speed = 0
         self.db.health = 100
         self.db.stamina = 0
         self.db.energy = 100
-        self.db.innerWorldLocation = None
-        self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
 
@@ -101,15 +98,13 @@ class ShadowBeing(DefaultCharacter):
     """
 
     def at_object_creation(self):
-        "This is called when object is first created, only."
+        """This is called when object is first created, only."""
         self.db.strength = 0
         self.db.agility = 0
         self.db.speed = 0
         self.db.health = 100
         self.db.stamina = 0
         self.db.energy = 100
-        self.db.innerWorldLocation = None
-        self.db.outerWorldLocation = None
         self.db.skills = {}
         self.db.reputation = 0
 

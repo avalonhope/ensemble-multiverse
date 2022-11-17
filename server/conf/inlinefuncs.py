@@ -44,4 +44,3 @@ the function; this is the session of the object viewing the string
 and can be used to customize it to each session.
 
 """
-

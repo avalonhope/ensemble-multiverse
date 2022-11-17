@@ -83,8 +83,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.strength += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your strength level is now %.2f."
-                    % proficiency(self.caller.db.strength)
+                    "Your strength level is now {proficiency(self.caller.db.strength)}"
                 )
             elif skillname == "agility":
                 if self.caller.db.agility is None:
@@ -92,8 +91,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.agility += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your agility level is now %.2f."
-                    % proficiency(self.caller.db.agility)
+                    "Your agility level is now {proficiency(self.caller.db.agility)}"
                 )
             elif skillname == "speed":
                 if self.caller.db.speed is None:
@@ -101,7 +99,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.speed += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your speed level is now %.2f." % proficiency(self.caller.db.speed)
+                    "Your speed level is now {proficiency(self.caller.db.speed)}"
                 )
             elif skillname == "stamina":
                 if self.caller.db.stamina is None:
@@ -109,8 +107,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.stamina += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your stamina level is now %.2f."
-                    % proficiency(self.caller.db.stamina)
+                    "Your stamina level is now {proficiency(self.caller.db.stamina)}"
                 )
             elif skillname in SKILLS:
                 if skillname not in self.caller.db.skills.keys():
@@ -118,11 +115,10 @@ class CmdTrainSkill(Command):
                 self.caller.db.skills[skillname] += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your skill level is now %.2f."
-                    % proficiency(self.caller.db.skills[skillname])
+                    "Your skill level is now {proficiency(self.caller.db.skills[skillname])}"
                 )
             else:
-                self.caller.msg("%s skill cannot be trained (yet)." % self.args)
+                self.caller.msg("{skillanme} skill cannot be trained (yet).")
 
         except ValueError:
             self.caller.msg(errmsg)
@@ -162,7 +158,7 @@ class CmdImagine(Command):
             "characters.Tulpa",
             key=name,
             location=caller.db.innerWorld,
-            locks="edit:id(%i) and perm(Builders);call:false()" % caller.id,
+            locks="edit:id({caller.id}) and perm(Builders);call:false()",
         )
 
         # add to faction
@@ -171,9 +167,7 @@ class CmdImagine(Command):
             companion.db.faction = faction
             companion.tags.add(faction.name, category="faction")
         # announce
-        message = "%s imagined '%s'."
-        caller.msg(message % ("You", name))
-        caller.db.innerWorld.msg_contents(message % (caller.key, name), exclude=caller)
+        caller.msg(f"You have created imaginary companion or tulpa called {name}.")
 
 
 class CmdMeditate(Command):
@@ -198,7 +192,7 @@ class CmdMeditate(Command):
         if not caller.db.innerWorld:
             caller.db.innerWorld = create_object(
                 "typeclasses.innerworld.Home",
-                key="Entrance to Inner World of %s" % caller.name,
+                key=f"Entrance to Inner World of {caller.name}",
             )
             caller.db.innerWorld.tags.add("Inner World")
             # add inner world to faction
@@ -276,17 +270,13 @@ class CmdRest(Command):
         time_to_recover = int(RECOVERY_RATE * amount_to_recover / stamina_level)
         utils.delay(time_to_recover, self.recover)
         self.caller.db.resting = True
-        hours_to_recovery = time_to_recover / 3600.0
-        if hours_to_recovery > 1.0:
+        if time_to_recover > 3600.0:
             caller.msg(
-                "You begin resting. You will be fully rested in %.1f hours."
-                % hours_to_recovery
+                f"You begin resting. You will be fully rested in {round(time_to_recover / 3600.0, 1)} hours."
             )
         else:
-            minutes_to_recovery = time_to_recover / 60.0
             caller.msg(
-                "You begin your nap. You will be fully rested in %.1f minutes."
-                % minutes_to_recovery
+                f"You begin your nap. You will be fully rested in {round(time_to_recover / 60.0, 1)} minutes."
             )
 
     def recover(self):
@@ -315,27 +305,24 @@ class CmdStats(Command):
 
     def func(self):
         """Display profile."""
-        self.caller.msg("Your health is now %d%%." % self.caller.db.health)
-        self.caller.msg("Your energy is now %d." % self.caller.db.energy)
+        self.caller.msg("Your health is now {self.caller.db.health}")
+        self.caller.msg("Your energy is now {self.caller.db.energy}")
         self.caller.msg(
-            "Your reputation level is now %.2f."
-            % proficiency(self.caller.db.reputation)
+            "Your reputation level is now {proficiency(self.caller.db.reputation)}"
         )
         self.caller.msg(
-            "Your strength level is now %.2f." % proficiency(self.caller.db.strength)
+            "Your strength level is now {proficiency(self.caller.db.strength)}"
         )
         self.caller.msg(
-            "Your agility level is now %.2f." % proficiency(self.caller.db.agility)
+            "Your agility level is now {proficiency(self.caller.db.agility)}"
         )
+        self.caller.msg("Your speed level is now {proficiency(self.caller.db.speed)}")
         self.caller.msg(
-            "Your speed level is now %.2f." % proficiency(self.caller.db.speed)
-        )
-        self.caller.msg(
-            "Your stamina level is now %.2f." % proficiency(self.caller.db.stamina)
+            "Your stamina level is now {proficiency(self.caller.db.stamina)}"
         )
         for skillname in self.caller.db.skills.keys():
             self.caller.msg(
-                f"Your {skillname} skill level is now {round(proficiency(self.caller.db.skills[skillname]), 2)}."
+                f"Your {skillname} skill level is now {proficiency(self.caller.db.skills[skillname])}."
             )
 
 
@@ -357,4 +344,4 @@ class CmdRace(Command):
         if caller.db.race is None or len(caller.db.race) < 2:
             caller.db.race = self.args.strip().title()
             caller.tags.add(caller.db.race, category="race")
-        caller.msg("You are a " + caller.db.race)
+        caller.msg(f"You are a {caller.db.race}")
