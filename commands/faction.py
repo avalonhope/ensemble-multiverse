@@ -208,7 +208,8 @@ class CmdFactionSpace(Command):
         # create empty inner world if needed
         if not faction.db.innerWorld:
             faction.db.innerWorld = create_object(
-                "typeclasses.innerworld.Home", key=f"Entrance to Inner World of {faction.name}"
+                "typeclasses.innerworld.Home",
+                key=f"Entrance to Inner World of {faction.name}",
             )
             faction.db.innerWorld.tags.add("Inner World")
             faction.db.innerWorld.tags.add(faction.name, category="faction")
