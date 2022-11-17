@@ -80,7 +80,7 @@ class CmdFactions(Command):
         """This performs the actual command"""
         # show list of factions
         factions = utils.search.search_script_tag("faction")
-        self.caller.msg("There are %d factions:" % len(factions))
+        self.caller.msg(f"There are {len(factions)} factions:")
         for faction in factions:
             if faction.db.leader:
                 self.caller.msg(faction.name + " led by " + faction.db.leader.name)
