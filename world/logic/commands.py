@@ -1,3 +1,2 @@
-class TravelCommand():
-  """Move feom one location to another."""
-  
+class TravelCommand:
+    """Move feom one location to another."""
