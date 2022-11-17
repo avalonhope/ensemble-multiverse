@@ -16,4 +16,5 @@ does what you expect it to.
 
 
 def at_initial_setup():
+    """Customize the initial setup."""
     raise NotImplementedError()
