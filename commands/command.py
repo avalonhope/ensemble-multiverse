@@ -158,7 +158,7 @@ class CmdImagine(Command):
             "characters.Tulpa",
             key=name,
             location=caller.db.innerWorld,
-            locks="edit:id(%i) and perm(Builders);call:false()" % caller.id,
+            locks="edit:id({caller.id}) and perm(Builders);call:false()",
         )
 
         # add to faction
