@@ -73,5 +73,6 @@ class Faction(DefaultScript):
     """
 
     def __init__(self):
+        """Define the initial attributes of a faction."""
         super().__init__()
         self.persistent = True
