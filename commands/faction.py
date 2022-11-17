@@ -20,7 +20,7 @@ class CmdFactionCreate(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command."
+        """This performs the actual command."""
         errmsg = "You must supply a valid string."
         if not self.args:
             self.caller.msg(errmsg)
