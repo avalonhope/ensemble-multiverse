@@ -318,9 +318,7 @@ class CmdStats(Command):
         self.caller.msg(
             "Your agility level is now {proficiency(self.caller.db.agility)}"
         )
-        self.caller.msg(
-            "Your speed level is now {proficiency(self.caller.db.speed)}"
-        )
+        self.caller.msg("Your speed level is now {proficiency(self.caller.db.speed)}")
         self.caller.msg(
             "Your stamina level is now {proficiency(self.caller.db.stamina)}"
         )
