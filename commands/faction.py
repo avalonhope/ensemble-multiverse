@@ -20,7 +20,7 @@ class CmdFactionCreate(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command"
+        "This performs the actual command."
         errmsg = "You must supply a valid string."
         if not self.args:
             self.caller.msg(errmsg)
@@ -148,7 +148,7 @@ class CmdFactionJoin(Command):
     help_category = "roleplaying"
 
     def func(self):
-        """This performs the actual command"""
+        """This performs the actual command."""
         caller = self.caller
         location = caller.location
         if location.db.faction is None:
@@ -236,8 +236,8 @@ class CmdQuest(Command):
     aliases = ["+factionquest", "+myquest"]
     help_category = "quests"
 
-    def func(self):""
-        """This performs the actual command"""
+    def func(self):
+        """This performs the actual command."""
         faction = self.caller.db.faction
         if faction is None or faction.db.quest is None:
             self.caller.msg(
