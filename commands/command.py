@@ -326,7 +326,7 @@ class CmdStats(Command):
         )
         for skillname in self.caller.db.skills.keys():
             self.caller.msg(
-                f"Your {skillname} skill level is now {proficiency(self.caller.db.skills[skillname]}."
+                f"Your {skillname} skill level is now {proficiency(self.caller.db.skills[skillname])}."
             )
 
 
