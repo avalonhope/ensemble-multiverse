@@ -56,13 +56,13 @@ class CmdFactionCreate(Command):
         # shared inner world by which faction members may communicate and interact
         faction.db.innerWorld = create_object(
             "typeclasses.innerworld.Home",
-            key="Entrance to Inner World of %s" % faction.name,
+            key=f"Entrance to Inner World of {faction.name}",
         )
         faction.db.innerWorld.tags.add("Inner World")
         faction.db.innerWorld.db.faction = faction
         faction.db.innerWorld.tags.add(faction.name, category="faction")
         # announce
-        caller.msg("You founded the faction called: %s." % faction.name)
+        caller.msg(f"You founded the faction called: {faction.name}"
 
 
 class CmdFactions(Command):
@@ -208,7 +208,7 @@ class CmdFactionSpace(Command):
         # create empty inner world if needed
         if not faction.db.innerWorld:
             faction.db.innerWorld = create_object(
-                "typeclasses.innerworld.Home", key="Inner World of %s" % faction.name
+                "typeclasses.innerworld.Home", key=f"Entrance to Inner World of {faction.name}"
             )
             faction.db.innerWorld.tags.add("Inner World")
             faction.db.innerWorld.tags.add(faction.name, category="faction")
