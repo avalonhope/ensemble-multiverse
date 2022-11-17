@@ -32,7 +32,7 @@ class Character(DefaultCharacter):
     """
 
     def at_object_creation(self):
-        "This is called when object is first created, only."
+        """This is called when object is first created, only."""
         self.db.strength = 0
         self.db.agility = 0
         self.db.speed = 0
@@ -65,7 +65,7 @@ class EthericBeing(DefaultCharacter):
     """
 
     def at_object_creation(self):
-        "This is called when object is first created, only."
+        """This is called when object is first created, only."""
         self.db.strength = 0
         self.db.agility = 0
         self.db.speed = 0
@@ -98,7 +98,7 @@ class ShadowBeing(DefaultCharacter):
     """
 
     def at_object_creation(self):
-        "This is called when object is first created, only."
+        """This is called when object is first created, only."""
         self.db.strength = 0
         self.db.agility = 0
         self.db.speed = 0
