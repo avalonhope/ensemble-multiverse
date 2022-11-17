@@ -40,4 +40,5 @@ class Room(DefaultRoom):
     """
 
     def at_object_creation(self):
+        """Define the initial attributes of the room."""
         self.db.level = Location.ROOM
