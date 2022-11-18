@@ -1,8 +1,10 @@
 from world.logic.system import System as LogicSystem  # type: ignore
 import icontract
 
+
 class Character:
     """An entity controlled by a player."""
+
 
 class LeadCharacter:
     """Leading character for a quest party."""
