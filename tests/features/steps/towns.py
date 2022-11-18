@@ -1,5 +1,5 @@
 from behave import given, when, then
-from world.logic.locations.town import Road, Town  # type: ignore
+from world.logic.locations.town import Road, Town, Zone  # type: ignore
 from world.logic.mobile import Vehicle  # type: ignore
 from world.logic.commands import TravelCommand  # type: ignore
 
@@ -33,7 +33,7 @@ def show_roads(context):
 @given("a character is located within a town")
 def in_town(context):
     """Create a test town."""
-    context.town = Town()
+    context.town = Town(Zone())
 
 
 @given("the character is onboard a vehicle")
@@ -62,6 +62,6 @@ def choose_road(context):
 
 @then("the vehicle enters that road")
 def check_vehicle_on_road(context):
-    """Check vehicle is on the rod."""
+    """Check vehicle is on the road."""
     if context.vehicle.road_location != context.road:
         raise AssertionError("Vehicle is not on the expected road.")
