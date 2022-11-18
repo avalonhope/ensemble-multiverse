@@ -1,8 +1,10 @@
 class Vehicle:
     """An entity that may move between locations and may contain passengers and cargo."""
 
-    self.road_location = None
-    self.driver = None
+    def __init__(self):
+        """Create a new vehicle."""
+        self.road_location = None
+        self.driver = None
 
     def set_driver(self, driver):
         """Assign a character as driver of this vehicle."""
