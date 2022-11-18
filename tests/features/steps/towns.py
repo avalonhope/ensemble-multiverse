@@ -60,6 +60,7 @@ def travel(context):
 def choose_road(context):
     """Create a test road."""
     context.road = Road()
+    context.vehicle.select_road(context.road)
 
 
 @then("the vehicle enters that road")
