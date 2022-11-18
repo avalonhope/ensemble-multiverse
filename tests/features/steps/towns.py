@@ -1,5 +1,6 @@
 from behave import given, when, then
 from world.logic.locations.town import Road, Town, Zone  # type: ignore
+from world.logic.characters import Character  # type: ignore
 from world.logic.mobile import Vehicle  # type: ignore
 from world.logic.commands import TravelCommand  # type: ignore
 
@@ -34,6 +35,7 @@ def show_roads(context):
 def in_town(context):
     """Create a test town."""
     context.town = Town(Zone())
+    context.character = Character()
 
 
 @given("the character is onboard a vehicle")
