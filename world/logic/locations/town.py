@@ -4,7 +4,7 @@ class Road:
 
 class Town:
     """A settlement within a region."""
-    
+
     def __init__(self, first_zone):
         """Create a new town."""
         self.zones = [first_zone]
@@ -15,6 +15,7 @@ class Town:
     def search_zones(self):
         """List all the zones within this town."""
         return self.zones
-    
+
+
 class Zone:
     """A zone within a town."""
