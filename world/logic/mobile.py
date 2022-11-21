@@ -1,6 +1,8 @@
 class Vehicle:
-    """An entity that may move between locations
-    and may contain passengers and cargo."""
+    """
+    An entity that may move between locations
+    and may contain passengers and cargo.
+    """
 
     def __init__(self):
         """Create a new vehicle."""
