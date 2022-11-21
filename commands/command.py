@@ -116,7 +116,8 @@ class CmdTrainSkill(Command):
                 self.caller.db.energy = 0
                 self.caller.msg(
                     "Your skill level is now "
-                    "{proficiency(self.caller.db.skills[skillname])}.")
+                    "{proficiency(self.caller.db.skills[skillname])}."
+                )
             else:
                 self.caller.msg("{skillanme} skill cannot be trained (yet).")
 
