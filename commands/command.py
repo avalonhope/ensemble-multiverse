@@ -83,7 +83,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.strength += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your strength level is now {proficiency(self.caller.db.strength)}"
+                    "Your strength level is now {proficiency(self.caller.db.strength)}....."
                 )
             elif skillname == "agility":
                 if self.caller.db.agility is None:
@@ -91,7 +91,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.agility += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your agility level is now {proficiency(self.caller.db.agility)}"
+                    "Your agility level is now {proficiency(self.caller.db.agility)}."
                 )
             elif skillname == "speed":
                 if self.caller.db.speed is None:
@@ -99,7 +99,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.speed += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your speed level is now {proficiency(self.caller.db.speed)}"
+                    "Your speed level is now {proficiency(self.caller.db.speed)}."
                 )
             elif skillname == "stamina":
                 if self.caller.db.stamina is None:
@@ -107,15 +107,16 @@ class CmdTrainSkill(Command):
                 self.caller.db.stamina += self.caller.db.energy
                 self.caller.db.energy = 0
                 self.caller.msg(
-                    "Your stamina level is now {proficiency(self.caller.db.stamina)}"
+                    "Your stamina level is now {proficiency(self.caller.db.stamina)}."
                 )
             elif skillname in SKILLS:
                 if skillname not in self.caller.db.skills.keys():
                     self.caller.db.skills[skillname] = 0
                 self.caller.db.skills[skillname] += self.caller.db.energy
                 self.caller.db.energy = 0
-                skill_level = proficiency(self.caller.db.skills[skillname])
-                self.caller.msg("Your skill level is now {skill_level}")
+                self.caller.msg(
+                    "Your skill level is now "
+                    "{proficiency(self.caller.db.skills[skillname])}.")
             else:
                 self.caller.msg("{skillanme} skill cannot be trained (yet).")
 
