@@ -10,7 +10,8 @@ from evennia import DefaultRoom
 
 
 class Location(IntEnum):
-    """Each level is contained with the next level up, for example a room is inside a building."""
+    """Each level is contained with the next level up, 
+    for example a room is inside a building."""
 
     ROOM = 0  # cannot have any sub-rooms, lowest possible level
     BUILDING = 1  # structure, cavern, vehicle, shuttle
