@@ -115,9 +115,7 @@ class CmdTrainSkill(Command):
                 self.caller.db.skills[skillname] += self.caller.db.energy
                 self.caller.db.energy = 0
                 skill_level = proficiency(self.caller.db.skills[skillname])
-                self.caller.msg(
-                    "Your skill level is now {skill_level}"
-                )
+                self.caller.msg("Your skill level is now {skill_level}")
             else:
                 self.caller.msg("{skillanme} skill cannot be trained (yet).")
 
@@ -150,8 +148,7 @@ class CmdImagine(Command):
             return
         if not caller.db.innerWorld:
             # may not create companion without inner world
-            caller.msg(
-                "You must meditate before creating imaginary companions.")
+            caller.msg("You must meditate before creating imaginary companions.")
             return
         # make each part of name always start with capital letter
         name = self.args.strip().title()
@@ -169,8 +166,7 @@ class CmdImagine(Command):
             companion.db.faction = faction
             companion.tags.add(faction.name, category="faction")
         # announce
-        caller.msg(
-            f"You have created imaginary companion or tulpa called {name}.")
+        caller.msg(f"You have created imaginary companion or tulpa called {name}.")
 
 
 class CmdMeditate(Command):
@@ -275,9 +271,7 @@ class CmdRest(Command):
         self.caller.db.resting = True
         if time_to_recover > 3600.0:
             hours = round(time_to_recover / 3600.0, 1)
-            caller.msg(
-                f"You begin resting. You will be fully rested in {hours} hours."
-            )
+            caller.msg(f"You begin resting. You will be fully rested in {hours} hours.")
         else:
             minutes = round(time_to_recover / 60.0, 1)
             caller.msg(
@@ -327,9 +321,7 @@ class CmdStats(Command):
         )
         for skillname in self.caller.db.skills.keys():
             skill_level = proficiency(self.caller.db.skills[skillname])
-            self.caller.msg(
-                f"Your {skillname} skill level is now {skill_level}."
-            )
+            self.caller.msg(f"Your {skillname} skill level is now {skill_level}.")
 
 
 class CmdRace(Command):
