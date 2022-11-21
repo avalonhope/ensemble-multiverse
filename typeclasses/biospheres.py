@@ -79,6 +79,7 @@ class Biosphere(DefaultScript):
       at_server_shutdown() - called at a full server shutdown.
     """
 
-    def at_script_creation(self):
+    def __init__(self):
         """Biospheres are persistent."""
+        super().__init__()
         self.persistent = True

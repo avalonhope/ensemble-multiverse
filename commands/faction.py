@@ -20,7 +20,7 @@ class CmdFactionCreate(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command."""
         errmsg = "You must supply a valid string."
         if not self.args:
             self.caller.msg(errmsg)
@@ -44,7 +44,7 @@ class CmdFactionCreate(Command):
         faction = create_script(
             "typeclasses.factions.Faction",
             key=name,
-            locks="edit:id(%i) and perm(Builders);call:false()" % caller.id,
+            locks=f"edit:id({caller.id}) and perm(Builders);call:false()" % caller.id,
             report_to=caller,
         )
         faction.db.leader = caller
@@ -56,13 +56,13 @@ class CmdFactionCreate(Command):
         # shared inner world by which faction members may communicate and interact
         faction.db.innerWorld = create_object(
             "typeclasses.innerworld.Home",
-            key="Entrance to Inner World of %s" % faction.name,
+            key=f"Entrance to Inner World of {faction.name}",
         )
         faction.db.innerWorld.tags.add("Inner World")
         faction.db.innerWorld.db.faction = faction
         faction.db.innerWorld.tags.add(faction.name, category="faction")
         # announce
-        caller.msg("You founded the faction called: %s." % faction.name)
+        caller.msg(f"You founded the faction called: {faction.name}")
 
 
 class CmdFactions(Command):
@@ -77,10 +77,10 @@ class CmdFactions(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command"""
         # show list of factions
         factions = utils.search.search_script_tag("faction")
-        self.caller.msg("There are %d factions:" % len(factions))
+        self.caller.msg(f"There are {len(factions)} factions:")
         for faction in factions:
             if faction.db.leader:
                 self.caller.msg(faction.name + " led by " + faction.db.leader.name)
@@ -107,7 +107,7 @@ class CmdFactionClaim(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command"""
         caller = self.caller
         location = caller.location
         if location.db.faction:
@@ -148,7 +148,7 @@ class CmdFactionJoin(Command):
     help_category = "roleplaying"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command."""
         caller = self.caller
         location = caller.location
         if location.db.faction is None:
@@ -188,7 +188,7 @@ class CmdFactionSpace(Command):
     help_category = "inner world"
 
     def func(self):
-        "moves to inner world of faction"
+        """moves to inner world of faction"""
         caller = self.caller
         if caller.location is None:
             caller.msg("You must be in-character.")
@@ -208,7 +208,8 @@ class CmdFactionSpace(Command):
         # create empty inner world if needed
         if not faction.db.innerWorld:
             faction.db.innerWorld = create_object(
-                "typeclasses.innerworld.Home", key="Inner World of %s" % faction.name
+                "typeclasses.innerworld.Home",
+                key=f"Entrance to Inner World of {faction.name}",
             )
             faction.db.innerWorld.tags.add("Inner World")
             faction.db.innerWorld.tags.add(faction.name, category="faction")
@@ -237,10 +238,12 @@ class CmdQuest(Command):
     help_category = "quests"
 
     def func(self):
-        "This performs the actual command"
+        """This performs the actual command."""
         faction = self.caller.db.faction
-        if faction.db.quest is None:
-            self.caller.msg("Your faction has not chosen a quest yet.")
+        if faction is None or faction.db.quest is None:
+            self.caller.msg(
+                "You are not in a faction or your faction has not chosen a quest yet."
+            )
         else:
             quest = faction.db.quest
             self.caller.msg(quest.db.status)

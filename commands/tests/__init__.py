@@ -1,1 +1,1 @@
-# Testing of extended commands for Evennia
+# Testing of custom commands for Evennia
