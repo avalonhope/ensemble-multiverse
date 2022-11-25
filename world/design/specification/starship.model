@@ -1,0 +1,5 @@
+Starship has a constant number called Maximum Velocity
+Starship has a constant number called Load Factor
+Starship has a variable number called Cargo Load
+Starship has a variable number called Passenger Count
+Starship has a derived number called Absolute Velocity which equals Maximum Velocity less Cargo Load times Load Factor
