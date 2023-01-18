@@ -46,3 +46,10 @@ class Room(DefaultRoom):
     def at_object_creation(self):
         """Define the initial attributes of the room."""
         self.db.level = Location.ROOM
+        
+class Scence(DefaultRoom):
+    """
+    Scences are the building blocks of interactive stories.
+    They are like rooms but they also contain events.
+    """
+    
