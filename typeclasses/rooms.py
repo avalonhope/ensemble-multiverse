@@ -48,8 +48,8 @@ class Room(DefaultRoom):
         self.db.level = Location.ROOM
 
 
-class Scence(DefaultRoom):
+class Scene(DefaultRoom):
     """
-    Scences are the building blocks of interactive stories.
+    Scenes are the building blocks of interactive stories.
     They are like rooms but they also contain events.
     """
