@@ -9,8 +9,8 @@ NarrativeModel:
 
 Choice:
     'choice' name=ID '{'
-        origin=Scence
-        destination=Scence
+        origin=Scene
+        destination=Scene
     '}'
 ;
 
