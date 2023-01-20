@@ -9,14 +9,14 @@ from evennia import DefaultExit
 
 class Choice(DefaultExit):
     """
-    Choices are connectors between scenes. Choices are simialr to Exists, 
+    Choices are connectors between scenes. Choices are simialr to Exists,
     they are normal Objects except
     they define the `destination` property. It also does work in the
     following methods:
-     basetype_setup() - sets default exit locks (to change, 
+     basetype_setup() - sets default exit locks (to change,
                         use `at_object_creation` instead).
      at_cmdset_get(**kwargs) - this is called when the cmdset is accessed and should
-                              rebuild the Exit cmdset along with a 
+                              rebuild the Exit cmdset along with a
                               command matching the name
                               of the Exit object. Conventionally, a kwarg `force_init`
                               should force a rebuild of the cmdset, this is triggered
@@ -30,11 +30,11 @@ class Choice(DefaultExit):
                                             If overloading this, consider using super()
                                             to use the default
                                             movement implementation (and hook-calling).
-        at_after_traverse(traveller, source_loc) - called by at_traverse 
+        at_after_traverse(traveller, source_loc) - called by at_traverse
                                                    just after traversing.
         at_failed_traverse(traveller) - called by at_traverse if traversal failed for
                                         some reason. Will
                                         not be called if the attribute `err_traverse` is
-                                        defined, in which case that 
+                                        defined, in which case that
                                         will simply be echoed.
     """
