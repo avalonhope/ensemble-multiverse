@@ -1,4 +1,4 @@
-from evennia.utils.test_resources import EvenniaCommandTest
+from evennia.utils.test_resources import EvenniaCommandTest  # type: ignore
 from typeclasses.characters import Character  # type: ignore
 from typeclasses.rooms import Room  # type: ignore
 
