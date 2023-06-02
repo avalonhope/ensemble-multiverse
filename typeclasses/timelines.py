@@ -4,8 +4,10 @@ Timelines
 
 from evennia import DefaultScript
 
+
 class Timeline(DefaultScript):
-    """ Timelines """
+    """Timelines"""
+
     def __init__(self):
         """Timelines are persistent."""
         super().__init__()
