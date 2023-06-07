@@ -28,6 +28,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install mypy
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Set up Evennia
+      run: |
+          git clone https://github.com/evennia/evennia.git ../evennia
+          pip install -e ../evennia
     - name: Test with MyPy
       run: |
         mypy --follow-imports=silent --namespace-packages --explicit-package-bases .
