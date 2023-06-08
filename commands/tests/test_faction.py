@@ -17,5 +17,5 @@ class TestFactionClaim(EvenniaCommandTest):
         """Test dispute handling for already claimed rooms."""
 
 
-class TestLocalManager(EvveniaCommandTest):
+class TestLocalManager(EvenniaCommandTest):
     """Test the determination of manager for a location."""
