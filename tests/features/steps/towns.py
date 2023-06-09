@@ -1,8 +1,9 @@
+# type: ignore
 from behave import given, when, then
-from world.logic.locations.town import Road, Town, Zone  # type: ignore
-from world.logic.characters import Character  # type: ignore
-from world.logic.mobile import Vehicle  # type: ignore
-from world.logic.commands import TravelCommand  # type: ignore
+from world.logic.locations.town import Road, Town, Zone
+from world.logic.characters import Character
+from world.logic.mobile import Vehicle
+from world.logic.commands import TravelCommand
 
 
 @when("the zones command is used")

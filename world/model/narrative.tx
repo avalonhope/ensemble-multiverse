@@ -1,0 +1,24 @@
+/*
+  Interactive Narrative DSL grammar.
+*/
+
+NarrativeModel:
+    scenes+=Scene
+    choices+=Choice  
+;
+
+Choice:
+    'choice' name=ID '{'
+        origin=Scene
+        destination=Scene
+    '}'
+;
+
+Scene:
+  'type' name=ID
+;
+
+// Special rule for comments. Comments start with //
+Comment:
+    /\/\/.*$/
+;
