@@ -1,9 +1,10 @@
-from evennia.utils.test_resources import BaseEvenniaCommandTest
-from typeclasses.characters import Character  # type: ignore
-from typeclasses.rooms import Room  # type: ignore
+# type: ignore
+from evennia.utils.test_resources import EvenniaCommandTest
+from typeclasses.characters import Character
+from typeclasses.rooms import Room
 
 
-class TestFactionClaim(BaseEvenniaCommandTest):
+class TestFactionClaim(EvenniaCommandTest):
     """Test faction location claims."""
 
     character_typeclass = Character
