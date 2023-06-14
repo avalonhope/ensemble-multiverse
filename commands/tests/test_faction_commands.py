@@ -4,6 +4,7 @@ from evennia.utils.test_resources import EvenniaCommandTest
 from typeclasses.characters import Character  # type: ignore
 from typeclasses.rooms import Room  # type: ignore
 
+
 class TestFactionClaim(EvenniaCommandTest):
     """Test faction claims and disputes."""
 
