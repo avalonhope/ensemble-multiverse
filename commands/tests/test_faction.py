@@ -1,7 +1,7 @@
-# type: ignore
-from evennia.utils.test_resources import EvenniaCommandTest
-from typeclasses.characters import Character
-from typeclasses.rooms import Room
+ from evennia.utils.test_resources import EvenniaCommandTest
+
+from typeclasses.characters import Character  # type: ignore
+from typeclasses.rooms import Room  # type: ignore
 
 
 class TestFactionClaim(EvenniaCommandTest):
@@ -17,5 +17,5 @@ class TestFactionClaim(EvenniaCommandTest):
         """Test dispute handling for already claimed rooms."""
 
 
-class TestLocalManager(CommandTest):
+class TestLocalManager(EvenniaCommandTest):
     """Test the determination of manager for a location."""

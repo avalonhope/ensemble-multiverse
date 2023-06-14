@@ -34,3 +34,5 @@ jobs:
         textx check world/model/state_machine.tx
         textx check world/model/workflow.tx
         textx check world/model/quest.tx
+        textx check world/model/narrative.tx
+        

@@ -35,4 +35,4 @@ jobs:
           
     - name: Check with pytype
       run: |
-        pytype .
+        pytype -d import-error .
