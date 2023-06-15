@@ -1,6 +1,4 @@
-"""
-Timelines
-"""
+"""Timelines"""
 
 from evennia import DefaultScript
 
