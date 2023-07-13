@@ -1,6 +1,5 @@
 behave
 hypothesis
 icontract
-openapi
 textx
 typing
