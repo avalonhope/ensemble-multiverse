@@ -7,6 +7,7 @@ is setup to be the "default" character type created by the default
 creation commands.
 
 """
+
 from evennia import DefaultCharacter
 
 
