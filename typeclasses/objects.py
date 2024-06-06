@@ -322,8 +322,8 @@ class StorageObject(PhysicalObject):
     """
 
 
-class ShadowObject(EthericObject):
-    """These objects are semi-invisible and are mostly composed of etheric "dark" matter."""
+class ShadowObject(PhysicalObject):
+    """These physical objects are gravitional shadows of an etheric object."""
 
 
 class Fixture(PhysicalObject):
