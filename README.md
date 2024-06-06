@@ -1,4 +1,4 @@
-# The Grand Ensemble Multiverse (GEM) RPG based on the Evennia framwork.
+# The Grand Ensemble Multiverse (GEM) RPG based on the Evennia framwork
 
 The Grand Ensemble Multiverse is a Quantum Multiverse, in accordance with the Many Worlds Interpretation of Qunantum Mechanics, in which each World is contained within the Cosmic 11-dimensional spacetime Bulk of M-Theory.
 
