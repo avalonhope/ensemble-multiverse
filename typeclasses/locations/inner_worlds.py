@@ -1,4 +1,5 @@
 """Inner Worlds exist within the souls of characters."""
+
 from typeclasses.locations.locations import Location  # type: ignore
 from world.logic.location_types import LocationType  # type: ignore
 

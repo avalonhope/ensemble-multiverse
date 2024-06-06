@@ -4,6 +4,7 @@ Choices are connectors between Scenes. An exit always has a destination property
 set and has a single command defined on itself with the same name as its key,
 for allowing Characters to traverse the exit to its destination.
 """
+
 from evennia import DefaultExit
 
 

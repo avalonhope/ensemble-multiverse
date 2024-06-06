@@ -1,4 +1,5 @@
 """Towns"""
+
 import icontract
 
 from evennia import DefaultExit
