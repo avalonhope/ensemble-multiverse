@@ -3,7 +3,7 @@ from typeclasses.locations.locations import Location  # type: ignore
 from world.logic.location_types import LocationType  # type: ignore
 
 
-class InnerWorld(Location):
+class InnerLocation(Location):
     """An inner world exists within the soul of a character."""
 
     def at_object_creation(self):
