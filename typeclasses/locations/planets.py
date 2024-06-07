@@ -9,4 +9,5 @@ class Planet(Location):
 
     def at_object_creation(self):
         """Initial properties of a planet."""
-        self.db.locationType = LocationType.PLANET
+        self.db.location_type = LocationType.PLANET
+        self.db.parent_type = LocationType.STAR_SYSTEM
