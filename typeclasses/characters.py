@@ -48,20 +48,8 @@ class Character(DefaultCharacter):
 class EthericBeing(DefaultCharacter):
     """A being whose body resides in an Etheric Universe."""
 
-    def at_object_creation(self):
-        """This is called when object is first created, only."""
-        self.db.strength = 0
-        self.db.agility = 0
-        self.db.speed = 0
-        self.db.health = 100
-        self.db.stamina = 0
-        self.db.energy = 100
-        self.db.skills = {}
-        self.db.reputation = 0
-
-
 class ShadowBeing(EthericBeing):
-    """A Shadow Being is an entity from an Etheric Universe."""
+    """A Shadow Being is the gravitional shadow of an Etheric Being."""
 
 
 class InnerCharacter(EthericBeing):
