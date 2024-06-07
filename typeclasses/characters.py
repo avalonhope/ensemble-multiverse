@@ -48,6 +48,7 @@ class Character(DefaultCharacter):
 class EthericBeing(DefaultCharacter):
     """A being whose body resides in an Etheric Universe."""
 
+
 class ShadowBeing(EthericBeing):
     """A Shadow Being is the gravitional shadow of an Etheric Being."""
 
