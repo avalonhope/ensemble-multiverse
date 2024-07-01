@@ -33,10 +33,10 @@ class LocationType(IntEnum):
     SUPERCLUSTER = 12  # any large cosmic structure
     COSMIC_VOID = 12
     UNIVERSE = 13  # one of the four layers of reality within the Ensemble Multiverse
-    COSMOS = 13  # physical space-time continuum, with three spatial dimensions and one temporal, the visible universe
-    LOGOS = 13  # sentient outer surface of the multiverse containig a holographic projection of all information in the multiverse
-    ETHEROS = 13  # inner bulk of the multiverse, containing all invisible realms, etheric matter, etheric energy and gravity
-    MYTHOS = 13  # inner worlds, thoughts and consciousness of all sentient beings, dead or alive
+    COSMOS = 13  # physical space-time continuum
+    LOGOS = 13  # sentient outer surface of the multiverse containing all information
+    ETHEROS = 13  # inner bulk of the multiverse, containing all invisible realms
+    MYTHOS = 13  # inner worlds, thoughts and consciousness of all sentient beings
     MULTIVERSE = 14  # all of creation, visible and invisible, highest possible level
     HYPERVERSE = 14
     ENSEMBLE_MULTIVERSE = 14
