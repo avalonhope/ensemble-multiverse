@@ -1,12 +1,10 @@
-"""Towns"""
-import icontract
+"""Towns."""
 
 from evennia import DefaultExit
 from typeclasses.locations.locations import Location  # type: ignore
 from world.logic.location_types import LocationType  # type: ignore
 
 
-@icontract.invariant(lambda self: self.locationType == LocationType.TOWN)
 class Town(Location):
     """Towns."""
 

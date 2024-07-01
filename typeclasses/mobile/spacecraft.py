@@ -6,6 +6,7 @@ Unlike aircraft they cannot fly horizontally through the athmosphere.
 Unlike ground or sea vehicles they cannot move over terrain.
 Unlike starships they cannot move between star systems.
 """
+
 from evennia import DefaultObject
 
 
