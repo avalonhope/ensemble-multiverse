@@ -1,0 +1,19 @@
+version: 1
+
+env:
+  PYTHON_VERSION: 3.10
+
+build:
+  stage: build
+  commands:
+    - mkdir gem
+    - cd gem
+    - git clone https://github.com/evennia/evennia.git
+    - python3 -m venv evenv
+    - source evenv/bin/activate
+    - pip install -e evennia
+    - evennia --init gem
+    - cd gen
+    - evennia migrate
+    - evennia start
+    
